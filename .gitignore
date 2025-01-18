@@ -1,0 +1,10 @@
+.vs/
+.idea/
+.vscode/
+*.exe
+*.dll
+*.so
+*.out
+*.log
+*~
+*.swp
