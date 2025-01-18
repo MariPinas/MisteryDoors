@@ -47,8 +47,8 @@
             // unit
             // 
             this.unit.BackColor = System.Drawing.Color.Transparent;
-            this.unit.Image = global::portasTestes.Properties.Resources.unit;
-            this.unit.Location = new System.Drawing.Point(469, 473);
+            this.unit.Image = global::portasTestes.Properties.Resources.p2_removebg_preview1;
+            this.unit.Location = new System.Drawing.Point(452, 342);
             this.unit.Name = "unit";
             this.unit.Size = new System.Drawing.Size(95, 130);
             this.unit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,6 +108,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::portasTestes.Properties.Resources.fundo1;
             this.pictureBox1.Location = new System.Drawing.Point(-8, -1);
             this.pictureBox1.Name = "pictureBox1";
@@ -116,11 +117,11 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 633);
+            this.ClientSize = new System.Drawing.Size(1032, 550);
             this.Controls.Add(this.unit);
             this.Controls.Add(this.Porta3);
             this.Controls.Add(this.Porta2);
@@ -128,7 +129,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "TelaJogo";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.unit)).EndInit();
@@ -146,11 +147,11 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnEntrar;
-        private System.Windows.Forms.PictureBox unit;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox Porta1;
         private System.Windows.Forms.PictureBox Porta2;
         private System.Windows.Forms.PictureBox Porta3;
+        private System.Windows.Forms.PictureBox unit;
     }
 }
 

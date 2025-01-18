@@ -133,5 +133,17 @@
   <ItemGroup>
     <None Include="Resources\p2-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quadradoMeio.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quadradoMeio1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quadradoMeio2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p2-removebg-preview1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

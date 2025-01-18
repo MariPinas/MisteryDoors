@@ -103,6 +103,16 @@ namespace portasTestes.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap p2_removebg_preview1 {
+            get {
+                object obj = ResourceManager.GetObject("p2-removebg-preview1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap porta1 {
             get {
                 object obj = ResourceManager.GetObject("porta1", resourceCulture);
@@ -126,6 +136,36 @@ namespace portasTestes.Properties {
         internal static System.Drawing.Bitmap porta3 {
             get {
                 object obj = ResourceManager.GetObject("porta3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadradoMeio {
+            get {
+                object obj = ResourceManager.GetObject("quadradoMeio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadradoMeio1 {
+            get {
+                object obj = ResourceManager.GetObject("quadradoMeio1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadradoMeio2 {
+            get {
+                object obj = ResourceManager.GetObject("quadradoMeio2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

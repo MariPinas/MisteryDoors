@@ -53,19 +53,27 @@ namespace portasTestes {
 
         }
 
-        private void textBox1_Enter(object sender, EventArgs e) {
-            if (textBox1.Text == "NICKNAME HERE") {
-                textBox1.Text = ""; 
-                textBox1.ForeColor = Color.Black; 
-            }
+        private void label1_Click(object sender, EventArgs e) {
+
         }
 
-        private void textBox1_Leave(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(textBox1.Text)) {
-                textBox1.Text = "NICKNAME HERE";
-                textBox1.ForeColor = Color.Gray; 
-            }
+        private void textBox1_TextChanged_1(object sender, EventArgs e) {
+
         }
+
+        //private void textBox1_Enter(object sender, EventArgs e) {
+        //    if (textBox1.Text == "NICKNAME HERE") {
+        //        textBox1.Text = ""; 
+        //        textBox1.ForeColor = Color.Black; 
+        //    }
+        //}
+
+        //private void textBox1_Leave(object sender, EventArgs e) {
+        //    if (string.IsNullOrEmpty(textBox1.Text)) {
+        //        textBox1.Text = "NICKNAME HERE";
+        //        textBox1.ForeColor = Color.Gray; 
+        //    }
+        //}
     }
 }
 
