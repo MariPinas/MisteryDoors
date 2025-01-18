@@ -16,7 +16,7 @@ namespace portasTestes {
             this.Size = new Size(800, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            
+
             this.Resize += (s, e) => this.Invalidate();
             InitializeComponent();
         }
@@ -31,10 +31,10 @@ namespace portasTestes {
             ColorTranslator.FromHtml("#AE6245")
         };
 
-            
+
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 this.ClientRectangle, cores[0], cores[2], LinearGradientMode.Vertical)) {
-               
+
                 ColorBlend blend = new ColorBlend {
                     Colors = cores,
                     Positions = new float[] { 0.0f, 0.5f, 1.0f } // proporcas d cores
@@ -44,7 +44,29 @@ namespace portasTestes {
 
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
+
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e) {
+            if (textBox1.Text == "NICKNAME HERE") {
+                textBox1.Text = ""; 
+                textBox1.ForeColor = Color.Black; 
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e) {
+            if (string.IsNullOrEmpty(textBox1.Text)) {
+                textBox1.Text = "NICKNAME HERE";
+                textBox1.ForeColor = Color.Gray; 
+            }
         }
     }
-    }
+}
+
 

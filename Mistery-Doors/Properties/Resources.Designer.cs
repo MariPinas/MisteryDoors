@@ -93,6 +93,16 @@ namespace portasTestes.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap p2_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("p2-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap porta1 {
             get {
                 object obj = ResourceManager.GetObject("porta1", resourceCulture);
