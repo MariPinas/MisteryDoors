@@ -74,6 +74,9 @@
     <Compile Include="TelaPersonagem.Designer.cs">
       <DependentUpon>TelaPersonagem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelaInicio.resx">
+      <DependentUpon>TelaInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaJogo.resx">
       <DependentUpon>TelaJogo.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +90,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TelaPersonagem.resx">
+      <DependentUpon>TelaPersonagem.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -16,7 +16,7 @@ namespace portasTestes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaJogo());
+            Application.Run(new TelaPersonagem());
         }
     }
 }
