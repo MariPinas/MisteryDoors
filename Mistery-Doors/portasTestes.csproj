@@ -48,11 +48,17 @@
   <ItemGroup>
     <Compile Include="Equipamento.cs" />
     <Compile Include="Fase.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="TelaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TelaInicio.Designer.cs">
+      <DependentUpon>TelaInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaJogo.Designer.cs">
+      <DependentUpon>TelaJogo.cs</DependentUpon>
     </Compile>
     <Compile Include="Historico.cs" />
     <Compile Include="Inimigo.cs" />
@@ -62,8 +68,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Progresso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TelaPersonagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPersonagem.Designer.cs">
+      <DependentUpon>TelaPersonagem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TelaJogo.resx">
+      <DependentUpon>TelaJogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

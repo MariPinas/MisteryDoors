@@ -18,3 +18,13 @@ C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.cspr
 C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.csproj.CoreCompileInputs.cache
 C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.exe
 C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.pdb
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\portasTestes.exe.config
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\portasTestes.exe
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\portasTestes.pdb
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.csproj.AssemblyReference.cache
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.Form1.resources
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.Properties.Resources.resources
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.csproj.GenerateResource.cache
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.csproj.CoreCompileInputs.cache
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.exe
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.pdb
