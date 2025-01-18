@@ -15,10 +15,11 @@ namespace portasTestes
         public Portas(string nome) {
             Nome = nome;
          }
+        private static Random r = new Random();
 
         public string SorteadorDaPorta()
         {
-            Random r = new Random();
+            
             double chance = r.NextDouble();
 
             if (chance < ProbabilidadeInimigo)
