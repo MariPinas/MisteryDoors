@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblRes = new System.Windows.Forms.Label();
+            this.pctHeart1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnConfirmar = new System.Windows.Forms.PictureBox();
+            this.msgRes = new System.Windows.Forms.PictureBox();
             this.unit = new System.Windows.Forms.PictureBox();
             this.Porta3 = new System.Windows.Forms.PictureBox();
             this.Porta2 = new System.Windows.Forms.PictureBox();
@@ -35,6 +40,12 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnEntrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctHeart2 = new System.Windows.Forms.PictureBox();
+            this.pctHeart3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pctHeart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfirmar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.msgRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Porta3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Porta2)).BeginInit();
@@ -42,13 +53,66 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEntrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctHeart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctHeart3)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblRes
+            // 
+            this.lblRes.BackColor = System.Drawing.Color.PeachPuff;
+            this.lblRes.Font = new System.Drawing.Font("Impact", 10F);
+            this.lblRes.Location = new System.Drawing.Point(377, 258);
+            this.lblRes.Name = "lblRes";
+            this.lblRes.Size = new System.Drawing.Size(100, 23);
+            this.lblRes.TabIndex = 9;
+            this.lblRes.Text = "Resultado das portas";
+            // 
+            // pctHeart1
+            // 
+            this.pctHeart1.Image = global::portasTestes.Properties.Resources.heart;
+            this.pctHeart1.Location = new System.Drawing.Point(822, 15);
+            this.pctHeart1.Name = "pctHeart1";
+            this.pctHeart1.Size = new System.Drawing.Size(59, 51);
+            this.pctHeart1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctHeart1.TabIndex = 11;
+            this.pctHeart1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::portasTestes.Properties.Resources.rect;
+            this.pictureBox2.Location = new System.Drawing.Point(800, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(229, 59);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Image = global::portasTestes.Properties.Resources.btnConfirmar;
+            this.btnConfirmar.Location = new System.Drawing.Point(402, 542);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(228, 50);
+            this.btnConfirmar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnConfirmar.TabIndex = 8;
+            this.btnConfirmar.TabStop = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // msgRes
+            // 
+            this.msgRes.Image = global::portasTestes.Properties.Resources.fundoMsg;
+            this.msgRes.Location = new System.Drawing.Point(334, 203);
+            this.msgRes.Name = "msgRes";
+            this.msgRes.Size = new System.Drawing.Size(376, 400);
+            this.msgRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.msgRes.TabIndex = 7;
+            this.msgRes.TabStop = false;
             // 
             // unit
             // 
             this.unit.BackColor = System.Drawing.Color.Transparent;
-            this.unit.Image = global::portasTestes.Properties.Resources.p2_removebg_preview1;
-            this.unit.Location = new System.Drawing.Point(452, 342);
+            this.unit.Image = global::portasTestes.Properties.Resources.unit;
+            this.unit.Location = new System.Drawing.Point(469, 473);
             this.unit.Name = "unit";
             this.unit.Size = new System.Drawing.Size(95, 130);
             this.unit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,7 +172,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::portasTestes.Properties.Resources.fundo1;
             this.pictureBox1.Location = new System.Drawing.Point(-8, -1);
             this.pictureBox1.Name = "pictureBox1";
@@ -117,11 +180,38 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // pctHeart2
+            // 
+            this.pctHeart2.Image = global::portasTestes.Properties.Resources.heart;
+            this.pctHeart2.Location = new System.Drawing.Point(887, 15);
+            this.pctHeart2.Name = "pctHeart2";
+            this.pctHeart2.Size = new System.Drawing.Size(59, 51);
+            this.pctHeart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctHeart2.TabIndex = 12;
+            this.pctHeart2.TabStop = false;
+            // 
+            // pctHeart3
+            // 
+            this.pctHeart3.Image = global::portasTestes.Properties.Resources.heart;
+            this.pctHeart3.Location = new System.Drawing.Point(952, 15);
+            this.pctHeart3.Name = "pctHeart3";
+            this.pctHeart3.Size = new System.Drawing.Size(59, 51);
+            this.pctHeart3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctHeart3.TabIndex = 13;
+            this.pctHeart3.TabStop = false;
+            // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 550);
+            this.ClientSize = new System.Drawing.Size(1032, 633);
+            this.Controls.Add(this.pctHeart3);
+            this.Controls.Add(this.pctHeart2);
+            this.Controls.Add(this.pctHeart1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblRes);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.msgRes);
             this.Controls.Add(this.unit);
             this.Controls.Add(this.Porta3);
             this.Controls.Add(this.Porta2);
@@ -132,6 +222,10 @@
             this.Name = "TelaJogo";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pctHeart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfirmar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.msgRes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Porta3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Porta2)).EndInit();
@@ -139,6 +233,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEntrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctHeart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctHeart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,11 +243,18 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnEntrar;
+        private System.Windows.Forms.PictureBox unit;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox Porta1;
         private System.Windows.Forms.PictureBox Porta2;
         private System.Windows.Forms.PictureBox Porta3;
-        private System.Windows.Forms.PictureBox unit;
+        private System.Windows.Forms.PictureBox msgRes;
+        private System.Windows.Forms.PictureBox btnConfirmar;
+        private System.Windows.Forms.Label lblRes;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pctHeart1;
+        private System.Windows.Forms.PictureBox pctHeart2;
+        private System.Windows.Forms.PictureBox pctHeart3;
     }
 }
 

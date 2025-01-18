@@ -145,5 +145,23 @@
   <ItemGroup>
     <None Include="Resources\p2-removebg-preview1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnConfirmar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fundoMsg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meioHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rect.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

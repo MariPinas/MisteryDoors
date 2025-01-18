@@ -12,7 +12,7 @@ namespace portasTestes
         public string Name { get; set; }
         public double VidaPersonagem { get; set; } = 3;
         public double DanoPersonagem { get; set; } = 5;
-        public Equipamento Arma {  get; set; }
+        public Equipamento Arma { get; set; }
         public Portas Progresso { get; set; }
         public Fase Dificuldade { get; set; }
 
@@ -20,22 +20,19 @@ namespace portasTestes
         public void PerderVida()
         {
             if (this.VidaPersonagem > 0)
-                VidaPersonagem--;
+                VidaPersonagem -= 0.5;
         }
 
         public void GanharVida()
         {
-            if (this.VidaPersonagem  <3)
+            if (this.VidaPersonagem < 3)
                 VidaPersonagem++;
         }
 
-        public void EquiparArma(Equipamento NovaArma, int bonusDano)
+        public void EquiparArma(Equipamento NovaArma, double bonusDano)
         {
             Arma = NovaArma;
-            DanoPersonagem += bonusDano;
+            DanoPersonagem = 5 + bonusDano;
         }
-       
-
-      
     }
 }

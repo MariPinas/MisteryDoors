@@ -10,7 +10,7 @@ namespace portasTestes
     {
         public int IdEquipamento { get; set; }
         public string Nome { get; set; }
-        public int Dano { get; set; }
+        public double Dano { get; set; }
         public string Raridade { get; set; }
 
         public Equipamento(string nome, int dano, string raridade)
