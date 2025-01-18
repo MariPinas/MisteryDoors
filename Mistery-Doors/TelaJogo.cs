@@ -39,7 +39,7 @@ namespace portasTestes
             Porta1.Click += Porta_Click;
             Porta2.Click += Porta_Click;
             Porta3.Click += Porta_Click;
-            btnEntrar.Click += BtnEntrar_Click;
+            //btnEntrar.Click += BtnEntrar_Click;
         }
 
         private void Porta_Click(object sender, EventArgs e)
@@ -66,22 +66,22 @@ namespace portasTestes
             int novaPosY = porta.Location.Y + porta.Height - unit.Height / 2; 
             unit.Location = new Point(novaPosX, novaPosY);
         }
-        private void BtnEntrar_Click(object sender, EventArgs e)
-        {
-            if(portaSelecionada == null)
-            {
-                MessageBox.Show("Nenhuma porta selecionada");
-                return;
-            }
+        //private void BtnEntrar_Click(object sender, EventArgs e)
+        //{
+        //    if(portaSelecionada == null)
+        //    {
+        //        MessageBox.Show("Nenhuma porta selecionada");
+        //        return;
+        //    }
 
-            Portas porta = new Portas(portaSelecionada.Name);
+        //    Portas porta = new Portas(portaSelecionada.Name);
 
-            string resultado = porta.SorteadorDaPorta();
+        //    string resultado = porta.SorteadorDaPorta();
 
-            MessageBox.Show(resultado, $"Porta {porta.Nome}");
-            ResetarPersonagem();
-            btnEntrar.Visible = false;
-        }
+        //    MessageBox.Show(resultado, $"Porta {porta.Nome}");
+        //    ResetarPersonagem();
+        //    btnEntrar.Visible = false;
+        //}
         private void ResetarPersonagem()
         {
             unit.Location = new Point(469, 473); 
