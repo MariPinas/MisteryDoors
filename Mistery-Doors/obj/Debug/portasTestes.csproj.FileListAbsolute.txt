@@ -1,0 +1,10 @@
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\bin\Debug\portasTestes.exe.config
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\bin\Debug\portasTestes.exe
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\bin\Debug\portasTestes.pdb
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.csproj.AssemblyReference.cache
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.Form1.resources
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.Properties.Resources.resources
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.csproj.GenerateResource.cache
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.csproj.CoreCompileInputs.cache
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.exe
+C:\Users\Nil\Desktop\Mistery-Maze\portasTestes\obj\Debug\portasTestes.pdb

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mistery_Maze
+namespace portasTestes
 {
     internal static class Program
     {
@@ -16,15 +16,7 @@ namespace Mistery_Maze
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            Form formInicial = new Form
-            {
-                Text = "Tela 2",
-                Size = new System.Drawing.Size(1920, 1080)
-            };
-            Tela2 inicioControl = new Tela2();
-            formInicial.Controls.Add(inicioControl);
-            Application.Run(formInicial);
+            Application.Run(new Form1());
         }
     }
 }

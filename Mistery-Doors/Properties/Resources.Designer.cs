@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mistery_Maze.Properties {
+namespace portasTestes.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Mistery_Maze.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Mistery_Maze.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("portasTestes.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Mistery_Maze.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnFacil {
+        internal static System.Drawing.Bitmap btnEntrar {
             get {
-                object obj = ResourceManager.GetObject("btnFacil", resourceCulture);
+                object obj = ResourceManager.GetObject("btnEntrar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Mistery_Maze.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tela2 {
+        internal static System.Drawing.Bitmap btnVoltar {
             get {
-                object obj = ResourceManager.GetObject("tela2", resourceCulture);
+                object obj = ResourceManager.GetObject("btnVoltar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,49 @@ namespace Mistery_Maze.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap unit3 {
+        internal static System.Drawing.Bitmap fundo1 {
             get {
-                object obj = ResourceManager.GetObject("unit3", resourceCulture);
+                object obj = ResourceManager.GetObject("fundo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap porta1 {
+            get {
+                object obj = ResourceManager.GetObject("porta1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap porta2 {
+            get {
+                object obj = ResourceManager.GetObject("porta2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap porta3 {
+            get {
+                object obj = ResourceManager.GetObject("porta3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unit {
+            get {
+                object obj = ResourceManager.GetObject("unit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

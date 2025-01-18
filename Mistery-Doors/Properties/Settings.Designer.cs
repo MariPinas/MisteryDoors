@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mistery_Maze.Properties
+namespace portasTestes.Properties
 {
 
 
