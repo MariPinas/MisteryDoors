@@ -1,0 +1,12 @@
+C:\Users\Nil\Desktop\Mistery-Maze\bin\Debug\Mistery Maze.exe.config
+C:\Users\Nil\Desktop\Mistery-Maze\bin\Debug\Mistery Maze.exe
+C:\Users\Nil\Desktop\Mistery-Maze\bin\Debug\Mistery Maze.pdb
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery Maze.csproj.AssemblyReference.cache
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery_Maze.Form1.resources
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery_Maze.Player.resources
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery_Maze.Properties.Resources.resources
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery_Maze.Tela2.resources
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery Maze.csproj.GenerateResource.cache
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery Maze.csproj.CoreCompileInputs.cache
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery Maze.exe
+C:\Users\Nil\Desktop\Mistery-Maze\obj\Debug\Mistery Maze.pdb
