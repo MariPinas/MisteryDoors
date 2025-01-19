@@ -24,37 +24,37 @@
         /// </summary>
         private void InitializeComponent() {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNickname = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.botaoJogar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnFacil = new System.Windows.Forms.Button();
+            this.btnMedio = new System.Windows.Forms.Button();
+            this.btnDificil = new System.Windows.Forms.Button();
+            this.btnExtremo = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtNickname
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.SandyBrown;
-            this.textBox1.Location = new System.Drawing.Point(292, 345);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 43);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "NICKNAME HERE";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.txtNickname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
+            this.txtNickname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNickname.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNickname.ForeColor = System.Drawing.Color.SandyBrown;
+            this.txtNickname.Location = new System.Drawing.Point(292, 345);
+            this.txtNickname.Name = "txtNickname";
+            this.txtNickname.Size = new System.Drawing.Size(221, 43);
+            this.txtNickname.TabIndex = 1;
+            this.txtNickname.Text = "NICKNAME HERE";
+            this.txtNickname.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // pictureBox4
             // 
@@ -96,18 +96,19 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // botaoJogar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.SandyBrown;
-            this.button1.Location = new System.Drawing.Point(592, 414);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "JOGAR!";
-            this.button1.UseVisualStyleBackColor = false;
+            this.botaoJogar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.botaoJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botaoJogar.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botaoJogar.ForeColor = System.Drawing.Color.SandyBrown;
+            this.botaoJogar.Location = new System.Drawing.Point(592, 414);
+            this.botaoJogar.Name = "botaoJogar";
+            this.botaoJogar.Size = new System.Drawing.Size(184, 33);
+            this.botaoJogar.TabIndex = 5;
+            this.botaoJogar.Text = "JOGAR!";
+            this.botaoJogar.UseVisualStyleBackColor = false;
+            this.botaoJogar.Click += new System.EventHandler(this.botaoJogar_Click);
             // 
             // label1
             // 
@@ -131,90 +132,94 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "0 MORTES";
             // 
-            // button2
+            // btnFacil
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button2.Location = new System.Drawing.Point(621, 123);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 36);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "NIVEL FACIL";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnFacil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.btnFacil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacil.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFacil.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnFacil.Location = new System.Drawing.Point(621, 123);
+            this.btnFacil.Name = "btnFacil";
+            this.btnFacil.Size = new System.Drawing.Size(129, 36);
+            this.btnFacil.TabIndex = 8;
+            this.btnFacil.Text = "NIVEL FACIL";
+            this.btnFacil.UseVisualStyleBackColor = false;
+            this.btnFacil.Click += new System.EventHandler(this.btnFacil_Click);
             // 
-            // button3
+            // btnMedio
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button3.Location = new System.Drawing.Point(621, 181);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 36);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "NIVEL MEDIO";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnMedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.btnMedio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMedio.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedio.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnMedio.Location = new System.Drawing.Point(621, 181);
+            this.btnMedio.Name = "btnMedio";
+            this.btnMedio.Size = new System.Drawing.Size(129, 36);
+            this.btnMedio.TabIndex = 9;
+            this.btnMedio.Text = "NIVEL MEDIO";
+            this.btnMedio.UseVisualStyleBackColor = false;
+            this.btnMedio.Click += new System.EventHandler(this.btnMedio_Click);
             // 
-            // button4
+            // btnDificil
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button4.Location = new System.Drawing.Point(621, 247);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 36);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "NIVEL DIFICIL";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDificil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.btnDificil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDificil.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDificil.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnDificil.Location = new System.Drawing.Point(621, 247);
+            this.btnDificil.Name = "btnDificil";
+            this.btnDificil.Size = new System.Drawing.Size(129, 36);
+            this.btnDificil.TabIndex = 10;
+            this.btnDificil.Text = "NIVEL DIFICIL";
+            this.btnDificil.UseVisualStyleBackColor = false;
+            this.btnDificil.Click += new System.EventHandler(this.btnDificil_Click);
             // 
-            // button5
+            // btnExtremo
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button5.Location = new System.Drawing.Point(621, 314);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 36);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "NIVEL EXTREMO";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnExtremo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.btnExtremo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExtremo.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExtremo.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnExtremo.Location = new System.Drawing.Point(621, 314);
+            this.btnExtremo.Name = "btnExtremo";
+            this.btnExtremo.Size = new System.Drawing.Size(129, 36);
+            this.btnExtremo.TabIndex = 11;
+            this.btnExtremo.Text = "NIVEL EXTREMO";
+            this.btnExtremo.UseVisualStyleBackColor = false;
+            this.btnExtremo.Click += new System.EventHandler(this.btnExtremo_Click);
             // 
-            // button6
+            // btnVoltar
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.SandyBrown;
-            this.button6.Location = new System.Drawing.Point(16, 12);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 33);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "🠔 VOLTAR";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnVoltar.Location = new System.Drawing.Point(16, 12);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(112, 33);
+            this.btnVoltar.TabIndex = 12;
+            this.btnVoltar.Text = "🠔 VOLTAR";
+            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // TelaPersonagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnExtremo);
+            this.Controls.Add(this.btnDificil);
+            this.Controls.Add(this.btnMedio);
+            this.Controls.Add(this.btnFacil);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.botaoJogar);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNickname);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaPersonagem";
@@ -232,17 +237,17 @@
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNickname;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button botaoJogar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnFacil;
+        private System.Windows.Forms.Button btnMedio;
+        private System.Windows.Forms.Button btnDificil;
+        private System.Windows.Forms.Button btnExtremo;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

@@ -11,14 +11,18 @@ using System.Windows.Forms;
 
 namespace portasTestes {
     public partial class TelaPersonagem : Form {
+
+        private string levelSelec;
+
         public TelaPersonagem() {
+            InitializeComponent();
+
             this.Text = "Tela personagem";
             this.Size = new Size(800, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
-
-
             this.Resize += (s, e) => this.Invalidate();
-            InitializeComponent();
+
+            botaoJogar.Visible = false;
         }
 
         protected override void OnPaint(PaintEventArgs e) {
@@ -37,7 +41,7 @@ namespace portasTestes {
 
                 ColorBlend blend = new ColorBlend {
                     Colors = cores,
-                    Positions = new float[] { 0.0f, 0.5f, 1.0f } // proporcas d cores
+                    Positions = new float[] { 0.0f, 0.5f, 1.0f } // proporcoes d cores
                 };
 
                 brush.InterpolationColors = blend;
@@ -45,8 +49,18 @@ namespace portasTestes {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
 
+        }
 
+        private void SelecionarDificuldade(Button botaoSelecionado, string dificuldade) {
+            levelSelec = dificuldade;
+            btnFacil.Font = new Font(btnFacil.Font, FontStyle.Regular);
+            btnMedio.Font = new Font(btnMedio.Font, FontStyle.Regular);
+            btnDificil.Font = new Font(btnDificil.Font, FontStyle.Regular);
+            btnExtremo.Font = new Font(btnExtremo.Font, FontStyle.Regular);
 
+            botaoSelecionado.Font = new Font(botaoSelecionado.Font, FontStyle.Underline);
+
+            botaoJogar.Visible = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) {
@@ -65,9 +79,43 @@ namespace portasTestes {
 
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-
+        private void btnFacil_Click(object sender, EventArgs e) {
+            SelecionarDificuldade(btnFacil, "Facil");
         }
+
+        private void btnMedio_Click(object sender, EventArgs e) {
+            SelecionarDificuldade(btnMedio, "Medio");
+        }
+
+        private void btnDificil_Click(object sender, EventArgs e) {
+            SelecionarDificuldade(btnDificil, "Dificil");
+        }
+
+        private void btnExtremo_Click(object sender, EventArgs e) {
+            SelecionarDificuldade(btnExtremo, "Extremo");
+        }
+
+        private void botaoJogar_Click(object sender, EventArgs e) {
+            string nomeJogador = txtNickname.Text;
+
+            if (string.IsNullOrWhiteSpace(nomeJogador)) {
+                MessageBox.Show("Por favor, insira o nome do jogador!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Define o nome e a dificuldade na tela de jogo
+            GerenciadorForms.TelaJogo.NomeJogador = nomeJogador;
+            GerenciadorForms.TelaJogo.Dificuldade = levelSelec;
+
+            this.Hide();
+            GerenciadorForms.TelaJogo.Show();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e) {
+            this.Hide();
+            GerenciadorForms.TelaInicio.Show();
+    }
+    }
 
         //private void textBox1_Enter(object sender, EventArgs e) {
         //    if (textBox1.Text == "NICKNAME HERE") {
@@ -83,6 +131,5 @@ namespace portasTestes {
         //    }
         //}
     }
-}
 
 

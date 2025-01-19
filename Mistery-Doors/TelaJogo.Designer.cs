@@ -42,6 +42,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pctHeart2 = new System.Windows.Forms.PictureBox();
             this.pctHeart3 = new System.Windows.Forms.PictureBox();
+            this.lblNickname = new System.Windows.Forms.Label();
+            this.lblDificuldade = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctHeart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfirmar)).BeginInit();
@@ -180,6 +182,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pctHeart2
             // 
@@ -201,11 +204,33 @@
             this.pctHeart3.TabIndex = 13;
             this.pctHeart3.TabStop = false;
             // 
+            // lblNickname
+            // 
+            this.lblNickname.AutoSize = true;
+            this.lblNickname.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNickname.Location = new System.Drawing.Point(899, 72);
+            this.lblNickname.Name = "lblNickname";
+            this.lblNickname.Size = new System.Drawing.Size(47, 20);
+            this.lblNickname.TabIndex = 14;
+            this.lblNickname.Text = "label1";
+            // 
+            // lblDificuldade
+            // 
+            this.lblDificuldade.AutoSize = true;
+            this.lblDificuldade.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDificuldade.Location = new System.Drawing.Point(818, 542);
+            this.lblDificuldade.Name = "lblDificuldade";
+            this.lblDificuldade.Size = new System.Drawing.Size(47, 20);
+            this.lblDificuldade.TabIndex = 15;
+            this.lblDificuldade.Text = "label1";
+            // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 633);
+            this.Controls.Add(this.lblDificuldade);
+            this.Controls.Add(this.lblNickname);
             this.Controls.Add(this.pctHeart3);
             this.Controls.Add(this.pctHeart2);
             this.Controls.Add(this.pctHeart1);
@@ -237,6 +262,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctHeart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctHeart3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -256,6 +282,8 @@
         private System.Windows.Forms.PictureBox pctHeart1;
         private System.Windows.Forms.PictureBox pctHeart2;
         private System.Windows.Forms.PictureBox pctHeart3;
+        private System.Windows.Forms.Label lblNickname;
+        private System.Windows.Forms.Label lblDificuldade;
     }
 }
 

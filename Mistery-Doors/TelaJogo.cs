@@ -12,16 +12,23 @@ namespace portasTestes
 {
     public partial class TelaJogo : Form
     {
+        
+        public string NomeJogador { get; set; } //
+        public string Dificuldade { get; set; }
+
         private PictureBox portaSelecionada;
         Dictionary<PictureBox, Portas> portas = new Dictionary<PictureBox, Portas>();
 
         Personagem personagem = new Personagem()
         {
-            Name = "teste",
+            Name = "teste", //coloquei o NomeJogador ali
             ArmaId = Equipamento.GerarEquipamento()
         };
 
-
+        private void Form1_Load(object sender, EventArgs e) {
+            lblNickname.Text = $"Jogador: {NomeJogador}";
+            lblDificuldade.Text = $"Dificuldade: {Dificuldade}";
+        }
 
         Image vidaCheia = Properties.Resources.heart;
         Image vidaMeia = Properties.Resources.meioHeart;
@@ -147,11 +154,6 @@ namespace portasTestes
             unit.Location = new Point(469, 473);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
@@ -170,6 +172,10 @@ namespace portasTestes
 
         private void Porta1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
 
         }
     }
