@@ -77,3 +77,12 @@ C:\Users\Brunno PB\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTeste
 C:\Users\Brunno PB\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTe.38E5C28A.Up2Date
 C:\Users\Brunno PB\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.exe
 C:\Users\Brunno PB\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.pdb
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\MySql.Data.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Buffers.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Memory.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\MySql.Data.xml
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTe.38E5C28A.Up2Date

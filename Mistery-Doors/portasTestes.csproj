@@ -224,5 +224,35 @@
   <ItemGroup>
     <None Include="Resources\rect.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selecionarFaseV.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vitoriasBox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mortesBox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esqDoor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dirDoor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meioFoto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letreiro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b88369d8-7f74-471b-969c-3fbb824e3fa8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

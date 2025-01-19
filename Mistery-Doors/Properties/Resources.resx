@@ -118,58 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnVoltar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnVoltar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quadradoMeio2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quadradoMeio2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fundo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fundo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="p2-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\p2-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnEntrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnEntrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quadradoMeio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quadradoMeio1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quadradoMeio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quadradoMeio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="porta3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\porta3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="porta2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\porta2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="porta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\porta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="meioHeart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\meioHeart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="unit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="p2-removebg-preview1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\p2-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnConfirmar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnConfirmar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fundoMsg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fundoMsg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="vitoriasBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vitoriasBox.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="meioHeart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\meioHeart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="esqDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\esqDoor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porta2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porta2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnEntrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnEntrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="p2-removebg-preview1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p2-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoMsg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoMsg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="retang" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\retang.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quadradoMeio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quadradoMeio1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="selecionarFaseV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\selecionarFaseV.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b88369d8-7f74-471b-969c-3fbb824e3fa8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b88369d8-7f74-471b-969c-3fbb824e3fa8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="p2-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p2-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="letreiro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\letreiro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="meioFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\meioFoto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porta3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porta3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnVoltar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnVoltar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="_0heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mortesBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mortesBox.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dirDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dirDoor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quadradoMeio2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quadradoMeio2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnConfirmar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnConfirmar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quadradoMeio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quadradoMeio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

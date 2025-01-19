@@ -61,6 +61,14 @@ namespace portasTestes {
 
         }
 
+        private void label1_Click_1(object sender, EventArgs e) {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+
+        }
+
         //private void textBox1_Enter(object sender, EventArgs e) {
         //    if (textBox1.Text == "NICKNAME HERE") {
         //        textBox1.Text = ""; 
