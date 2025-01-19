@@ -13,5 +13,10 @@ namespace portasTestes {
         public TelaInicio() {
             InitializeComponent();
         }
+
+        private void TelaInicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

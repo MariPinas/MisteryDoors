@@ -35,6 +35,7 @@
             this.Name = "TelaInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaInicio";
+            this.Load += new System.EventHandler(this.TelaInicio_Load);
             this.ResumeLayout(false);
 
         }

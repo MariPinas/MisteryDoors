@@ -11,12 +11,12 @@ namespace portasTestes
         public int IdJogador {  get; set; }
         public string Nome { get; set; }
         public int Vidas { get; set; } = 3;
-        public Personagem Personagem { get; set; }
+        public Personagem PersonagemId { get; set; }
 
         public void Reiniciar()
         {
             Vidas = 3;
-            this.Personagem = new Personagem();
+            this.PersonagemId = new Personagem();
             
         }
     }

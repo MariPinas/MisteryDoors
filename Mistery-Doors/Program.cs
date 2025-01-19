@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using portasTestes.Repository;
 
 namespace portasTestes
 {
@@ -14,9 +15,38 @@ namespace portasTestes
         [STAThread]
         static void Main()
         {
+            IniciaDataBase("server=localhost;uid=root;pwd=admin;database=mistery_doors");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaJogo());
+            
+        }
+
+        public static void IniciaDataBase(string connectionString)
+        {
+            try
+            {
+                var equipamentosRepo = new EquipamentoRepository(connectionString);
+                equipamentosRepo.CriarTabela();
+                var fasesRepo = new FaseRepository(connectionString);
+                fasesRepo.CriarTabela();
+                var historicoRepo = new HistoricoRepository(connectionString);
+                historicoRepo.CriarTabela();
+                var portasRepo = new PortasRepository(connectionString);
+                portasRepo.CriarTabela();
+                var inimigoRepo = new InimigoRepository(connectionString);
+                inimigoRepo.CriarTabela();
+                var personagensRepo = new PersonagemRepository(connectionString);
+                personagensRepo.CriarTabela();
+                var jogadoresRepo = new JogadorRepository(connectionString);
+                jogadoresRepo.CriarTabela();
+                var progressoRepo = new ProgressoRepository(connectionString);
+                progressoRepo.CriarTabela();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha ao inicializar o banco de dados: " + ex.Message);
+            }
         }
     }
 }

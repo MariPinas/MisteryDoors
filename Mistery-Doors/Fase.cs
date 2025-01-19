@@ -8,6 +8,7 @@ namespace portasTestes
 {
     public class Fase
     {
+        public int IdFase { get; set; }
         public string Dificuldade { get; set; }
         public int PortarParaVencer { get; set; }
 

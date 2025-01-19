@@ -18,7 +18,7 @@ namespace portasTestes
         Personagem personagem = new Personagem()
         {
             Name = "teste",
-            Arma = Equipamento.GerarEquipamento()
+            ArmaId = Equipamento.GerarEquipamento()
         };
 
 
@@ -166,6 +166,11 @@ namespace portasTestes
 
 
             ResetarPersonagem();
+        }
+
+        private void Porta1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

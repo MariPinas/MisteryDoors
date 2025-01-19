@@ -148,6 +148,7 @@
             this.Porta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Porta1.TabIndex = 4;
             this.Porta1.TabStop = false;
+            this.Porta1.Click += new System.EventHandler(this.Porta1_Click);
             // 
             // pictureBox4
             // 

@@ -38,7 +38,7 @@ namespace portasTestes
             {
                 Equipamento loot = Equipamento.GerarEquipamento();
                 resultado = $"\nVocê encontrou um loot!\nEquipamento: {loot.Nome} | Dano: {loot.Dano} | Raridade: {loot.Raridade}";
-                if (loot.Dano >= personagem.Arma.Dano)
+                if (loot.Dano >= personagem.ArmaId.Dano)
                 {
                     personagem.EquiparArma(loot, loot.Dano);
                     resultado += $"\nVocê equipou a Arma com o dano maior!";
@@ -52,7 +52,7 @@ namespace portasTestes
         public string RealizarAcao(Personagem personagem, Inimigo inimigo)
         {
             //personagem.EquiparArma(personagem.Arma, personagem.Arma.Dano); //descomentar se nao fica a arma inicial bugada, o dano fica errado
-            string log = $"Personagem Nome: {personagem.Name} | Personagem Dano: {personagem.DanoPersonagem}\nPersonagem Arma: {personagem.Arma.Nome} | Dano {personagem.Arma.Dano}\n Inimigo {inimigo.Nome} | Inimigo Dano: {inimigo.Dano}";
+            string log = $"Personagem Nome: {personagem.Name} | Personagem Dano: {personagem.DanoPersonagem}\nPersonagem Arma: {personagem.ArmaId.Nome} | Dano {personagem.ArmaId.Dano}\n Inimigo {inimigo.Nome} | Inimigo Dano: {inimigo.Dano}";
 
             if (personagem.DanoPersonagem > inimigo.Dano)
             {
@@ -61,7 +61,7 @@ namespace portasTestes
                 {
                     Equipamento loot = Equipamento.GerarEquipamento();
                     log += $"\nLoot recebido:\n {loot.Nome} | Dano: {loot.Dano} | Raridade: {loot.Raridade}\n";
-                    if (loot.Dano >= personagem.Arma.Dano)
+                    if (loot.Dano >= personagem.ArmaId.Dano)
                     {
                         personagem.EquiparArma(loot, loot.Dano);
                         log += "\nLoot é melhor que a arma atual e voce pegou ela!";

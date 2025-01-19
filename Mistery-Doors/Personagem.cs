@@ -12,9 +12,9 @@ namespace portasTestes
         public string Name { get; set; }
         public double VidaPersonagem { get; set; } = 3;
         public double DanoPersonagem { get; set; } = 5;
-        public Equipamento Arma { get; set; }
-        public Portas Progresso { get; set; }
-        public Fase Dificuldade { get; set; }
+        public Equipamento ArmaId { get; set; }
+        public Portas ProgressoId { get; set; }
+        public Fase DificuldadeId { get; set; }
 
 
         public void PerderVida()
@@ -31,7 +31,7 @@ namespace portasTestes
 
         public void EquiparArma(Equipamento NovaArma, double bonusDano)
         {
-            Arma = NovaArma;
+            ArmaId = NovaArma;
             DanoPersonagem = 5 + bonusDano;
         }
     }
