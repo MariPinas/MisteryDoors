@@ -18,7 +18,7 @@ namespace portasTestes {
             InitializeComponent();
 
             this.Text = "Tela personagem";
-            this.Size = new Size(800, 600);
+            this.Size = new Size(800, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Resize += (s, e) => this.Invalidate();
 

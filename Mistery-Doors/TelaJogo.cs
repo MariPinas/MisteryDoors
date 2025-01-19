@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,13 @@ namespace portasTestes
 {
     public partial class TelaJogo : Form
     {
-        
         public string NomeJogador { get; set; } //
         public string Dificuldade { get; set; }
+        private void Form1_Load(object sender, EventArgs e) {
+
+            lblNickname.Text = $"Jogador: {NomeJogador}";
+            lblDificuldade.Text = $"Dificuldade: {Dificuldade}";
+        }
 
         private PictureBox portaSelecionada;
         Dictionary<PictureBox, Portas> portas = new Dictionary<PictureBox, Portas>();
@@ -24,10 +29,32 @@ namespace portasTestes
             Name = "teste", //coloquei o NomeJogador ali
             ArmaId = Equipamento.GerarEquipamento()
         };
+       
 
-        private void Form1_Load(object sender, EventArgs e) {
-            lblNickname.Text = $"Jogador: {NomeJogador}";
-            lblDificuldade.Text = $"Dificuldade: {Dificuldade}";
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+
+            // cores do figma
+            Color[] cores = {
+            ColorTranslator.FromHtml("#EFC981"),
+            ColorTranslator.FromHtml("#EE9E69"),
+            ColorTranslator.FromHtml("#AE6245")
+        };
+
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle, cores[0], cores[2], LinearGradientMode.Vertical)) {
+
+                ColorBlend blend = new ColorBlend {
+                    Colors = cores,
+                    Positions = new float[] { 0.0f, 0.5f, 1.0f } // proporcoes d cores
+                };
+
+                brush.InterpolationColors = blend;
+
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+
         }
 
         Image vidaCheia = Properties.Resources.heart;
@@ -49,6 +76,11 @@ namespace portasTestes
             EntrarPortas();
             ResetarPersonagem();
             InstanciarPortas();
+
+
+            this.Size = new Size(800, 450);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Resize += (s, args) => this.Invalidate();
             btnEntrar.Visible = false;
             btnConfirmar.Visible = false;
             msgRes.Visible = false;
@@ -58,6 +90,7 @@ namespace portasTestes
             lblRes.TextAlign = ContentAlignment.MiddleLeft;
             lblRes.MaximumSize = new Size(msgRes.Width, msgRes.Height);
             lblRes.AutoSize = true;
+
 
         }
         public void trocarVisualVida(Personagem personagem)
@@ -154,11 +187,7 @@ namespace portasTestes
             unit.Location = new Point(469, 473);
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             unit.Visible = true;
@@ -170,12 +199,16 @@ namespace portasTestes
             ResetarPersonagem();
         }
 
-        private void Porta1_Click(object sender, EventArgs e)
-        {
+        private void btnVoltar_Click(object sender, EventArgs e) {
+            this.Hide();
+            GerenciadorForms.TelaPersonagem.Show();
+        }
+
+        private void lblDificuldade_Click(object sender, EventArgs e) {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e) {
+        private void lblRes_Click(object sender, EventArgs e) {
 
         }
     }

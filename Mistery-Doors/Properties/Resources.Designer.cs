@@ -153,6 +153,16 @@ namespace portasTestes.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fundoRes {
+            get {
+                object obj = ResourceManager.GetObject("fundoRes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap heart {
             get {
                 object obj = ResourceManager.GetObject("heart", resourceCulture);
@@ -256,6 +266,16 @@ namespace portasTestes.Properties {
         internal static System.Drawing.Bitmap porta3 {
             get {
                 object obj = ResourceManager.GetObject("porta3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap portas {
+            get {
+                object obj = ResourceManager.GetObject("portas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
