@@ -167,7 +167,7 @@
             // pctHeart2
             // 
             this.pctHeart2.Image = global::portasTestes.Properties.Resources.heart;
-            this.pctHeart2.Location = new System.Drawing.Point(691, 12);
+            this.pctHeart2.Location = new System.Drawing.Point(688, 12);
             this.pctHeart2.Name = "pctHeart2";
             this.pctHeart2.Size = new System.Drawing.Size(44, 28);
             this.pctHeart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,9 +198,9 @@
             // 
             this.unit.BackColor = System.Drawing.Color.Transparent;
             this.unit.Image = global::portasTestes.Properties.Resources.unit;
-            this.unit.Location = new System.Drawing.Point(326, 321);
+            this.unit.Location = new System.Drawing.Point(325, 321);
             this.unit.Name = "unit";
-            this.unit.Size = new System.Drawing.Size(95, 130);
+            this.unit.Size = new System.Drawing.Size(87, 118);
             this.unit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.unit.TabIndex = 2;
             this.unit.TabStop = false;
@@ -227,6 +227,7 @@
             this.btnConfirmar.TabIndex = 20;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
             // 
             // TelaJogo
             // 

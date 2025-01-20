@@ -74,10 +74,11 @@ namespace portasTestes
         {
             InitializeComponent();
             EntrarPortas();
+            unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
 
-
+            
             this.Size = new Size(800, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Resize += (s, args) => this.Invalidate();
@@ -138,19 +139,22 @@ namespace portasTestes
 
         private void Porta_Click(object sender, EventArgs e)
         {
-            PictureBox portaClicada = sender as PictureBox;
+            if(unit.Visible == true)
+            {
+                PictureBox portaClicada = sender as PictureBox;
 
-            if (portaSelecionada == portaClicada)
-            {
-                portaSelecionada = null;
-                btnEntrar.Visible = false;
-                ResetarPersonagem();
-            }
-            else
-            {
-                portaSelecionada = portaClicada;
-                btnEntrar.Visible = true;
-                MoverPersonagemParaPorta(portaSelecionada);
+                if (portaSelecionada == portaClicada)
+                {
+                    portaSelecionada = null;
+                    btnEntrar.Visible = false;
+                    ResetarPersonagem();
+                }
+                else
+                {
+                    portaSelecionada = portaClicada;
+                    btnEntrar.Visible = true;
+                    MoverPersonagemParaPorta(portaSelecionada);
+                }
             }
         }
         private void MoverPersonagemParaPorta(PictureBox porta)
@@ -184,19 +188,13 @@ namespace portasTestes
         }
         private void ResetarPersonagem()
         {
-            unit.Location = new Point(469, 473);
+            unit.Location = new Point(325, 309);
         }
 
        
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            unit.Visible = true;
-            btnConfirmar.Visible = false;
-            lblRes.Visible = false;
-            msgRes.Visible = false;
-
-
-            ResetarPersonagem();
+            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e) {
@@ -210,6 +208,17 @@ namespace portasTestes
 
         private void lblRes_Click(object sender, EventArgs e) {
 
+        }
+
+        private void btnConfirmar_Click_1(object sender, EventArgs e)
+        {
+            unit.Visible = true;
+            btnConfirmar.Visible = false;
+            lblRes.Visible = false;
+            msgRes.Visible = false;
+
+
+            ResetarPersonagem();
         }
     }
 }
