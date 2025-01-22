@@ -55,6 +55,7 @@
             this.txtNickname.Size = new System.Drawing.Size(221, 43);
             this.txtNickname.TabIndex = 1;
             this.txtNickname.Text = "NICKNAME HERE";
+            this.txtNickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNickname.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // botaoJogar
