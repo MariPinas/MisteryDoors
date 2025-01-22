@@ -13,39 +13,48 @@ namespace portasTestes {
         private bool isCad;
 
         private void ConfigurarTelaInicial() {
-            //comecam invisiveis
+            btnVoltar.Visible = true;
+            btnVoltar.Click += btnVoltar_Click;
+            
             txtUsername.Visible = false;
             txtSenha.Visible = false;
             btnContinuar.Visible = false;
             lblMsg.Visible = false;
             lblUsu.Visible = false;
             lblSenha.Visible = false;
-
-            // botoes principais
+            
             btnEntrar.Click += (s, e) => MostrarCampos(false);
-            btnCadastrar.Click += (s, e) => MostrarCampos(true);
-
-            btnContinuar.Click += BtnContinuar_Click;
-
-            btnVoltar.Visible = false;
-            btnVoltar.Click += BtnVoltar_Click;
+            btnCadastrar.Click += (s, e) => MostrarCampos(true); 
+            btnContinuar.Click += BtnContinuar_Click; 
         }
 
         private void MostrarCampos(bool cadastro) {
             isCad = cadastro;
 
+            
             btnEntrar.Visible = false;
             btnCadastrar.Visible = false;
-            btnVoltar.Visible = true;
 
+            
             txtUsername.Visible = true;
             txtSenha.Visible = true;
             btnContinuar.Visible = true;
             lblUsu.Visible = true;
             lblSenha.Visible = true;
 
-            // Se for cadastro ent o texto do botao vai ser 'Cadastrar', se nao sera 'Entrar'
+            
             btnContinuar.Text = cadastro ? "CADASTRAR" : "ENTRAR";
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e) {
+            if (txtUsername.Visible || txtSenha.Visible) // se os txt estiverem visiveis
+            {
+                refresh(); //entao retorna para o estado inical
+            } else {
+                //mas se ele ja esta no estado inicial entao volta para tela inicio
+                this.Hide();
+                GerenciadorForms.TelaInicio.Show();
+            }
         }
 
         private void BtnContinuar_Click(object sender, EventArgs e) {
@@ -96,22 +105,19 @@ namespace portasTestes {
             }
         }
 
-        private void BtnVoltar_Click(object sender, EventArgs e) {
-            GerenciadorForms.TelaInicio.Show();
-            this.Hide(); 
-        }
-
         private void refresh() {
+            // refresh na tela
             txtUsername.Clear();
             txtSenha.Clear();
             txtUsername.Visible = false;
             txtSenha.Visible = false;
             btnContinuar.Visible = false;
             lblMsg.Visible = false;
+            lblUsu.Visible = false;
+            lblSenha.Visible = false;
 
             btnEntrar.Visible = true;
             btnCadastrar.Visible = true;
-            btnVoltar.Visible = false; 
         }
     }
 }
