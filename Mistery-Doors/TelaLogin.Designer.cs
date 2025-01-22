@@ -36,35 +36,46 @@
             // 
             // btnEntrar
             // 
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.ForeColor = System.Drawing.Color.SandyBrown;
             this.btnEntrar.Location = new System.Drawing.Point(324, 275);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(133, 43);
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "ENTRAR";
-            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.UseVisualStyleBackColor = false;
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.ForeColor = System.Drawing.Color.SandyBrown;
             this.btnCadastrar.Location = new System.Drawing.Point(324, 343);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(133, 43);
             this.btnCadastrar.TabIndex = 1;
             this.btnCadastrar.Text = "CRIAR CONTA";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             // 
             // txtUsername
             // 
+            this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsername.Font = new System.Drawing.Font("Impact", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.SandyBrown;
             this.txtUsername.Location = new System.Drawing.Point(280, 119);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(229, 20);
+            this.txtUsername.Size = new System.Drawing.Size(229, 21);
             this.txtUsername.TabIndex = 2;
             // 
             // txtSenha
             // 
+            this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSenha.ForeColor = System.Drawing.Color.SandyBrown;
             this.txtSenha.Location = new System.Drawing.Point(280, 165);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
@@ -74,31 +85,39 @@
             // lblUsu
             // 
             this.lblUsu.AutoSize = true;
-            this.lblUsu.Location = new System.Drawing.Point(372, 103);
+            this.lblUsu.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsu.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.lblUsu.Location = new System.Drawing.Point(369, 99);
             this.lblUsu.Name = "lblUsu";
-            this.lblUsu.Size = new System.Drawing.Size(43, 13);
+            this.lblUsu.Size = new System.Drawing.Size(51, 17);
             this.lblUsu.TabIndex = 4;
             this.lblUsu.Text = "Usuario";
             // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(372, 149);
+            this.lblSenha.BackColor = System.Drawing.Color.Transparent;
+            this.lblSenha.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.lblSenha.Location = new System.Drawing.Point(372, 145);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(38, 13);
+            this.lblSenha.Size = new System.Drawing.Size(43, 17);
             this.lblSenha.TabIndex = 5;
             this.lblSenha.Text = "Senha";
             // 
             // btnContinuar
             // 
+            this.btnContinuar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
             this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuar.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinuar.ForeColor = System.Drawing.Color.SandyBrown;
             this.btnContinuar.Location = new System.Drawing.Point(324, 219);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(133, 43);
             this.btnContinuar.TabIndex = 6;
             this.btnContinuar.Text = "CONFIRMAR";
-            this.btnContinuar.UseVisualStyleBackColor = true;
+            this.btnContinuar.UseVisualStyleBackColor = false;
             // 
             // lblMsg
             // 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using portasTestes.Repository;
 
@@ -8,6 +10,35 @@ namespace portasTestes {
             InitializeComponent();
             refresh();
             ConfigurarTelaInicial();
+            this.Size = new Size(800, 450);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Resize += (s, e) => this.Invalidate();
+        }
+
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+
+            // cores do figma
+            Color[] cores = {
+            ColorTranslator.FromHtml("#EFC981"),
+            ColorTranslator.FromHtml("#EE9E69"),
+            ColorTranslator.FromHtml("#AE6245")
+        };
+
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle, cores[0], cores[2], LinearGradientMode.Vertical)) {
+
+                ColorBlend blend = new ColorBlend {
+                    Colors = cores,
+                    Positions = new float[] { 0.0f, 0.5f, 1.0f } // proporcoes d cores
+                };
+
+                brush.InterpolationColors = blend;
+
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+
         }
 
         private bool isCad;
