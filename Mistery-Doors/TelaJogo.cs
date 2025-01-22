@@ -13,8 +13,24 @@ namespace portasTestes
 {
     public partial class TelaJogo : Form
     {
-        public string NomeJogador { get; set; } //
-        public string Dificuldade { get; set; }
+        private string NomeJogador { get; set; } //
+        private string Dificuldade { get; set; }
+
+        public string getNomeJogador() {
+            return NomeJogador;
+        }
+        public string getDificuldade() {  
+            return Dificuldade; 
+        }
+
+        public void setNomeJogador(string nome) {
+            NomeJogador = nome;
+        }
+        public void setDificuldade(string dificuldade) {
+            Dificuldade = dificuldade;
+        }
+
+
         private void Form1_Load(object sender, EventArgs e) {
 
             lblNickname.Text = $"Jogador: {NomeJogador}";

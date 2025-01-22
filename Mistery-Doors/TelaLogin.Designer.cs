@@ -122,6 +122,7 @@
             // lblMsg
             // 
             this.lblMsg.AutoSize = true;
+            this.lblMsg.BackColor = System.Drawing.Color.Transparent;
             this.lblMsg.Location = new System.Drawing.Point(372, 203);
             this.lblMsg.Name = "lblMsg";
             this.lblMsg.Size = new System.Drawing.Size(35, 13);

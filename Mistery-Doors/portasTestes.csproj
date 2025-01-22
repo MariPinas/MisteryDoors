@@ -135,6 +135,12 @@
     <Compile Include="TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPerfil.Designer.cs">
+      <DependentUpon>TelaPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaPersonagem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </Compile>
     <EmbeddedResource Include="TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaPerfil.resx">
+      <DependentUpon>TelaPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPersonagem.resx">
       <DependentUpon>TelaPersonagem.cs</DependentUpon>

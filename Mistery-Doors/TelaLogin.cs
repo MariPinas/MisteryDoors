@@ -6,6 +6,16 @@ using portasTestes.Repository;
 
 namespace portasTestes {
     public partial class TelaLogin : Form {
+        private static string username;
+        private static string senha;
+
+        public static string getUsername() {
+            return username;
+        }
+
+        public static string getSenha() {
+            return senha;
+        }
         public TelaLogin() {
             InitializeComponent();
             refresh();
@@ -89,8 +99,8 @@ namespace portasTestes {
         }
 
         private void BtnContinuar_Click(object sender, EventArgs e) {
-            string username = txtUsername.Text.Trim();
-            string senha = txtSenha.Text.Trim();
+            username = txtUsername.Text.Trim();
+            senha = txtSenha.Text.Trim();
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(senha)) {
                 lblMsg.Text = "Por favor, preencha todos os campos.";
@@ -105,28 +115,28 @@ namespace portasTestes {
             }
         }
 
-        private void CadastrarUsuario(string username, string senha) {
+        private void CadastrarUsuario(string nomeUser, string senhaUser) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             //verificar username
-            if (jogadorRepository.VerificarUsuarioExistente(username, senha)) {
+            if (jogadorRepository.VerificarUsernameExistente(nomeUser)) {
                 lblMsg.Text = "Este username já existe. Escolha outro.";
                 lblMsg.Visible = true;
                 return;
             }
 
-            jogadorRepository.Adicionar(username, senha);
+            jogadorRepository.Adicionar(nomeUser, senhaUser);
             lblMsg.Text = "Conta criada com sucesso!";
             lblMsg.Visible = true;
 
             refresh();
         }
 
-        private void EntrarUsuario(string username, string senha) {
+        private void EntrarUsuario(string nomeUser, string senhaUser) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             //verificar login
-            if (jogadorRepository.VerificarUsuarioExistente(username, senha)) {
+            if (jogadorRepository.VerificarUsuarioExistente(nomeUser, senhaUser)) {
                 MessageBox.Show("Login realizado com sucesso!");
                 this.Hide();
                 GerenciadorForms.TelaPersonagem.Show();

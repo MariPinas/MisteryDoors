@@ -11,5 +11,7 @@ namespace portasTestes {
         public static TelaJogo TelaJogo { get; } = new TelaJogo();
 
         public static TelaLogin TelaLogin { get; } = new TelaLogin();
+
+        public static TelaPerfil TelaPerfil { get; } = new TelaPerfil();
     }
 }

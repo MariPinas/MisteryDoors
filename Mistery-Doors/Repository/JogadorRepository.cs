@@ -49,6 +49,11 @@ namespace portasTestes.Repository
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
+                if (VerificarUsernameExistente(username)) {
+                    MessageBox.Show("Esse nome de usuário já está em uso. Escolha outro.");
+                    return;
+                }
+
                 var comando = new MySqlCommand("INSERT INTO Jogadores (Username, Senha) VALUES (@Username, @Senha);", conexao);
                 comando.Parameters.AddWithValue("@Username", username);
                 comando.Parameters.AddWithValue("@Senha", senha);
@@ -82,11 +87,29 @@ namespace portasTestes.Repository
                 MessageBox.Show("Erro ao verificar usuário: " + ex.Message);
                 return false;
             } finally {
-                if (conexao != null) {
-                    conexao.Close();
-                }
+                conexao?.Close();
             }
         }
+
+        public bool VerificarUsernameExistente(string username) {
+            MySqlConnection conexao = null;
+            try {
+                conexao = new MySqlConnection(_connectionString);
+                conexao.Open();
+
+                var comando = new MySqlCommand("SELECT COUNT(*) FROM Jogadores WHERE Username = @Username", conexao);
+                comando.Parameters.AddWithValue("@Username", username);
+
+                int count = Convert.ToInt32(comando.ExecuteScalar());
+
+                //se count>0 existe esse username
+                return count > 0;
+            } catch (Exception ex) {
+                MessageBox.Show("Erro ao verificar username: " + ex.Message);
+                return false;
+            }
+        }
+
 
         public List<(int IdJogador, string Username, int Vitorias, int Derrotas, int? PersonagemId)> ObterTodos() {
             var jogadores = new List<(int, string, int, int, int?)>();
@@ -108,34 +131,63 @@ namespace portasTestes.Repository
             } catch (Exception ex) {
                 MessageBox.Show("Erro ao obter jogadores: " + ex.Message);
             } finally {
-                if (conexao != null) {
-                    conexao.Close();
-                }
+                conexao?.Close();
             }
 
             return jogadores;
         }
 
-        public void Atualizar(int idJogador, string username, string senha, int vitorias, int derrotas, int? personagemId) {
+        public void Atualizar(int idJogador, string username = null, string senha = null, int? vitorias = null, int? derrotas = null, int? personagemId = null) {
             MySqlConnection conexao = null;
+            //esse att eh tipo aquele do anisio que ele deu nas ultimas aulas, que eh flexivel e vai somando no query
             try {
                 conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand(@"
-                    UPDATE Jogadores 
-                    SET Username = @Username, Senha = @Senha, Vitorias = @Vitorias, Derrotas = @Derrotas, PersonagemId = @PersonagemId 
-                    WHERE IdJogador = @IdJogador;", conexao);
-                comando.Parameters.AddWithValue("@Username", username);
-                comando.Parameters.AddWithValue("@Senha", senha);
-                comando.Parameters.AddWithValue("@Vitorias", vitorias);
-                comando.Parameters.AddWithValue("@Derrotas", derrotas);
-                comando.Parameters.AddWithValue("@PersonagemId", personagemId.HasValue ? (object)personagemId.Value : DBNull.Value);
-                comando.Parameters.AddWithValue("@IdJogador", idJogador);
+
+                var query = "UPDATE Jogadores SET ";
+                //vai add os parametros nessa lista
+                var parametros = new List<MySqlParameter>();
+
+                //dai adiciona conforme os parametros que nao vieram nulos
+                if (!string.IsNullOrEmpty(username)) {
+                    query += "Username = @Username, ";
+                    parametros.Add(new MySqlParameter("@Username", username));
+                }
+
+                if (!string.IsNullOrEmpty(senha)) {
+                    query += "Senha = @Senha, ";
+                    parametros.Add(new MySqlParameter("@Senha", senha));
+                }
+
+                if (vitorias.HasValue) {
+                    query += "Vitorias = @Vitorias, ";
+                    parametros.Add(new MySqlParameter("@Vitorias", vitorias.Value));
+                }
+
+                if (derrotas.HasValue) {
+                    query += "Derrotas = @Derrotas, ";
+                    parametros.Add(new MySqlParameter("@Derrotas", derrotas.Value));
+                }
+
+                if (personagemId.HasValue) {
+                    query += "PersonagemId = @PersonagemId, ";
+                    parametros.Add(new MySqlParameter("@PersonagemId", personagemId.Value));
+                }
+                query = query.TrimEnd(',', ' ') + " WHERE IdJogador = @IdJogador;";
+
+
+                parametros.Add(new MySqlParameter("@IdJogador", idJogador));
+                var comando = new MySqlCommand(query, conexao);
+                comando.Parameters.AddRange(parametros.ToArray());
                 comando.ExecuteNonQuery();
+
             } catch (Exception ex) {
                 MessageBox.Show("Erro ao atualizar jogador: " + ex.Message);
+            } finally {
+                conexao?.Close();
             }
         }
+
 
         public void Deletar(int idJogador)
         {
@@ -153,5 +205,28 @@ namespace portasTestes.Repository
                 MessageBox.Show("Algo deu errado ao deletar o jogador: " + ex.Message);
             }
         }
+
+        public int getIdJogador(string username) {
+            MySqlConnection conexao = null;
+            try {
+                conexao = new MySqlConnection(_connectionString);
+                conexao.Open();
+                var comando = new MySqlCommand("SELECT IdJogador FROM Jogadores WHERE Username = @Username;", conexao);
+                comando.Parameters.AddWithValue("@Username", username);
+
+                var reader = comando.ExecuteReader();
+                if (reader.Read()) {
+                    return reader.GetInt32("IdJogador");
+                } else {
+                    return -1;
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Erro ao obter o ID do jogador: " + ex.Message);
+                return -1;
+            } finally {
+                conexao?.Close();
+            }
+        }
+
     }
 }

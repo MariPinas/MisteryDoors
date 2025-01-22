@@ -103,8 +103,8 @@ namespace portasTestes {
             }
 
             // Define o nome e a dificuldade na tela de jogo
-            GerenciadorForms.TelaJogo.NomeJogador = nomeJogador;
-            GerenciadorForms.TelaJogo.Dificuldade = levelSelec;
+            GerenciadorForms.TelaJogo.setNomeJogador(nomeJogador);
+            GerenciadorForms.TelaJogo.setDificuldade(levelSelec);
 
             this.Hide();
             GerenciadorForms.TelaJogo.Show();
@@ -114,6 +114,14 @@ namespace portasTestes {
             this.Hide();
             GerenciadorForms.TelaLogin.Show();
     }
+
+        private void btnPerfil_Click(object sender, EventArgs e) {
+            string username = TelaLogin.getUsername();
+           
+            GerenciadorForms.TelaPerfil.setUsername(username);
+            this.Hide();
+            GerenciadorForms.TelaPerfil.Show();
+        }
     }
 
         //private void textBox1_Enter(object sender, EventArgs e) {

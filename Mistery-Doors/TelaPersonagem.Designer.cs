@@ -25,10 +25,6 @@
         private void InitializeComponent() {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtNickname = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.botaoJogar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,6 +33,11 @@
             this.btnDificil = new System.Windows.Forms.Button();
             this.btnExtremo = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnPerfil = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -56,57 +57,17 @@
             this.txtNickname.Text = "NICKNAME HERE";
             this.txtNickname.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::portasTestes.Properties.Resources.mortesBox;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 227);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(210, 66);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::portasTestes.Properties.Resources.vitoriasBox;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 88);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(214, 66);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::portasTestes.Properties.Resources.selecionarFaseV;
-            this.pictureBox2.Location = new System.Drawing.Point(592, 39);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(184, 369);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::portasTestes.Properties.Resources.quadradoMeio2;
-            this.pictureBox1.Location = new System.Drawing.Point(250, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(299, 372);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // botaoJogar
             // 
             this.botaoJogar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
             this.botaoJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botaoJogar.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botaoJogar.ForeColor = System.Drawing.Color.SandyBrown;
-            this.botaoJogar.Location = new System.Drawing.Point(592, 414);
+            this.botaoJogar.Location = new System.Drawing.Point(592, 418);
             this.botaoJogar.Name = "botaoJogar";
-            this.botaoJogar.Size = new System.Drawing.Size(184, 33);
+            this.botaoJogar.Size = new System.Drawing.Size(213, 33);
             this.botaoJogar.TabIndex = 5;
-            this.botaoJogar.Text = "JOGAR!";
+            this.botaoJogar.Text = "JOGAR! ➜";
             this.botaoJogar.UseVisualStyleBackColor = false;
             this.botaoJogar.Click += new System.EventHandler(this.botaoJogar_Click);
             // 
@@ -114,7 +75,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
-            this.label1.Location = new System.Drawing.Point(77, 123);
+            this.label1.Location = new System.Drawing.Point(81, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 6;
@@ -126,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(90, 259);
+            this.label2.Location = new System.Drawing.Point(85, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 7;
@@ -203,11 +164,66 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // btnPerfil
+            // 
+            this.btnPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnPerfil.Location = new System.Drawing.Point(-3, 418);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(253, 33);
+            this.btnPerfil.TabIndex = 13;
+            this.btnPerfil.Text = "☻ PERFIL DO JOGADOR";
+            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::portasTestes.Properties.Resources.mortesBox;
+            this.pictureBox4.Location = new System.Drawing.Point(16, 236);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(210, 66);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::portasTestes.Properties.Resources.vitoriasBox;
+            this.pictureBox3.Location = new System.Drawing.Point(12, 123);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(214, 66);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::portasTestes.Properties.Resources.selecionarFaseV;
+            this.pictureBox2.Location = new System.Drawing.Point(592, 39);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(184, 369);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::portasTestes.Properties.Resources.quadradoMeio2;
+            this.pictureBox1.Location = new System.Drawing.Point(250, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(299, 372);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // TelaPersonagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPerfil);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExtremo);
             this.Controls.Add(this.btnDificil);
@@ -249,5 +265,6 @@
         private System.Windows.Forms.Button btnDificil;
         private System.Windows.Forms.Button btnExtremo;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnPerfil;
     }
 }
