@@ -73,6 +73,7 @@
             this.btnVoltar.Text = "🠔 VOLTAR";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // lblNovoNome
             // 

@@ -96,6 +96,9 @@ namespace portasTestes {
             }
         }
 
-        
+        private void btnVoltar_Click(object sender, EventArgs e) {
+            this.Hide();
+            GerenciadorForms.TelaPersonagem.Show();
+        }
     }
 }
