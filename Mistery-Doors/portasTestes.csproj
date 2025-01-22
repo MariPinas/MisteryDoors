@@ -129,6 +129,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Progresso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaLogin.Designer.cs">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaPersonagem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TelaLogin.resx">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaPersonagem.resx">
       <DependentUpon>TelaPersonagem.cs</DependentUpon>
     </EmbeddedResource>

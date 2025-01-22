@@ -17,7 +17,6 @@ namespace portasTestes {
         public TelaPersonagem() {
             InitializeComponent();
 
-            this.Text = "Tela personagem";
             this.Size = new Size(800, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Resize += (s, e) => this.Invalidate();
@@ -113,7 +112,7 @@ namespace portasTestes {
 
         private void btnVoltar_Click(object sender, EventArgs e) {
             this.Hide();
-            GerenciadorForms.TelaInicio.Show();
+            GerenciadorForms.TelaLogin.Show();
     }
     }
 

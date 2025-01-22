@@ -9,5 +9,7 @@ namespace portasTestes {
         public static TelaInicio TelaInicio { get; } = new TelaInicio();
         public static TelaPersonagem TelaPersonagem { get; } = new TelaPersonagem();
         public static TelaJogo TelaJogo { get; } = new TelaJogo();
+
+        public static TelaLogin TelaLogin { get; } = new TelaLogin();
     }
 }

@@ -86,3 +86,4 @@ C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Runtime.
 C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\MySql.Data.xml
 C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTe.38E5C28A.Up2Date
+C:\Users\maria\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.TelaLogin.resources

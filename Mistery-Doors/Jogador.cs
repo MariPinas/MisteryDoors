@@ -9,15 +9,15 @@ namespace portasTestes
     public class Jogador
     {
         public int IdJogador {  get; set; }
-        public string Nome { get; set; }
-        public int Vidas { get; set; } = 3;
+        public string Username { get; set; }
+        public string Senha { get; set; }
+        public int Vitorias { get; set; }
+        public int Derrotas { get; set; }
         public Personagem PersonagemId { get; set; }
 
         public void Reiniciar()
         {
-            Vidas = 3;
-            this.PersonagemId = new Personagem();
-            
+            this.PersonagemId = new Personagem(); 
         }
     }
 }

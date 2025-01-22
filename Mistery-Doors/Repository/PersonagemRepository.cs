@@ -45,21 +45,24 @@ namespace portasTestes.Repository
             }
         }
 
-        public void Adicionar(string name, double vidaPersonagem, double danoPersonagem, int? armaId, int? progressoId, int? dificuldadeId)
-        {
+        public void Adicionar(string nome, int dificuldadeId) {
             try
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand(@"
-                INSERT INTO Personagens (Name, VidaPersonagem, DanoPersonagem, ArmaId, ProgressoId, DificuldadeId)
-                VALUES (@Name, @VidaPersonagem, @DanoPersonagem, @ArmaId, @ProgressoId, @DificuldadeId);", conexao);
-                comando.Parameters.AddWithValue("@Name", name);
-                comando.Parameters.AddWithValue("@VidaPersonagem", vidaPersonagem);
-                comando.Parameters.AddWithValue("@DanoPersonagem", danoPersonagem);
-                comando.Parameters.AddWithValue("@ArmaId", armaId.HasValue ? (object)armaId.Value : DBNull.Value);
-                comando.Parameters.AddWithValue("@ProgressoId", progressoId.HasValue ? (object)progressoId.Value : DBNull.Value);
-                comando.Parameters.AddWithValue("@DificuldadeId", dificuldadeId.HasValue ? (object)dificuldadeId.Value : DBNull.Value);
+
+
+                //var comando = new MySqlCommand(@"
+                //INSERT INTO Personagens (Name, VidaPersonagem, DanoPersonagem, ArmaId, ProgressoId, DificuldadeId)
+                //VALUES (@Name, @VidaPersonagem, @DanoPersonagem, @ArmaId, @ProgressoId, @DificuldadeId);", conexao);
+                var comando = new MySqlCommand("INSERT INTO Personagens (Name, DificuldadeId) VALUES (@Name, @DificuldadeId);", conexao);
+                comando.Parameters.AddWithValue("@Name", nome);
+                comando.Parameters.AddWithValue("@DificuldadeId", dificuldadeId);
+                //comando.Parameters.AddWithValue("@VidaPersonagem", vidaPersonagem);
+                //comando.Parameters.AddWithValue("@DanoPersonagem", danoPersonagem);
+                //comando.Parameters.AddWithValue("@ArmaId", armaId.HasValue ? (object)armaId.Value : DBNull.Value);
+                //comando.Parameters.AddWithValue("@ProgressoId", progressoId.HasValue ? (object)progressoId.Value : DBNull.Value);
+                //comando.Parameters.AddWithValue("@DificuldadeId", dificuldadeId.HasValue ? (object)dificuldadeId.Value : DBNull.Value);
                 comando.ExecuteNonQuery();
                 conexao.Close();
             }
