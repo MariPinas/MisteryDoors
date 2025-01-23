@@ -24,29 +24,43 @@ namespace portasTestes
         public static Equipamento GerarEquipamento()
         {
             Random r = new Random();
-            string[] raridades = { "Comum", "Raro", "Epico", "Lendario" };
+            string raridade = DeterminarRaridade(r);
             string[] nomes = { "Espada ", "Machado ", "Lanca ", "Arco " };
             string[] nomesComplete = { "de Fogo", "de Agua", "de Terra", "de Ar" };
 
-            string raridade = raridades[r.Next(raridades.Length)];
+            
             string nome = nomes[r.Next(nomes.Length)] + nomesComplete[r.Next(nomesComplete.Length)];
 
-            int dano = r.Next(5, 21);
+            int dano = r.Next(3, 11);
 
             switch (raridade)
             {
                 case "Raro":
-                    dano += 5;
+                    dano += 3;
                     break;
                 case "Epico":
-                    dano += 10;
+                    dano += 5;
                     break;
                 case "Lendario":
-                    dano += 15;
+                    dano += 8;
                     break;
             }
 
             return new Equipamento(nome, dano, raridade);
         }
-    }
+
+        private static string DeterminarRaridade(Random r)
+        {
+            int chance = r.Next(1, 101);
+
+            if (chance <= 50)
+                return "Comum";
+            else if (chance <= 80)
+                return "Raro";
+            else if (chance <= 95)
+                return "Épico";
+            else
+                return "Lendário";
+        }
+        }
 }

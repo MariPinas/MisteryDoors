@@ -191,7 +191,7 @@ namespace portasTestes
             Portas porta = new Portas(portaSelecionada.Name);
 
             string resultado = porta.SorteadorDaPorta(personagem);
-            if (resultado.Contains("perdeu o combate!"))
+            if (resultado.Contains("💀 Você foi derrotado!"))
                 trocarVisualVida(personagem);
             unit.Visible = false;
             btnConfirmar.Visible = true;

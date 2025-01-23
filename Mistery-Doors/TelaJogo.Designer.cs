@@ -58,9 +58,9 @@
             // 
             // lblRes
             // 
-            this.lblRes.BackColor = System.Drawing.Color.Tan;
+            this.lblRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(195)))), ((int)(((byte)(171)))));
             this.lblRes.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRes.Location = new System.Drawing.Point(644, 176);
+            this.lblRes.Location = new System.Drawing.Point(524, 126);
             this.lblRes.Name = "lblRes";
             this.lblRes.Size = new System.Drawing.Size(128, 23);
             this.lblRes.TabIndex = 9;
@@ -116,10 +116,11 @@
             // 
             // msgRes
             // 
+            this.msgRes.BackColor = System.Drawing.Color.Transparent;
             this.msgRes.Image = global::portasTestes.Properties.Resources.fundoRes;
-            this.msgRes.Location = new System.Drawing.Point(634, 124);
+            this.msgRes.Location = new System.Drawing.Point(514, 75);
             this.msgRes.Name = "msgRes";
-            this.msgRes.Size = new System.Drawing.Size(157, 225);
+            this.msgRes.Size = new System.Drawing.Size(287, 349);
             this.msgRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.msgRes.TabIndex = 19;
             this.msgRes.TabStop = false;
@@ -221,9 +222,9 @@
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnConfirmar.Location = new System.Drawing.Point(656, 321);
+            this.btnConfirmar.Location = new System.Drawing.Point(603, 393);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(105, 42);
+            this.btnConfirmar.Size = new System.Drawing.Size(142, 49);
             this.btnConfirmar.TabIndex = 20;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
@@ -234,9 +235,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.lblRes);
+            this.Controls.Add(this.msgRes);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.unit);
-            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.Porta3);
             this.Controls.Add(this.Porta2);
             this.Controls.Add(this.Porta1);
@@ -247,9 +250,7 @@
             this.Controls.Add(this.pctHeart2);
             this.Controls.Add(this.pctHeart1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblRes);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.msgRes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

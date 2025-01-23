@@ -31,48 +31,56 @@ namespace portasTestes
 
             else if (chance < ProbabilidadeInimigo + ProbabilidadeBoss)
             {
-                Inimigo boss = new Inimigo("Boss Poderoso", r.Next(10, 15));
+                Inimigo boss = new Inimigo("Boss Poderoso", r.Next(7, 13));
                 resultado = RealizarAcao(personagem, boss);
             }
             else
             {
                 Equipamento loot = Equipamento.GerarEquipamento();
-                resultado = $"\nVocê encontrou um loot!\nEquipamento: {loot.Nome} | Dano: {loot.Dano} | Raridade: {loot.Raridade}";
+                resultado = $"\n🔹 Você encontrou um tesouro!\n" +
+                            $"✨ Equipamento: {loot.Nome}\n" +
+                            $"⚔️ Dano: {loot.Dano} | 🌟 Raridade: {loot.Raridade}";
                 if (loot.Dano >= personagem.ArmaId.Dano)
                 {
                     personagem.EquiparArma(loot, loot.Dano);
-                    resultado += $"\nVocê equipou a Arma com o dano maior!";
+                    resultado += $"\n✔️ Você equipou a nova arma, pois ela tem um dano maior!";
                 }
                 else
-                    resultado += $"\nVocê nao pegou o loot com dano menor!";
+                    resultado += $"\n❌ Você decidiu não equipar o novo item, pois ele é inferior à sua arma atual.";
             }
             return resultado;
         }
 
         public string RealizarAcao(Personagem personagem, Inimigo inimigo)
         {
-            //personagem.EquiparArma(personagem.Arma, personagem.Arma.Dano); //descomentar se nao fica a arma inicial bugada, o dano fica errado
-            string log = $"Personagem Nome: {personagem.Name} | Personagem Dano: {personagem.DanoPersonagem}\nPersonagem Arma: {personagem.ArmaId.Nome} | Dano {personagem.ArmaId.Dano}\n Inimigo {inimigo.Nome} | Inimigo Dano: {inimigo.Dano}";
-
+            personagem.EquiparArma(personagem.ArmaId, personagem.ArmaId.Dano); //descomentar se nao fica a arma inicial bugada, o dano fica errado
+            string log =$"🔹 {personagem.Name} está enfrentando {inimigo.Nome}!\n\n" +
+                        $"⚔️ Seu dano: {personagem.DanoPersonagem} | Arma: {personagem.ArmaId.Nome} (Dano: {personagem.ArmaId.Dano})\n" +
+                        $"👾 Dano do inimigo: {inimigo.Dano}";
             if (personagem.DanoPersonagem > inimigo.Dano)
             {
-                log += "\nVocê venceu o combate!\n";
+                log += "\n\n🎉 Você venceu o combate!\n";
                 if (r.Next(0, 100) < 50)
                 {
                     Equipamento loot = Equipamento.GerarEquipamento();
-                    log += $"\nLoot recebido:\n {loot.Nome} | Dano: {loot.Dano} | Raridade: {loot.Raridade}\n";
+                    log += $"\n✨ Você encontrou um tesouro:\n" +
+                           $"⚔️ {loot.Nome} | Dano: {loot.Dano} | 🌟 Raridade: {loot.Raridade}";
+
                     if (loot.Dano >= personagem.ArmaId.Dano)
                     {
                         personagem.EquiparArma(loot, loot.Dano);
-                        log += "\nLoot é melhor que a arma atual e voce pegou ela!";
+                        log += "\n✔️ Você equipou a nova arma, pois ela tem um dano maior!";
                     }
                     else
-                        log += "\nA arma era pior e voce nao pegou ela!";
-                }
+                        log += "\n❌ Você decidiu não equipar o novo item, pois ele é inferior à sua arma atual.";
+                }else
+                    log += "\n📦 Infelizmente, o inimigo não deixou nenhum loot para trás.";
             }
+            
             else
             {
-                log += "\n Voce perdeu o combate!\n";
+                log += "\n\n💀 Você foi derrotado!\n" +
+                       "⚠️ Você perdeu uma vida. Tente novamente!";
                 personagem.PerderVida();
             }
             return log;
