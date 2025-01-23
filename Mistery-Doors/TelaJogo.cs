@@ -45,6 +45,7 @@ namespace portasTestes
             Name = "teste", //coloquei o NomeJogador ali
             ArmaId = Equipamento.GerarEquipamento()
         };
+        
        
 
         protected override void OnPaint(PaintEventArgs e) {

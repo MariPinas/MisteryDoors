@@ -8,10 +8,10 @@ namespace portasTestes
 {
     public class Progresso
     {
-        public int IdProgresso { get; set; }
-        public int IdJogador { get; set; }
-        public int FaseAtual {  get; set; }
-        public int PortasPassadas { get; set; }
+        private int IdProgresso { get; set; }
+        private int IdJogador { get; set; }
+        private int FaseAtual {  get; set; }
+        private int PortasPassadas { get; set; }
 
         public void SalvarProgresso(int jogadorId, int faseAtual, int portasPassadas)
         {

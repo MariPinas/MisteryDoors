@@ -8,9 +8,9 @@ namespace portasTestes
 {
     public class Inimigo
     {
-        public string Nome {  get; set; }
-       
-        public int Dano { get; set; }
+        private string Nome {  get; set; }
+
+        private int Dano { get; set; }
 
         public Inimigo (string nome, int dano)
         {

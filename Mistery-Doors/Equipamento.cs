@@ -8,10 +8,10 @@ namespace portasTestes
 {
     public class Equipamento
     {
-        public int IdEquipamento { get; set; }
-        public string Nome { get; set; }
-        public double Dano { get; set; }
-        public string Raridade { get; set; }
+        private int IdEquipamento { get; set; }
+        private string Nome { get; set; }
+        private double Dano { get; set; }
+        private string Raridade { get; set; }
 
         public Equipamento(string nome, int dano, string raridade)
         {
@@ -62,5 +62,5 @@ namespace portasTestes
             else
                 return "Lendário";
         }
-        }
+    }
 }

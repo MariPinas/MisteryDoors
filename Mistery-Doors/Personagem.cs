@@ -8,14 +8,24 @@ namespace portasTestes
 {
     public class Personagem
     {
-        public int IdPersonagem { get; set; }
-        public string Name { get; set; }
-        public double VidaPersonagem { get; set; } = 3;
-        public double DanoPersonagem { get; set; } = 5;
-        public Equipamento ArmaId { get; set; }
-        public Portas ProgressoId { get; set; }
-        public Fase DificuldadeId { get; set; }
+        private int IdPersonagem { get; set; }
+        private string Name { get; set; }
+        private double VidaPersonagem { get; set; } = 3;
+        private double DanoPersonagem { get; set; } = 5;
+        private Equipamento ArmaId { get; set; }
+        private Portas ProgressoId { get; set; }
+        private Fase DificuldadeId { get; set; }
 
+
+        public string getNomePersonagem()
+        {
+            return this.Name;
+        }
+
+        public void setNomePersonagem(string name)
+        {
+            this.Name = name;
+        }
 
         public void PerderVida()
         {

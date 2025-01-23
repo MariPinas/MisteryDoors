@@ -8,9 +8,9 @@ namespace portasTestes
 {
     public class Fase
     {
-        public int IdFase { get; set; }
-        public string Dificuldade { get; set; }
-        public int PortarParaVencer { get; set; }
+        private int IdFase { get; set; }
+        private string Dificuldade { get; set; }
+        private int PortasParaVencer { get; set; }
 
         public Fase(string dificuldade)
         {
@@ -18,19 +18,19 @@ namespace portasTestes
             switch(dificuldade.ToLower())
             {
                 case "facil":
-                    PortarParaVencer = 5;
+                    PortasParaVencer = 5;
                     break;
                 case "medio":
-                    PortarParaVencer = 7;
+                    PortasParaVencer = 7;
                     break;
                 case "dificil":
-                    PortarParaVencer = 10;
+                    PortasParaVencer = 10;
                     break;
                 case "extremo":
-                    PortarParaVencer = 12;
+                    PortasParaVencer = 12;
                     break;
                  default:
-                    PortarParaVencer = 5;
+                    PortasParaVencer = 5;
                     break;
 
             }

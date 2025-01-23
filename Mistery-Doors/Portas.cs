@@ -8,10 +8,10 @@ namespace portasTestes
 {
     public class Portas
     {
-        public string Nome { get; set; }
-        public double ProbabilidadeInimigo { get; set; } = 0.7;
-        public double ProbabilidadeBoss { get; set; } = 0.2;
-        public double ProbabilidadeLoot { get; set; } = 0.1;
+        private string Nome { get; set; }
+        private double ProbabilidadeInimigo { get; set; } = 0.7;
+        private double ProbabilidadeBoss { get; set; } = 0.2;
+        private double ProbabilidadeLoot { get; set; } = 0.1;
         public Portas(string nome)
         {
             Nome = nome;

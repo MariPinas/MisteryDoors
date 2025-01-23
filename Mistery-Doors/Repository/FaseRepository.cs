@@ -27,7 +27,7 @@ namespace portasTestes.Repository
                 CREATE TABLE IF NOT EXISTS Fases (
                     IdFase INT AUTO_INCREMENT PRIMARY KEY,
                     Dificuldade VARCHAR(255) NOT NULL,
-                    PortarParaVencer INT NOT NULL
+                    PortasParaVencer INT NOT NULL
                 );", conexao);
                 comando.ExecuteNonQuery();
                 conexao.Close();
@@ -38,15 +38,15 @@ namespace portasTestes.Repository
             }
         }
 
-        public void Adicionar(string dificuldade, int portarParaVencer)
+        public void Adicionar(string dificuldade, int PortasParaVencer)
         {
             try
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("INSERT INTO Fases (Dificuldade, PortarParaVencer) VALUES (@Dificuldade, @PortarParaVencer);", conexao);
+                var comando = new MySqlCommand("INSERT INTO Fases (Dificuldade, PortasParaVencer) VALUES (@Dificuldade, @PortasParaVencer);", conexao);
                 comando.Parameters.AddWithValue("@Dificuldade", dificuldade);
-                comando.Parameters.AddWithValue("@PortarParaVencer", portarParaVencer);
+                comando.Parameters.AddWithValue("@PortasParaVencer", PortasParaVencer);
                 comando.ExecuteNonQuery();
                 conexao.Close();
             }
@@ -56,7 +56,7 @@ namespace portasTestes.Repository
             }
         }
 
-        public List<(int IdFase, string Dificuldade, int PortarParaVencer)> ObterTodas()
+        public List<(int IdFase, string Dificuldade, int PortasParaVencer)> ObterTodas()
         {
             var fases = new List<(int, string, int)>();
             try
@@ -71,7 +71,7 @@ namespace portasTestes.Repository
                         fases.Add((
                             reader.GetInt32("IdFase"),
                             reader.GetString("Dificuldade"),
-                            reader.GetInt32("PortarParaVencer")
+                            reader.GetInt32("PortasParaVencer")
                         ));
                     }
                 }
@@ -85,15 +85,15 @@ namespace portasTestes.Repository
             return fases;
         }
 
-        public void Atualizar(int idFase, string dificuldade, int portarParaVencer)
+        public void Atualizar(int idFase, string dificuldade, int PortasParaVencer)
         {
             try
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("UPDATE Fases SET Dificuldade = @Dificuldade, PortarParaVencer = @PortarParaVencer WHERE IdFase = @IdFase;", conexao);
+                var comando = new MySqlCommand("UPDATE Fases SET Dificuldade = @Dificuldade, PortasParaVencer = @PortasParaVencer WHERE IdFase = @IdFase;", conexao);
                 comando.Parameters.AddWithValue("@Dificuldade", dificuldade);
-                comando.Parameters.AddWithValue("@PortarParaVencer", portarParaVencer);
+                comando.Parameters.AddWithValue("@PortasParaVencer", PortasParaVencer);
                 comando.Parameters.AddWithValue("@IdFase", idFase);
                 comando.ExecuteNonQuery();
                 conexao.Close();

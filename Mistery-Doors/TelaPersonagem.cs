@@ -71,7 +71,7 @@ namespace portasTestes {
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e) {
-
+            
         }
 
         private void label1_Click_1(object sender, EventArgs e) {
@@ -121,6 +121,11 @@ namespace portasTestes {
             GerenciadorForms.TelaPerfil.setUsername(username);
             this.Hide();
             GerenciadorForms.TelaPerfil.Show();
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
         }
     }
 

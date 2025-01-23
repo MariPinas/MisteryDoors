@@ -8,12 +8,12 @@ namespace portasTestes
 {
     public class Jogador
     {
-        public int IdJogador {  get; set; }
-        public string Username { get; set; }
-        public string Senha { get; set; }
-        public int Vitorias { get; set; }
-        public int Derrotas { get; set; }
-        public Personagem PersonagemId { get; set; }
+        private int IdJogador {  get; set; }
+        private string Username { get; set; }
+        private string Senha { get; set; }
+        private int Vitorias { get; set; }
+        private int Derrotas { get; set; }
+        private Personagem PersonagemId { get; set; }
 
         public void Reiniciar()
         {

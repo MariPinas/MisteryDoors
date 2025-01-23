@@ -116,7 +116,7 @@ namespace portasTestes {
         }
 
         private void CadastrarUsuario(string nomeUser, string senhaUser) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
 
             //verificar username
             if (jogadorRepository.VerificarUsernameExistente(nomeUser)) {
@@ -133,7 +133,7 @@ namespace portasTestes {
         }
 
         private void EntrarUsuario(string nomeUser, string senhaUser) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
 
             //verificar login
             if (jogadorRepository.VerificarUsuarioExistente(nomeUser, senhaUser)) {

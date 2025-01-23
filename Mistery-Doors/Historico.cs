@@ -8,10 +8,10 @@ namespace portasTestes
 {
     public class Historico
     {
-        public int IdHistorico { get; set; }
-        public int IdJogador { get; set; }
-        public string Resultado { get; set; } // vitoria ou derrota
-        public DateTime Data {  get; set; }
+        private int IdHistorico { get; set; }
+        private int IdJogador { get; set; }
+        private string Resultado { get; set; } // vitoria ou derrota
+        private DateTime Data {  get; set; }
 
         public void RegistrarHistorico(int jogadorId, string resultado) {
             IdJogador = jogadorId;
