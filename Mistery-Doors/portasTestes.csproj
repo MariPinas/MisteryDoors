@@ -98,8 +98,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDSeeder.cs" />
     <Compile Include="Equipamento.cs" />
     <Compile Include="Fase.cs" />
+    <Compile Include="GerenciadorFases.cs" />
     <Compile Include="GerenciadorForms.cs" />
     <Compile Include="Repository\EquipamentoRepository.cs" />
     <Compile Include="Repository\FaseRepository.cs" />

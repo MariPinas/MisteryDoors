@@ -8,15 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using portasTestes.Repository;
 
 namespace portasTestes
 {
     public partial class TelaJogo : Form
     {
-        private string NomeJogador { get; set; } //
-        private string DificuldadeId { get; set; }
-
-        private Personagem personagem;
+        private string NomeJogador; //
+        private string DificuldadeId;
+        private Jogador _jogador;
+        private Personagem _personagem;
 
         public string getNomeJogador() {
             return NomeJogador;
@@ -32,18 +33,17 @@ namespace portasTestes
             DificuldadeId = dificuldade;
         }
 
-        public TelaJogo()
-        {
+        public TelaJogo(Jogador jogador, Personagem personagem) {
             InitializeComponent();
+            _jogador = jogador;
+            _personagem = personagem;
             EntrarPortas();
             unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
 
-            personagem = GerenciadorForms.Personagem ?? new Personagem();
-            personagem.EquiparArma(Equipamento.GerarEquipamento(), 1);
-
             lblNickname.Text = personagem.getNomePersonagem();
+
 
             this.Size = new Size(800, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -106,42 +106,41 @@ namespace portasTestes
             portas.Add(Porta2, porta2);
             portas.Add(Porta3, porta3);
         }
-        
-        public void trocarVisualVida(Personagem personagem)
-        {
+
+        public void trocarVisualVida(Personagem personagem) {
+            // Atualizando vida visual
             if (personagem.getVidaPersonagem() == 3)
                 pctHeart3.Image = vidaCheia;
             if (personagem.getVidaPersonagem() == 2.5)
                 pctHeart3.Image = vidaMeia;
-            if (personagem.getVidaPersonagem() == 2)
-            {
+            if (personagem.getVidaPersonagem() == 2) {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaCheia;
             }
-            if (personagem.getVidaPersonagem() == 1.5)
-            {
+            if (personagem.getVidaPersonagem() == 1.5) {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaMeia;
             }
-            if (personagem.getVidaPersonagem() == 1)
-            {
+            if (personagem.getVidaPersonagem() == 1) {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaVazia;
                 pctHeart1.Image = vidaCheia;
             }
-            if (personagem.getVidaPersonagem() == 0.5)
-            {
+            if (personagem.getVidaPersonagem() == 0.5) {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaVazia;
                 pctHeart1.Image = vidaMeia;
             }
-            if (personagem.getVidaPersonagem() == 0)
-            {
+            if (personagem.getVidaPersonagem() == 0) {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaVazia;
                 pctHeart1.Image = vidaVazia;
             }
+
+            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            personagemRepo.AtualizarVida(personagem.getIdPersonagem(), personagem.getVidaPersonagem());
         }
+
         private void EntrarPortas()
         {
             Porta1.Click += Porta_Click;
@@ -187,10 +186,10 @@ namespace portasTestes
 
             Portas porta = new Portas(portaSelecionada.Name);
 
-            string resultado = porta.SorteadorDaPorta(personagem);
+            string resultado = porta.SorteadorDaPorta(_personagem);
             
             if (resultado.Contains("💀 Você foi derrotado!"))
-                trocarVisualVida(personagem);
+                trocarVisualVida(_personagem);
             unit.Visible = false;
             btnConfirmar.Visible = true;
             lblRes.Visible = true;
@@ -215,7 +214,7 @@ namespace portasTestes
 
         private void btnVoltar_Click(object sender, EventArgs e) {
             this.Hide();
-            GerenciadorForms.TelaPersonagem.Show();
+            GerenciadorForms.AbrirTelaPersonagem(_jogador);
         }
 
         private void lblDificuldade_Click(object sender, EventArgs e) {

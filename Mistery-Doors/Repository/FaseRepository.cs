@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace portasTestes.Repository
 {
@@ -25,9 +26,8 @@ namespace portasTestes.Repository
                 conexao.Open();
                 var comando = new MySqlCommand(@"
                 CREATE TABLE IF NOT EXISTS Fases (
-                    IdFase INT AUTO_INCREMENT PRIMARY KEY,
-                    Dificuldade VARCHAR(255) NOT NULL,
-                    PortasParaVencer INT NOT NULL
+                IdFase INT AUTO_INCREMENT PRIMARY KEY,
+                dificuldade VARCHAR(255) NOT NULL
                 );", conexao);
                 comando.ExecuteNonQuery();
                 conexao.Close();
@@ -38,46 +38,33 @@ namespace portasTestes.Repository
             }
         }
 
-        public int AdicionarFase(Fase fase) {
-            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
-                conexao.Open();
-                string query = "INSERT INTO Fases (Dificuldade, PortasParaVencer) VALUES (@Dificuldade, @PortasParaVencer);";
-                MySqlCommand comando = new MySqlCommand(query, conexao);
-                comando.Parameters.AddWithValue("@Dificuldade", fase.Dificuldade);
-                comando.Parameters.AddWithValue("@PortasParaVencer", fase.PortasParaVencer);
-
-                comando.ExecuteNonQuery();
-
-                query = "SELECT LAST_INSERT_ID();";
-                comando = new MySqlCommand(query, conexao);
-                return Convert.ToInt32(comando.ExecuteScalar()); 
+        public void AdicionarFase(Fase fase) {
+            using (var connection = new SqlConnection(_connectionString)) {
+                connection.Open();
+                var query = "INSERT INTO Fases (dificuldade) VALUES (@dificuldade)";
+                using (var command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@dificuldade", fase.dificuldade);
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
-        public List<(int IdFase, string DificuldadeId, int PortasParaVencer)> ObterTodas()
-        {
-            var fases = new List<(int, string, int)>();
-            try
-            {
-                var conexao = new MySqlConnection(_connectionString);
-                conexao.Open();
-                var comando = new MySqlCommand("SELECT * FROM Fases;", conexao);
-                using (var reader = comando.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        fases.Add((
-                            reader.GetInt32("IdFase"),
-                            reader.GetString("Dificuldade"),
-                            reader.GetInt32("PortasParaVencer")
-                        ));
+        public List<Fase> GetAll() {
+            var fases = new List<Fase>();
+
+            using (var connection = new SqlConnection(_connectionString)) {
+                connection.Open();
+                var query = "SELECT IdFase, dificuldade FROM Fases";
+                using (var command = new SqlCommand(query, connection)) {
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            fases.Add(new Fase {
+                                IdFase = reader.GetInt32(0),
+                                dificuldade = reader.GetString(1)
+                            });
+                        }
                     }
                 }
-                conexao.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Algo deu de errado ao buscar as fases: " + ex.Message);
             }
 
             return fases;
@@ -119,51 +106,50 @@ namespace portasTestes.Repository
             }
         }
 
-        public int ObterIdDificuldade(string dificuldade) {
-            int dificuldadeId = -1;
+        public Fase GetById(int idFase) {
+            Fase fase = null;
 
-            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
-                conexao.Open();
-                string query = "SELECT IdFase FROM Fases WHERE Dificuldade = @Dificuldade";
-                MySqlCommand comando = new MySqlCommand(query, conexao);
-                comando.Parameters.AddWithValue("@Dificuldade", dificuldade);
-                dificuldadeId = Convert.ToInt32(comando.ExecuteScalar());
-            }
-
-            return dificuldadeId;
-        }
-
-        public int ObterOuCriarFase(string dificuldade) {
-            int dificuldadeId = -1;
-
-            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
-                conexao.Open();
-
-                // verificar se fase ja existe
-                string queryExistente = "SELECT IdFase FROM Fases WHERE Dificuldade = @Dificuldade";
-                MySqlCommand comandoExistente = new MySqlCommand(queryExistente, conexao);
-                comandoExistente.Parameters.AddWithValue("@Dificuldade", dificuldade);
-
-                var resultadoExistente = comandoExistente.ExecuteScalar();
-
-                if (resultadoExistente != null && resultadoExistente != DBNull.Value) {
-                   
-                    dificuldadeId = Convert.ToInt32(resultadoExistente);
-                } else {
-                    
-                    string queryInserir = "INSERT INTO Fases (Dificuldade, PortasParaVencer) VALUES (@Dificuldade, @PortasParaVencer)";
-                    MySqlCommand comandoInserir = new MySqlCommand(queryInserir, conexao);
-                    comandoInserir.Parameters.AddWithValue("@Dificuldade", dificuldade);
-                    comandoInserir.Parameters.AddWithValue("@PortasParaVencer", 10); // Exemplo de número de portas, você pode personalizar isso
-
-                    comandoInserir.ExecuteNonQuery();
-
-                  
-                    dificuldadeId = Convert.ToInt32(comandoInserir.LastInsertedId);
+            using (var connection = new SqlConnection(_connectionString)) {
+                connection.Open();
+                var query = "SELECT IdFase, dificuldade FROM Fases WHERE IdFase = @IdFase";
+                using (var command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@IdFase", idFase);
+                    using (var reader = command.ExecuteReader()) {
+                        if (reader.Read()) {
+                            fase = new Fase {
+                                IdFase = reader.GetInt32(0),
+                                dificuldade = reader.GetString(1)
+                            };
+                        }
+                    }
                 }
             }
 
-            return dificuldadeId;
+            return fase;
+        }
+
+        public int ObterIdDificuldade(string dificuldade) {
+            int idFase = -1; //-1 pois se nao encontrar o id, retorna -1
+
+            try {
+                using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
+                    conexao.Open();
+
+                    string query = "SELECT IdFase FROM Fases WHERE Dificuldade = @Dificuldade";
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao)) {
+                        comando.Parameters.AddWithValue("@Dificuldade", dificuldade);
+
+                        object resultado = comando.ExecuteScalar();
+                        if (resultado != null) {
+                            idFase = Convert.ToInt32(resultado);
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                Console.WriteLine($"Erro ao obter o ID da dificuldade '{dificuldade}': {ex.Message}");
+            }
+
+            return idFase;
         }
     }
 }

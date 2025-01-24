@@ -15,31 +15,38 @@ namespace portasTestes
         [STAThread]
         static void Main()
         {
-            IniciaDataBase("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
+
+            IniciaDataBase(connectionString);
+
+            BDSeeder bdseed = new BDSeeder();
+            bdseed.Seed(connectionString);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaInicio());
-            
+        
+
         }
 
         public static void IniciaDataBase(string connectionString)
         {
             try
             {
-                var equipamentosRepo = new EquipamentoRepository(connectionString);
-                equipamentosRepo.CriarTabela();
+                //var equipamentosRepo = new EquipamentoRepository(connectionString);
+                //equipamentosRepo.CriarTabela();
                 var fasesRepo = new FaseRepository(connectionString);
                 fasesRepo.CriarTabela();
                 var historicoRepo = new HistoricoRepository(connectionString);
                 historicoRepo.CriarTabela();
                 var portasRepo = new PortasRepository(connectionString);
                 portasRepo.CriarTabela();
+                var jogadoresRepo = new JogadorRepository(connectionString);
+                jogadoresRepo.CriarTabela();
                 var inimigoRepo = new InimigoRepository(connectionString);
                 inimigoRepo.CriarTabela();
                 var personagensRepo = new PersonagemRepository(connectionString);
                 personagensRepo.CriarTabela();
-                var jogadoresRepo = new JogadorRepository(connectionString);
-                jogadoresRepo.CriarTabela();
                 var progressoRepo = new ProgressoRepository(connectionString);
                 progressoRepo.CriarTabela();
             }

@@ -165,7 +165,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaPerfil";
             this.Load += new System.EventHandler(this.TelaPerfil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

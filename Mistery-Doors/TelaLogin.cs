@@ -98,7 +98,7 @@ namespace portasTestes {
             } else {
                 //mas se ele ja esta no estado inicial entao volta para tela inicio
                 this.Hide();
-                GerenciadorForms.TelaInicio.Show();
+                GerenciadorForms.AbrirTelaInicial();
             }
         }
 
@@ -139,13 +139,14 @@ namespace portasTestes {
         private void EntrarUsuario(string nomeUser, string senhaUser) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
-            // verificar login
+            // Verificar login
             if (jogadorRepository.VerificarUsuarioExistente(nomeUser, senhaUser)) {
-                // pega o id de jogador
-                jogadorId = jogadorRepository.getIdJogador(nomeUser);
+                // Pega o jogador completo
+                Jogador jogador = jogadorRepository.GetJogadorPorUsername(nomeUser);
+
                 MessageBox.Show("Login realizado com sucesso!");
                 this.Hide();
-                GerenciadorForms.TelaPersonagem.Show();
+                GerenciadorForms.AbrirTelaPersonagem(jogador);
             } else {
                 lblMsg.Text = "Username ou senha incorretos.";
                 lblMsg.Visible = true;

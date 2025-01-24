@@ -26,20 +26,18 @@ namespace portasTestes.Repository
                 conexao.Open();
                 var comando = new MySqlCommand(@"
                 CREATE TABLE IF NOT EXISTS Jogadores (
-                    IdJogador INT AUTO_INCREMENT PRIMARY KEY,
+                    Id INT AUTO_INCREMENT PRIMARY KEY,
                     Username VARCHAR(255) NOT NULL,
                     Senha VARCHAR(255) NOT NULL,
-                    PersonagemId INT,
                     Vitorias INT DEFAULT 0,
-                    Derrotas INT DEFAULT 0,
-                    FOREIGN KEY (PersonagemId) REFERENCES Personagens(IdPersonagem)
+                    Derrotas INT DEFAULT 0
                 );", conexao);
                 comando.ExecuteNonQuery();
                 conexao.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo deu errado ao criar a tabela: " + ex.Message);
+                MessageBox.Show("Algo deu errado ao criar a tabela j: " + ex.Message);
             }
         }
 
@@ -66,10 +64,6 @@ namespace portasTestes.Repository
             }
         }
 
-        public void AssociarPersonagemAoJogador(int idJogador, int personagemId) {
-            Atualizar(idJogador, null, null, 0, 0, personagemId);
-        }
-
         public bool VerificarUsuarioExistente(string username, string senha) {
             MySqlConnection conexao = null;
             try {
@@ -89,6 +83,26 @@ namespace portasTestes.Repository
             } finally {
                 conexao?.Close();
             }
+        }
+
+        public Jogador GetJogadorPorUsername(string username) {
+            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
+                conexao.Open();
+
+                var comando = new MySqlCommand("SELECT Id, Username, Senha FROM Jogadores WHERE Username = @Username;", conexao);
+                comando.Parameters.AddWithValue("@Username", username);
+
+                using (var reader = comando.ExecuteReader()) {
+                    if (reader.Read()) {
+                        return new Jogador {
+                            IdJogador = reader.GetInt32("Id"),
+                            Username = reader.GetString("Username"),
+                            Senha = reader.GetString("Senha")
+                        };
+                    }
+                }
+            }
+            return null;
         }
 
         public bool VerificarUsernameExistente(string username) {
@@ -121,7 +135,7 @@ namespace portasTestes.Repository
                 var reader = comando.ExecuteReader();
                 while (reader.Read()) {
                     jogadores.Add((
-                        reader.GetInt32("IdJogador"),
+                        reader.GetInt32("Id"),
                         reader.GetString("Username"),
                         reader.GetInt32("Vitorias"),
                         reader.GetInt32("Derrotas"),
@@ -137,7 +151,7 @@ namespace portasTestes.Repository
             return jogadores;
         }
 
-        public void Atualizar(int idJogador, string username = null, string senha = null, int? vitorias = null, int? derrotas = null, int? personagemId = null) {
+        public void Atualizar(int idJogador, string username = null, string senha = null, int? vitorias = null, int? derrotas = null) {
             MySqlConnection conexao = null;
             //esse att eh tipo aquele do anisio que ele deu nas ultimas aulas, que eh flexivel e vai somando no query
             try {
@@ -168,15 +182,11 @@ namespace portasTestes.Repository
                     query += "Derrotas = @Derrotas, ";
                     parametros.Add(new MySqlParameter("@Derrotas", derrotas.Value));
                 }
-
-                if (personagemId.HasValue) {
-                    query += "PersonagemId = @PersonagemId, ";
-                    parametros.Add(new MySqlParameter("@PersonagemId", personagemId.Value));
-                }
-                query = query.TrimEnd(',', ' ') + " WHERE IdJogador = @IdJogador;";
+          
+                query = query.TrimEnd(',', ' ') + " WHERE Id = @Id;";
 
 
-                parametros.Add(new MySqlParameter("@IdJogador", idJogador));
+                parametros.Add(new MySqlParameter("@Id", idJogador));
                 var comando = new MySqlCommand(query, conexao);
                 comando.Parameters.AddRange(parametros.ToArray());
                 comando.ExecuteNonQuery();
@@ -195,8 +205,8 @@ namespace portasTestes.Repository
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("DELETE FROM Jogadores WHERE IdJogador = @IdJogador;", conexao);
-                comando.Parameters.AddWithValue("@IdJogador", idJogador);
+                var comando = new MySqlCommand("DELETE FROM Jogadores WHERE Id = @Id;", conexao);
+                comando.Parameters.AddWithValue("@Id", idJogador);
                 comando.ExecuteNonQuery();
                 conexao.Close();
             }
@@ -211,12 +221,12 @@ namespace portasTestes.Repository
             try {
                 conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("SELECT IdJogador FROM Jogadores WHERE Username = @Username;", conexao);
+                var comando = new MySqlCommand("SELECT Id FROM Jogadores WHERE Username = @Username;", conexao);
                 comando.Parameters.AddWithValue("@Username", username);
 
                 var reader = comando.ExecuteReader();
                 if (reader.Read()) {
-                    return reader.GetInt32("IdJogador");
+                    return reader.GetInt32("Id");
                 } else {
                     return -1;
                 }

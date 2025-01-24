@@ -29,7 +29,7 @@ namespace portasTestes.Repository
                     IdJogador INT NOT NULL,
                     FaseAtual INT NOT NULL,
                     PortasPassadas INT NOT NULL,
-                    FOREIGN KEY (IdJogador) REFERENCES Jogadores(IdJogador)
+                    FOREIGN KEY (IdJogador) REFERENCES Jogadores(Id)
                 );", conexao);
                 comando.ExecuteNonQuery();
                 conexao.Close();

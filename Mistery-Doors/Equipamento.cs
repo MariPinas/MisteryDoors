@@ -13,6 +13,8 @@ namespace portasTestes
         private double Dano { get; set; }
         private string Raridade { get; set; }
 
+        public Equipamento() { }
+
         public Equipamento(string nome, int dano, string raridade)
         {
             this.Nome = nome;

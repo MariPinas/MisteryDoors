@@ -12,14 +12,12 @@ using portasTestes.Repository;
 namespace portasTestes {
     public partial class TelaPerfil : Form {
 
-        private string Username {  get; set; }
+        private string Username { get; set; }
 
-        public void setUsername(string nome) {
-            Username = nome;
-        }
-
-        public TelaPerfil() {
+       
+        public TelaPerfil(string nomeUsuario) {
             InitializeComponent();
+            this.Username = nomeUsuario; 
             lblNomeUsu.Visible = true;
             lblNovaSenha.Visible = false;
             lblNovoNome.Visible = false;
@@ -30,10 +28,10 @@ namespace portasTestes {
         }
 
         private void TelaPerfil_Load(object sender, EventArgs e) {
-            lblNomeUsu.Text = $"Bem vindo(a) ao seu perfil, {Username}!";
+            lblNomeUsu.Text = $"Bem-vindo(a) ao seu perfil, {Username}!";
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e) {         
+        private void btnSalvar_Click(object sender, EventArgs e) {
             string novoUsername = txtNovoNome.Text;
             string novaSenha = txtNovaSenha.Text;
 
@@ -45,7 +43,7 @@ namespace portasTestes {
             MessageBox.Show("Perfil atualizado com sucesso!");
             btnEditarPerfil.Visible = true;
 
-            // Esconde os controles de edição
+           
             lblNovaSenha.Visible = false;
             lblNovoNome.Visible = false;
             txtNovoNome.Visible = false;
@@ -57,13 +55,13 @@ namespace portasTestes {
         private void AtualizarPerfil(string novoUsername, string novaSenha) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
-            int idJogador = jogadorRepository.getIdJogador(TelaLogin.getUsername());
+            int idJogador = jogadorRepository.getIdJogador(Username);
 
             if (idJogador == -1) {
                 MessageBox.Show("Jogador não encontrado!");
                 return;
             }
-            // Atualizando o usuario no banco
+            
             jogadorRepository.Atualizar(idJogador, novoUsername, novaSenha);
             GerenciadorForms.TelaPersonagem.Show();
             this.Hide();
@@ -76,7 +74,7 @@ namespace portasTestes {
             lblNovaSenha.Visible = true;
             txtNovoNome.Visible = true;
             txtNovaSenha.Visible = true;
-            
+
             btnSalvar.Visible = true;
             btnDeletarConta.Visible = true;
         }
@@ -86,7 +84,7 @@ namespace portasTestes {
             var resposta = MessageBox.Show("Tem certeza de que deseja excluir sua conta?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resposta == DialogResult.Yes) {
-                int idJogador = jogadorRepository.getIdJogador(TelaLogin.getUsername());
+                int idJogador = jogadorRepository.getIdJogador(Username);
 
                 jogadorRepository.Deletar(idJogador);
 

@@ -12,17 +12,26 @@ using portasTestes.Repository;
 
 namespace portasTestes {
     public partial class TelaPersonagem : Form {
-
+        private  Jogador _jogador {  get; set; }
         private string levelSelec;
 
-        public TelaPersonagem() {
+        PersonagemRepository personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+        JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+        public TelaPersonagem(Jogador jogador) {
             InitializeComponent();
-
+            this._jogador = jogador;
             this.Size = new Size(800, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Resize += (s, e) => this.Invalidate();
 
             botaoJogar.Visible = false;
+        }
+
+        public Jogador getJogador() {
+            return this._jogador;
+        }
+        public void setJogador(Jogador jogador) {
+            this._jogador = jogador;
         }
 
         protected override void OnPaint(PaintEventArgs e) {
@@ -82,83 +91,73 @@ namespace portasTestes {
         }
 
         private void btnFacil_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnFacil, "Facil");
+            SelecionarDificuldade(btnFacil, "facil");
         }
 
         private void btnMedio_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnMedio, "Medio");
+            SelecionarDificuldade(btnMedio, "medio");
         }
 
         private void btnDificil_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnDificil, "Dificil");
+            SelecionarDificuldade(btnDificil, "dificil");
         }
 
         private void btnExtremo_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnExtremo, "Extremo");
+            SelecionarDificuldade(btnExtremo, "extremo");
         }
 
-        private int InstanciarFase(string dificuldade) {
-            Fase fase = new Fase(dificuldade); 
-            var faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-
-            return faseRepository.AdicionarFase(fase);
+        private int ObterIdFase(string dificuldade) {
+            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            return faseRepository.ObterIdDificuldade(dificuldade); //return idFase correspondente a dificuldade selecionada
         }
 
-        public int CriarPersonagem(int faseId)
+        public Personagem CriarPersonagem(int faseId, int jogadorId)
         {
-            if(GerenciadorForms.Personagem != null)
-            {
-                MessageBox.Show("Voce ja tem um personagem criado!");
-                return -1;
-            }
-            if (string.IsNullOrWhiteSpace(txtNickname.Text))
-            {
-                MessageBox.Show("Digite um nome para o seu personagem antes de continuar.");
-                return -1;
-            }
+           
+            Personagem personagem = new Personagem(txtNickname.Text, faseId, jogadorId);
+            //Equipamento nova = Equipamento.GerarEquipamento();
+            //personagem.setArma(nova);
 
-            Personagem personagem = new Personagem(txtNickname.Text, faseId);
-            Equipamento nova = Equipamento.GerarEquipamento();
-            personagem.setArmaId(nova);
-
-            GerenciadorForms.Personagem = personagem;
+           // GerenciadorForms.Personagem = personagem;
 
             var personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             return personagemRepository.AdicionarPersonagem(personagem);
         }
-       
-        public void AssociarPersonagemAoJogador(int jogadorId, int personagemId) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            jogadorRepository.AssociarPersonagemAoJogador(jogadorId, personagemId);
-        }
+
 
         private void botaoJogar_Click(object sender, EventArgs e) {
-            JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            if (levelSelec == null) {
-                MessageBox.Show("Selecione uma dificuldade primeiro.");
-                return;
+            Personagem personagem = _jogador.Personagens.FirstOrDefault();
+
+            if (personagem != null) {
+                GerenciadorForms.AbrirTelaJogo(_jogador, personagem);
+                this.Hide();
+            } else {
+                MessageBox.Show("Voce nao tem personagens, criando ...");
+                Jogador jogador1 = getJogador();
+                int jogadorId = jogadorRepository.getIdJogador(TelaLogin.getUsername());
+                int faseId = ObterIdFase(levelSelec);
+                personagem = CriarPersonagem(faseId, jogadorId);
+                personagemRepository.AssociarPersonagemAoJogador(personagem.getIdPersonagem(), jogadorId);
+
+                MessageBox.Show("Personagem criado e associado com sucesso!");
+                this.Hide();
+                GerenciadorForms.AbrirTelaJogo(jogador1, personagem);
             }
-
-            int faseId = InstanciarFase(levelSelec);
-            int personagem = CriarPersonagem(faseId);
-
-            MessageBox.Show("Personagem criado e associado com sucesso!");
-            this.Hide();
-            GerenciadorForms.TelaJogo.Show();  
+            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e) {
             this.Hide();
-            GerenciadorForms.TelaLogin.Show();
+            GerenciadorForms.InicializarTelaLogin();
     }
 
         private void btnPerfil_Click(object sender, EventArgs e) {
             string username = TelaLogin.getUsername();
-           
-            GerenciadorForms.TelaPerfil.setUsername(username);
+            TelaPerfil telaPerfil = new TelaPerfil(username);  
             this.Hide();
-            GerenciadorForms.TelaPerfil.Show();
+            telaPerfil.Show();
         }
+
 
         private void textBox1_TextChanged_2(object sender, EventArgs e)
         {

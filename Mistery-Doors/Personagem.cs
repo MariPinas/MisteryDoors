@@ -1,4 +1,5 @@
 ﻿using portasTestes;
+using portasTestes.Repository;
 using System;
 
 public class Personagem {
@@ -6,19 +7,30 @@ public class Personagem {
     private string Name { get; set; }
     private double VidaPersonagem { get; set; } = 3;
     private double DanoPersonagem { get; set; } = 5;
-    private Equipamento ArmaId { get; set; }
-    private Portas ProgressoId { get; set; }
+    private Equipamento Arma { get; set; }
+    private int ProgressoId { get; set; }
     private int FaseId { get; set; }
+    private int IdJogador {  get; set; }
 
+    public int getIdJogador() {
+        return IdJogador;
+    }
+
+    public void setIdJogador(int idJogador) {
+        this.IdJogador = idJogador;
+    }
     public Personagem() { }
     public Personagem(Equipamento i) {
-        this.ArmaId = i;
+        this.Arma = i;
             }
 
-    public Personagem(string nome, int dificuldadeid) {
+    public Personagem(string nome, int dificuldadeid, int jogadorId) {
         this.Name = nome;
         this.FaseId = dificuldadeid;
+        this.IdJogador = jogadorId;
     }
+    public int getIdPersonagem() {  return IdPersonagem; }
+    public void setIdPersonagem(int id) {  IdPersonagem = id; }
 
     public string getNomePersonagem() {
         return this.Name;
@@ -34,16 +46,31 @@ public class Personagem {
     public void PerderVida() {
         if (this.VidaPersonagem > 0)
             VidaPersonagem -= 0.5;
+        VerificarMortePersonagem();
     }
+    private void VerificarMortePersonagem() {
+        if (this.VidaPersonagem <= 0) {
+            
+            Console.WriteLine($"{Name} morreu!");
 
+            var repository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            repository.Deletar(IdPersonagem);
+
+        }
+    }
     public void GanharVida() {
         if (this.VidaPersonagem < 3)
             VidaPersonagem++;
     }
 
     public void EquiparArma(Equipamento novaArma, double bonusDano) {
-        ArmaId = novaArma;
+        Arma = novaArma;
         DanoPersonagem = 5 + bonusDano;
+        Console.WriteLine("atualizar Dano");
+        Console.WriteLine($"{IdPersonagem} e {DanoPersonagem} e {Name}");
+        var repository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+        repository.AtualizarDano(IdPersonagem, DanoPersonagem);
+        Console.WriteLine("Dano atualizado");
     }
 
     public double getVidaPersonagem()
@@ -66,22 +93,22 @@ public class Personagem {
         this.DanoPersonagem = dano;
     }
 
-    public Equipamento getArmaId()
+    public Equipamento getArma()
     {
-        return this.ArmaId;
+        return this.Arma;
     }
 
-    public void setArmaId(Equipamento arma)
+    public void setArma(Equipamento arma)
     {
-        this.ArmaId = arma;
+        this.Arma = arma;
     }
 
-    public Portas getProgressoId()
+    public int getProgressoId()
     {
         return this.ProgressoId;
     }
 
-    public void setProgresso(Portas progresso)
+    public void setProgresso(int progresso)
     {
         this.ProgressoId = progresso;
     }
