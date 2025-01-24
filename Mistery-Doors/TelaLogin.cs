@@ -8,7 +8,11 @@ namespace portasTestes {
     public partial class TelaLogin : Form {
         private static string username;
         private static string senha;
+        private static int jogadorId;
 
+        public static int getJogadorId() {
+            return jogadorId;
+        }
         public static string getUsername() {
             return username;
         }
@@ -135,8 +139,10 @@ namespace portasTestes {
         private void EntrarUsuario(string nomeUser, string senhaUser) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
 
-            //verificar login
+            // verificar login
             if (jogadorRepository.VerificarUsuarioExistente(nomeUser, senhaUser)) {
+                // pega o id de jogador
+                jogadorId = jogadorRepository.getIdJogador(nomeUser);
                 MessageBox.Show("Login realizado com sucesso!");
                 this.Hide();
                 GerenciadorForms.TelaPersonagem.Show();

@@ -103,33 +103,29 @@ namespace portasTestes {
                 return;
             }
 
-           
             if (string.IsNullOrWhiteSpace(levelSelec)) {
                 MessageBox.Show("Por favor, selecione uma dificuldade!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            
             var faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             int dificuldadeId = faseRepository.ObterIdDificuldade(levelSelec);
 
-           
             var personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             int? personagemId = personagemRepository.Adicionar(nomeJogador, dificuldadeId);
-            
+
+            int jogadorId = TelaLogin.getJogadorId();//id logado de jogador
 
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            jogadorRepository.AssociarPersonagemAoJogador(jogadorId, personagemId);
+            jogadorRepository.AssociarPersonagemAoJogador(jogadorId, (int)personagemId);
 
-            
-            lblNomePersonagem.Visible = true; 
+            lblNomePersonagem.Visible = true;
             lblNomePersonagem.Text = "Nome do Personagem: " + nomeJogador;
 
             txtNickname.Visible = false;
 
-            
-            GerenciadorForms.TelaJogo.NomeJogador = nomeJogador;
-            GerenciadorForms.TelaJogo.DificuldadeId = levelSelec;
+            GerenciadorForms.TelaJogo.setNomeJogador(nomeJogador);
+            GerenciadorForms.TelaJogo.setNomeJogador(levelSelec);
 
             this.Hide();
             GerenciadorForms.TelaJogo.Show();
