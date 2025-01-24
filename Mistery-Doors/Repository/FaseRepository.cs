@@ -26,7 +26,7 @@ namespace portasTestes.Repository
                 var comando = new MySqlCommand(@"
                 CREATE TABLE IF NOT EXISTS Fases (
                     IdFase INT AUTO_INCREMENT PRIMARY KEY,
-                    Dificuldade VARCHAR(255) NOT NULL,
+                    DificuldadeId VARCHAR(255) NOT NULL,
                     PortasParaVencer INT NOT NULL
                 );", conexao);
                 comando.ExecuteNonQuery();
@@ -44,8 +44,8 @@ namespace portasTestes.Repository
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("INSERT INTO Fases (Dificuldade, PortasParaVencer) VALUES (@Dificuldade, @PortasParaVencer);", conexao);
-                comando.Parameters.AddWithValue("@Dificuldade", dificuldade);
+                var comando = new MySqlCommand("INSERT INTO Fases (DificuldadeId, PortasParaVencer) VALUES (@DificuldadeId, @PortasParaVencer);", conexao);
+                comando.Parameters.AddWithValue("@DificuldadeId", dificuldade);
                 comando.Parameters.AddWithValue("@PortasParaVencer", PortasParaVencer);
                 comando.ExecuteNonQuery();
                 conexao.Close();
@@ -56,7 +56,7 @@ namespace portasTestes.Repository
             }
         }
 
-        public List<(int IdFase, string Dificuldade, int PortasParaVencer)> ObterTodas()
+        public List<(int IdFase, string DificuldadeId, int PortasParaVencer)> ObterTodas()
         {
             var fases = new List<(int, string, int)>();
             try
@@ -70,7 +70,7 @@ namespace portasTestes.Repository
                     {
                         fases.Add((
                             reader.GetInt32("IdFase"),
-                            reader.GetString("Dificuldade"),
+                            reader.GetString("DificuldadeId"),
                             reader.GetInt32("PortasParaVencer")
                         ));
                     }
@@ -91,8 +91,8 @@ namespace portasTestes.Repository
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("UPDATE Fases SET Dificuldade = @Dificuldade, PortasParaVencer = @PortasParaVencer WHERE IdFase = @IdFase;", conexao);
-                comando.Parameters.AddWithValue("@Dificuldade", dificuldade);
+                var comando = new MySqlCommand("UPDATE Fases SET DificuldadeId = @DificuldadeId, PortasParaVencer = @PortasParaVencer WHERE IdFase = @IdFase;", conexao);
+                comando.Parameters.AddWithValue("@DificuldadeId", dificuldade);
                 comando.Parameters.AddWithValue("@PortasParaVencer", PortasParaVencer);
                 comando.Parameters.AddWithValue("@IdFase", idFase);
                 comando.ExecuteNonQuery();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace portasTestes
 {
-    public class Progresso
+    public class ProgressoId
     {
         private int IdProgresso { get; set; }
         private int IdJogador { get; set; }

@@ -129,7 +129,7 @@ namespace portasTestes {
 
             // Redireciona para o jogo
             GerenciadorForms.TelaJogo.NomeJogador = nomeJogador;
-            GerenciadorForms.TelaJogo.Dificuldade = levelSelec;
+            GerenciadorForms.TelaJogo.DificuldadeId = levelSelec;
 
             this.Hide();
             GerenciadorForms.TelaJogo.Show();

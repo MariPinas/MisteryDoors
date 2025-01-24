@@ -14,7 +14,7 @@ namespace portasTestes
     public partial class TelaJogo : Form
     {
         private string NomeJogador { get; set; } //
-        private string Dificuldade { get; set; }
+        private string DificuldadeId { get; set; }
 
         private Personagem personagem;
 
@@ -22,21 +22,21 @@ namespace portasTestes
             return NomeJogador;
         }
         public string getDificuldade() {  
-            return Dificuldade; 
+            return DificuldadeId; 
         }
 
         public void setNomeJogador(string nome) {
             NomeJogador = nome;
         }
         public void setDificuldade(string dificuldade) {
-            Dificuldade = dificuldade;
+            DificuldadeId = dificuldade;
         }
 
 
         private void Form1_Load(object sender, EventArgs e) {
 
             lblNickname.Text = $"Jogador: {NomeJogador}";
-            lblDificuldade.Text = $"Dificuldade: {Dificuldade}";
+            lblDificuldade.Text = $"DificuldadeId: {DificuldadeId}";
         }
 
         private PictureBox portaSelecionada;

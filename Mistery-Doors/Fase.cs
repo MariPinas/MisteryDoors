@@ -9,12 +9,12 @@ namespace portasTestes
     public class Fase
     {
         private int IdFase { get; set; }
-        private string Dificuldade { get; set; }
+        private string DificuldadeId { get; set; }
         private int PortasParaVencer { get; set; }
 
         public Fase(string dificuldade)
         {
-            Dificuldade = dificuldade;
+            DificuldadeId = dificuldade;
             switch(dificuldade.ToLower())
             {
                 case "facil":

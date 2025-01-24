@@ -55,7 +55,7 @@ namespace portasTestes
         {
             personagem.EquiparArma(personagem.getArmaId(), personagem.getArmaId().getDano()); 
             string log =$"🔹 {personagem.getNomePersonagem()} está enfrentando {inimigo.getNome()}!\n\n" +
-                        $"⚔️ Seu dano: {personagem.getDanoPersonagem()} | Arma: {personagem.getArmaId().getNome()} (Dano: {personagem.getArmaId().getDano()})\n" +
+                        $"⚔️ Seu dano: {personagem.getDanoPersonagem()} | ArmaId: {personagem.getArmaId().getNome()} (Dano: {personagem.getArmaId().getDano()})\n" +
                         $"👾 Dano do inimigo: {inimigo.getDano()}";
             if (personagem.getDanoPersonagem() > inimigo.getDano())
             {

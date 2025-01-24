@@ -24,7 +24,7 @@ namespace portasTestes.Repository
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
                 var comando = new MySqlCommand(@"
-                CREATE TABLE IF NOT EXISTS Progresso (
+                CREATE TABLE IF NOT EXISTS ProgressoId (
                     IdProgresso INT AUTO_INCREMENT PRIMARY KEY,
                     IdJogador INT NOT NULL,
                     FaseAtual INT NOT NULL,
@@ -47,7 +47,7 @@ namespace portasTestes.Repository
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
                 var comando = new MySqlCommand(@"
-                INSERT INTO Progresso (IdJogador, FaseAtual, PortasPassadas)
+                INSERT INTO ProgressoId (IdJogador, FaseAtual, PortasPassadas)
                 VALUES (@IdJogador, @FaseAtual, @PortasPassadas);", conexao);
                 comando.Parameters.AddWithValue("@IdJogador", idJogador);
                 comando.Parameters.AddWithValue("@FaseAtual", faseAtual);
@@ -68,7 +68,7 @@ namespace portasTestes.Repository
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("SELECT * FROM Progresso;", conexao);
+                var comando = new MySqlCommand("SELECT * FROM ProgressoId;", conexao);
                 using (var reader = comando.ExecuteReader())
                 {
                     while (reader.Read())
@@ -98,7 +98,7 @@ namespace portasTestes.Repository
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
                 var comando = new MySqlCommand(@"
-                UPDATE Progresso
+                UPDATE ProgressoId
                 SET FaseAtual = @FaseAtual, PortasPassadas = @PortasPassadas
                 WHERE IdProgresso = @IdProgresso;", conexao);
                 comando.Parameters.AddWithValue("@FaseAtual", faseAtual);
@@ -119,7 +119,7 @@ namespace portasTestes.Repository
             {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
-                var comando = new MySqlCommand("DELETE FROM Progresso WHERE IdProgresso = @IdProgresso;", conexao);
+                var comando = new MySqlCommand("DELETE FROM ProgressoId WHERE IdProgresso = @IdProgresso;", conexao);
                 comando.Parameters.AddWithValue("@IdProgresso", idProgresso);
                 comando.ExecuteNonQuery();
                 conexao.Close();

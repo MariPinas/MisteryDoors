@@ -6,22 +6,22 @@ public class Personagem {
     private string Name { get; set; }
     private double VidaPersonagem { get; set; } = 3;
     private double DanoPersonagem { get; set; } = 5;
-    private Equipamento Arma { get; set; }
-    private Portas Progresso { get; set; }
-    private Fase Dificuldade { get; set; }
+    private Equipamento ArmaId { get; set; }
+    private Portas ProgressoId { get; set; }
+    private Fase DificuldadeId { get; set; }
 
     public Personagem() { }
 
     public Personagem(string nome, Fase dificuldade) {
         this.Name = nome;
-        this.Dificuldade = dificuldade;
+        this.DificuldadeId = dificuldade;
     }
 
-    public string GetNomePersonagem() {
+    public string getNomePersonagem() {
         return this.Name;
     }
 
-    public void SetNomePersonagem(string name) {
+    public void setNomePersonagem(string name) {
         if (string.IsNullOrWhiteSpace(name)) {
             throw new ArgumentException("Nome não pode ser vazio");
         }
@@ -39,7 +39,7 @@ public class Personagem {
     }
 
     public void EquiparArma(Equipamento novaArma, double bonusDano) {
-        Arma = novaArma;
+        ArmaId = novaArma;
         DanoPersonagem = 5 + bonusDano;
     }
 
@@ -63,34 +63,34 @@ public class Personagem {
         this.DanoPersonagem = dano;
     }
 
-    public Equipamento getArma()
+    public Equipamento getArmaId()
     {
-        return this.Arma;
+        return this.ArmaId;
     }
 
-    public void setArma(Equipamento arma)
+    public void setArmaId(Equipamento arma)
     {
-        this.Arma = arma;
+        this.ArmaId = arma;
     }
 
-    public Portas getProgresso()
+    public Portas getProgressoId()
     {
-        return this.Progresso;
+        return this.ProgressoId;
     }
 
     public void setProgresso(Portas progresso)
     {
-        this.Progresso = progresso;
+        this.ProgressoId = progresso;
     }
 
     public Fase getDificuldade()
     {
-        return this.Dificuldade;
+        return this.DificuldadeId;
     }
 
     public void setDificuldade(Fase dificuldade)
     {
-        this.Dificuldade = dificuldade;
+        this.DificuldadeId = dificuldade;
     }
 
 }
