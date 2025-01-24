@@ -45,30 +45,29 @@ namespace portasTestes.Repository
             }
         }
 
-        public void Adicionar(string nome, int dificuldadeId) {
-            try
-            {
+        public int? Adicionar(string nome, int dificuldadeId) {
+            try {
                 var conexao = new MySqlConnection(_connectionString);
                 conexao.Open();
 
-
-                //var comando = new MySqlCommand(@"
-                //INSERT INTO Personagens (Name, VidaPersonagem, DanoPersonagem, ArmaId, ProgressoId, DificuldadeId)
-                //VALUES (@Name, @VidaPersonagem, @DanoPersonagem, @ArmaId, @ProgressoId, @DificuldadeId);", conexao);
+                
                 var comando = new MySqlCommand("INSERT INTO Personagens (Name, DificuldadeId) VALUES (@Name, @DificuldadeId);", conexao);
                 comando.Parameters.AddWithValue("@Name", nome);
                 comando.Parameters.AddWithValue("@DificuldadeId", dificuldadeId);
-                //comando.Parameters.AddWithValue("@VidaPersonagem", vidaPersonagem);
-                //comando.Parameters.AddWithValue("@DanoPersonagem", danoPersonagem);
-                //comando.Parameters.AddWithValue("@ArmaId", armaId.HasValue ? (object)armaId.Value : DBNull.Value);
-                //comando.Parameters.AddWithValue("@ProgressoId", progressoId.HasValue ? (object)progressoId.Value : DBNull.Value);
-                //comando.Parameters.AddWithValue("@DificuldadeId", dificuldadeId.HasValue ? (object)dificuldadeId.Value : DBNull.Value);
+
+                
                 comando.ExecuteNonQuery();
+
+                
+                var comandoId = new MySqlCommand("SELECT LAST_INSERT_ID();", conexao);
+                int? idPersonagem = Convert.ToInt32(comandoId.ExecuteScalar());
+
                 conexao.Close();
-            }
-            catch (Exception ex)
-            {
+
+                return idPersonagem;
+            } catch (Exception ex) {
                 MessageBox.Show("Algo deu errado ao adicionar o personagem: " + ex.Message);
+                return null;
             }
         }
 

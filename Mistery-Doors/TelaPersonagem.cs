@@ -103,31 +103,31 @@ namespace portasTestes {
                 return;
             }
 
-            // Verifica se a dificuldade foi selecionada
+           
             if (string.IsNullOrWhiteSpace(levelSelec)) {
                 MessageBox.Show("Por favor, selecione uma dificuldade!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Salva o nome e a dificuldade na tabela Fase
+            
             var faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            int dificuldadeId = faseRepository.ObterIdDificuldade(levelSelec); // obtém o ID da dificuldade selecionada
+            int dificuldadeId = faseRepository.ObterIdDificuldade(levelSelec);
 
-            // Salva o personagem no banco de dados
+           
             var personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            int personagemId = personagemRepository.CriarPersonagem(nomeJogador, dificuldadeId);
+            int? personagemId = personagemRepository.Adicionar(nomeJogador, dificuldadeId);
+            
 
-            // Atualiza o personagem do jogador (associa o personagem ao jogador)
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             jogadorRepository.AssociarPersonagemAoJogador(jogadorId, personagemId);
 
-            // Exibe o nome do personagem na Label e oculta a TextBox
-            lblNomePersonagem.Visible = true; // Exibe a Label com o nome
+            
+            lblNomePersonagem.Visible = true; 
             lblNomePersonagem.Text = "Nome do Personagem: " + nomeJogador;
 
-            txtNickname.Visible = false; // Oculta a TextBox
+            txtNickname.Visible = false;
 
-            // Redireciona para o jogo
+            
             GerenciadorForms.TelaJogo.NomeJogador = nomeJogador;
             GerenciadorForms.TelaJogo.DificuldadeId = levelSelec;
 
