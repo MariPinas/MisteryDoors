@@ -16,6 +16,8 @@ namespace portasTestes
         private Portas ProgressoId { get; set; }
         private Fase DificuldadeId { get; set; }
 
+        public Personagem() { }
+
         public Personagem(string nome, Fase dificuldadeId) {
             this.Name = nome;
             this.DificuldadeId = dificuldadeId;

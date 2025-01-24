@@ -1,106 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\",
+  "WorkspaceRootPath": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telapersonagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telapersonagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\progresso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:progresso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\telaperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telaperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\telaperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telaperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telainicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telainicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telapersonagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\telapersonagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telapersonagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\gerenciadorforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:gerenciadorforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\portas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:portas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\inimigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:inimigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\repository\\jogadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:repository\\jogadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\telaperfil.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telaperfil.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\telalogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telalogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\maria\\source\\repos\\misterydoors\\mistery-doors\\repository\\personagemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:repository\\personagemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telainicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telainicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\personagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\personagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:personagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telajogo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telajogo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\equipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\equipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:equipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\telapersonagem.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telapersonagem.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\inimigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:inimigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\repository\\equipamentorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:repository\\equipamentorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\repository\\portasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:repository\\portasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\telainicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:telainicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|c:\\users\\brunno pb\\source\\repos\\misterydoors\\mistery-doors\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAA7BB25-2F6C-4730-81C9-84A7017E479A}|portasTestes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,24 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Program.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAswA8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T02:35:19.651Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Progresso.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Progresso.cs",
+              "RelativeDocumentMoniker": "Progresso.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Progresso.cs",
+              "RelativeToolTip": "Progresso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T00:07:58.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Inimigo.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Inimigo.cs",
+              "RelativeDocumentMoniker": "Inimigo.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Inimigo.cs",
+              "RelativeToolTip": "Inimigo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T00:03:57.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TelaPersonagem.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.cs",
+              "RelativeDocumentMoniker": "TelaPersonagem.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.cs",
+              "RelativeToolTip": "TelaPersonagem.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T00:03:36.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Personagem.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Personagem.cs",
+              "RelativeDocumentMoniker": "Personagem.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Personagem.cs",
+              "RelativeToolTip": "Personagem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T23:49:35.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TelaJogo.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs",
+              "RelativeDocumentMoniker": "TelaJogo.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs",
+              "RelativeToolTip": "TelaJogo.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwC8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T23:47:52.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TelaJogo.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs",
+              "RelativeDocumentMoniker": "TelaJogo.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs [Design]",
+              "RelativeToolTip": "TelaJogo.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T23:47:47.827Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Equipamento.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Equipamento.cs",
+              "RelativeDocumentMoniker": "Equipamento.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\Equipamento.cs",
+              "RelativeToolTip": "Equipamento.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T23:47:32.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TelaLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.cs",
+              "RelativeDocumentMoniker": "TelaLogin.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.cs",
+              "RelativeToolTip": "TelaLogin.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T23:50:19.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TelaInicio.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaInicio.cs",
+              "RelativeDocumentMoniker": "TelaInicio.cs",
+              "ToolTip": "C:\\Users\\Brunno PB\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaInicio.cs [Design]",
+              "RelativeToolTip": "TelaInicio.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T23:47:46.795Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -142,307 +194,16 @@
               "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TelaPerfil.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPerfil.cs",
-              "RelativeDocumentMoniker": "TelaPerfil.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPerfil.cs [Design]",
-              "RelativeToolTip": "TelaPerfil.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T20:17:28.983Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TelaPerfil.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPerfil.cs",
-              "RelativeDocumentMoniker": "TelaPerfil.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPerfil.cs",
-              "RelativeToolTip": "TelaPerfil.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAIwFYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T19:01:44.861Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TelaJogo.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs",
-              "RelativeDocumentMoniker": "TelaJogo.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs [Design]",
-              "RelativeToolTip": "TelaJogo.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:26:18.323Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TelaJogo.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs",
-              "RelativeDocumentMoniker": "TelaJogo.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.cs",
-              "RelativeToolTip": "TelaJogo.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAwCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:26:21.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TelaPersonagem.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.cs",
-              "RelativeDocumentMoniker": "TelaPersonagem.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.cs [Design]",
-              "RelativeToolTip": "TelaPersonagem.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:31:42.88Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TelaLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.cs",
-              "RelativeDocumentMoniker": "TelaLogin.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.cs [Design]",
-              "RelativeToolTip": "TelaLogin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T20:35:50.226Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TelaInicio.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaInicio.cs",
-              "RelativeDocumentMoniker": "TelaInicio.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaInicio.cs [Design]",
-              "RelativeToolTip": "TelaInicio.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T17:56:59.991Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TelaPersonagem.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.cs",
-              "RelativeDocumentMoniker": "TelaPersonagem.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.cs",
-              "RelativeToolTip": "TelaPersonagem.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAcwHcAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T18:09:53.351Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GerenciadorForms.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\GerenciadorForms.cs",
-              "RelativeDocumentMoniker": "GerenciadorForms.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\GerenciadorForms.cs",
-              "RelativeToolTip": "GerenciadorForms.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:23:34.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Portas.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Portas.cs",
-              "RelativeDocumentMoniker": "Portas.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Portas.cs",
-              "RelativeToolTip": "Portas.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T03:09:16.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Inimigo.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Inimigo.cs",
-              "RelativeDocumentMoniker": "Inimigo.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Inimigo.cs",
-              "RelativeToolTip": "Inimigo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T20:49:08.99Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Jogador.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Jogador.cs",
-              "RelativeDocumentMoniker": "Jogador.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Jogador.cs",
-              "RelativeToolTip": "Jogador.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T16:07:59.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TelaLogin.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.cs",
-              "RelativeDocumentMoniker": "TelaLogin.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.cs",
-              "RelativeToolTip": "TelaLogin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T16:02:38.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "TelaPerfil.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\Source\\Repos\\MisteryDoors\\Mistery-Doors\\TelaPerfil.Designer.cs",
-              "RelativeDocumentMoniker": "TelaPerfil.Designer.cs",
-              "ToolTip": "C:\\Users\\maria\\Source\\Repos\\MisteryDoors\\Mistery-Doors\\TelaPerfil.Designer.cs",
-              "RelativeToolTip": "TelaPerfil.Designer.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAuwIUAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T19:03:37.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "JogadorRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\JogadorRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\JogadorRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\JogadorRepository.cs",
-              "RelativeToolTip": "Repository\\JogadorRepository.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T20:16:56.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "PersonagemRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\PersonagemRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\PersonagemRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\PersonagemRepository.cs",
-              "RelativeToolTip": "Repository\\PersonagemRepository.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAASwIEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T03:08:47.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "TelaLogin.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\Source\\Repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.Designer.cs",
-              "RelativeDocumentMoniker": "TelaLogin.Designer.cs",
-              "ToolTip": "C:\\Users\\maria\\Source\\Repos\\MisteryDoors\\Mistery-Doors\\TelaLogin.Designer.cs",
-              "RelativeToolTip": "TelaLogin.Designer.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAuwJEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T17:35:20.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TelaInicio.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaInicio.cs",
-              "RelativeDocumentMoniker": "TelaInicio.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaInicio.cs",
-              "RelativeToolTip": "TelaInicio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:19:27.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Personagem.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Personagem.cs",
-              "RelativeDocumentMoniker": "Personagem.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Personagem.cs",
-              "RelativeToolTip": "Personagem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T16:08:56.363Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "TelaJogo.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.Designer.cs",
-              "RelativeDocumentMoniker": "TelaJogo.Designer.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaJogo.Designer.cs",
-              "RelativeToolTip": "TelaJogo.Designer.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAuwBEBAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T21:36:11.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Equipamento.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Equipamento.cs",
-              "RelativeDocumentMoniker": "Equipamento.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Equipamento.cs",
-              "RelativeToolTip": "Equipamento.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:18:40.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "TelaPersonagem.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.Designer.cs",
-              "RelativeDocumentMoniker": "TelaPersonagem.Designer.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\TelaPersonagem.Designer.cs",
-              "RelativeToolTip": "TelaPersonagem.Designer.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAEwJMAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:37:18.958Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "EquipamentoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\EquipamentoRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\EquipamentoRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\EquipamentoRepository.cs",
-              "RelativeToolTip": "Repository\\EquipamentoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T18:25:29.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "PortasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\PortasRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\PortasRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\source\\repos\\MisteryDoors\\Mistery-Doors\\Repository\\PortasRepository.cs",
-              "RelativeToolTip": "Repository\\PortasRepository.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAABcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T03:09:46.652Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             }
           ]
         }

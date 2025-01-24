@@ -99,3 +99,5 @@ C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\bin\Debug\MySql.Data.xml
 C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.TelaLogin.resources
 C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.TelaPerfil.resources
 C:\Users\Nil\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTe.38E5C28A.Up2Date
+C:\Users\Brunno PB\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.TelaLogin.resources
+C:\Users\Brunno PB\Source\Repos\MisteryDoors\Mistery-Doors\obj\Debug\portasTestes.TelaPerfil.resources
