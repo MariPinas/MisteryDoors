@@ -16,6 +16,8 @@ namespace portasTestes
         private string NomeJogador { get; set; } //
         private string Dificuldade { get; set; }
 
+        private Personagem personagem;
+
         public string getNomeJogador() {
             return NomeJogador;
         }
@@ -40,11 +42,11 @@ namespace portasTestes
         private PictureBox portaSelecionada;
         Dictionary<PictureBox, Portas> portas = new Dictionary<PictureBox, Portas>();
 
-        Personagem personagem = new Personagem()
-        {
-            Name = "teste", //coloquei o NomeJogador ali
-            ArmaId = Equipamento.GerarEquipamento()
-        };
+        //Personagem personagem = new Personagem()
+        //{
+        //    Name = "teste", //coloquei o NomeJogador ali
+        //    ArmaId = Equipamento.GerarEquipamento()
+        //};
         
        
 
@@ -113,33 +115,33 @@ namespace portasTestes
         }
         public void trocarVisualVida(Personagem personagem)
         {
-            if (personagem.VidaPersonagem == 3)
+            if (personagem.getVidaPersonagem() == 3)
                 pctHeart3.Image = vidaCheia;
-            if (personagem.VidaPersonagem == 2.5)
+            if (personagem.getVidaPersonagem() == 2.5)
                 pctHeart3.Image = vidaMeia;
-            if (personagem.VidaPersonagem == 2)
+            if (personagem.getVidaPersonagem() == 2)
             {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaCheia;
             }
-            if (personagem.VidaPersonagem == 1.5)
+            if (personagem.getVidaPersonagem() == 1.5)
             {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaMeia;
             }
-            if (personagem.VidaPersonagem == 1)
+            if (personagem.getVidaPersonagem() == 1)
             {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaVazia;
                 pctHeart1.Image = vidaCheia;
             }
-            if (personagem.VidaPersonagem == 0.5)
+            if (personagem.getVidaPersonagem() == 0.5)
             {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaVazia;
                 pctHeart1.Image = vidaMeia;
             }
-            if (personagem.VidaPersonagem == 0)
+            if (personagem.getVidaPersonagem() == 0)
             {
                 pctHeart3.Image = vidaVazia;
                 pctHeart2.Image = vidaVazia;

@@ -38,11 +38,11 @@ namespace portasTestes
             {
                 Equipamento loot = Equipamento.GerarEquipamento();
                 resultado = $"\n🔹 Você encontrou um tesouro!\n" +
-                            $"✨ Equipamento: {loot.Nome}\n" +
-                            $"⚔️ Dano: {loot.Dano} | 🌟 Raridade: {loot.Raridade}";
-                if (loot.Dano >= personagem.ArmaId.Dano)
+                            $"✨ Equipamento: {loot.getNome()}\n" +
+                            $"⚔️ Dano: {loot.getDano()} | 🌟 Raridade: {loot.getRaridade()}";
+                if (loot.getDano() >= personagem.getArmaId().getDano())
                 {
-                    personagem.EquiparArma(loot, loot.Dano);
+                    personagem.EquiparArma(loot, loot.getDano());
                     resultado += $"\n✔️ Você equipou a nova arma, pois ela tem um dano maior!";
                 }
                 else
@@ -53,22 +53,22 @@ namespace portasTestes
 
         public string RealizarAcao(Personagem personagem, Inimigo inimigo)
         {
-            personagem.EquiparArma(personagem.ArmaId, personagem.ArmaId.Dano); //descomentar se nao fica a arma inicial bugada, o dano fica errado
-            string log =$"🔹 {personagem.Name} está enfrentando {inimigo.Nome}!\n\n" +
-                        $"⚔️ Seu dano: {personagem.DanoPersonagem} | Arma: {personagem.ArmaId.Nome} (Dano: {personagem.ArmaId.Dano})\n" +
-                        $"👾 Dano do inimigo: {inimigo.Dano}";
-            if (personagem.DanoPersonagem > inimigo.Dano)
+            personagem.EquiparArma(personagem.getArmaId(), personagem.getArmaId().getDano()); 
+            string log =$"🔹 {personagem.getNomePersonagem()} está enfrentando {inimigo.getNome()}!\n\n" +
+                        $"⚔️ Seu dano: {personagem.getDanoPersonagem()} | Arma: {personagem.getArmaId().getNome()} (Dano: {personagem.getArmaId().getDano()})\n" +
+                        $"👾 Dano do inimigo: {inimigo.getDano()}";
+            if (personagem.getDanoPersonagem() > inimigo.getDano())
             {
                 log += "\n\n🎉 Você venceu o combate!\n";
                 if (r.Next(0, 100) < 50)
                 {
                     Equipamento loot = Equipamento.GerarEquipamento();
                     log += $"\n✨ Você encontrou um tesouro:\n" +
-                           $"⚔️ {loot.Nome} | Dano: {loot.Dano} | 🌟 Raridade: {loot.Raridade}";
+                           $"⚔️ {loot.getNome()} | Dano: {loot.getDano()} | 🌟 Raridade: {loot.getRaridade()}";
 
-                    if (loot.Dano >= personagem.ArmaId.Dano)
+                    if (loot.getDano() >= personagem.getArmaId().getDano())
                     {
-                        personagem.EquiparArma(loot, loot.Dano);
+                        personagem.EquiparArma(loot, loot.getDano());
                         log += "\n✔️ Você equipou a nova arma, pois ela tem um dano maior!";
                     }
                     else

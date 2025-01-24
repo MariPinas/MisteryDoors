@@ -15,10 +15,29 @@ namespace portasTestes
         public Inimigo (string nome, int dano)
         {
             Nome = nome;
-            
             Dano = dano;
         }
 
-       
+        public string getNome()
+        {
+            return this.Nome;
+        }
+
+        public void setNome(string nome)
+        {
+            this.Nome = nome;
+        }
+
+        public int getDano()
+        {
+            return this.Dano;
+        }
+
+        public void setDano(int dano)
+        {
+            this.Dano = dano;
+        }
+
+
     }
 }

@@ -20,6 +20,47 @@ namespace portasTestes
             this.Raridade = raridade;
         }
 
+        public int getIdEquipamento()
+        {
+            return this.IdEquipamento;
+        }
+
+        public void setIdEquipamento(int idEquipamento)
+        {
+            this.IdEquipamento = idEquipamento;
+        }
+
+        public string getNome()
+        {
+            return this.Nome;
+        }
+
+        public void setNome(string nome)
+        {
+            this.Nome = nome;
+        }
+
+        public double getDano()
+        {
+            return this.Dano;
+        }
+
+        public void setDano(double dano)
+        {
+            this.Dano = dano;
+        }
+
+        public string getRaridade()
+        {
+            return this.Raridade;
+        }
+
+        public void setRaridade(string raridade)
+        {
+            this.Raridade = raridade;
+        }
+
+
         //static pra nao depender de uma instancia de um equipamento, so vai servir pra gerar um equip aleatorio sem precisar da instancia
         public static Equipamento GerarEquipamento()
         {

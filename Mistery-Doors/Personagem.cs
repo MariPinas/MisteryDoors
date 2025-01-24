@@ -42,4 +42,55 @@ public class Personagem {
         Arma = novaArma;
         DanoPersonagem = 5 + bonusDano;
     }
+
+    public double getVidaPersonagem()
+    {
+        return this.VidaPersonagem;
+    }
+
+    public void setVidaPersonagem(double vida)
+    {
+        this.VidaPersonagem = vida;
+    }
+
+    public double getDanoPersonagem()
+    {
+        return this.DanoPersonagem;
+    }
+
+    public void setDanoPersonagem(double dano)
+    {
+        this.DanoPersonagem = dano;
+    }
+
+    public Equipamento getArma()
+    {
+        return this.Arma;
+    }
+
+    public void setArma(Equipamento arma)
+    {
+        this.Arma = arma;
+    }
+
+    public Portas getProgresso()
+    {
+        return this.Progresso;
+    }
+
+    public void setProgresso(Portas progresso)
+    {
+        this.Progresso = progresso;
+    }
+
+    public Fase getDificuldade()
+    {
+        return this.Dificuldade;
+    }
+
+    public void setDificuldade(Fase dificuldade)
+    {
+        this.Dificuldade = dificuldade;
+    }
+
 }
