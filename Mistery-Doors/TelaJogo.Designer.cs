@@ -65,6 +65,7 @@
             this.lblRes.Size = new System.Drawing.Size(128, 23);
             this.lblRes.TabIndex = 9;
             this.lblRes.Text = "Resultado das portas";
+            this.lblRes.Visible = false;
             this.lblRes.Click += new System.EventHandler(this.lblRes_Click);
             // 
             // btnVoltar
@@ -94,6 +95,7 @@
             this.btnEntrar.TabIndex = 18;
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Visible = false;
             // 
             // lblDificuldade
             // 
@@ -124,6 +126,7 @@
             this.msgRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.msgRes.TabIndex = 19;
             this.msgRes.TabStop = false;
+            this.msgRes.Visible = false;
             // 
             // Porta3
             // 
@@ -228,6 +231,7 @@
             this.btnConfirmar.TabIndex = 20;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Visible = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
             // 
             // TelaJogo

@@ -13,5 +13,8 @@ namespace portasTestes {
         public static TelaLogin TelaLogin { get; } = new TelaLogin();
 
         public static TelaPerfil TelaPerfil { get; } = new TelaPerfil();
+
+        public static Personagem Personagem { get; set; }
+        public static Jogador Jogador { get; set; }
     }
 }

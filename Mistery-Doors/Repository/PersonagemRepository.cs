@@ -60,7 +60,6 @@ namespace portasTestes.Repository
                 return Convert.ToInt32(comando.ExecuteScalar());  // Retorna o Id do Personagem criado
             }
         }
-
         public List<(int IdPersonagem, string Name, double VidaPersonagem, double DanoPersonagem, int? ArmaId, int? ProgressoId, int? DificuldadeId)> ObterTodos()
         {
             var personagens = new List<(int, string, double, double, int?, int?, int?)>();

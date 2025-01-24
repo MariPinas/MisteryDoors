@@ -98,20 +98,35 @@ namespace portasTestes {
         }
 
         private int InstanciarFase(string dificuldade) {
-            var fase = new Fase(dificuldade); 
+            Fase fase = new Fase(dificuldade); 
             var faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             return faseRepository.AdicionarFase(fase);
         }
 
-        public int CriarPersonagem(int faseId) {
-            
-            var personagem = new Personagem(txtNickname.Text,faseId);
-           
+        public int CriarPersonagem(int faseId)
+        {
+            if(GerenciadorForms.Personagem != null)
+            {
+                MessageBox.Show("Voce ja tem um personagem criado!");
+                return -1;
+            }
+            if (string.IsNullOrWhiteSpace(txtNickname.Text))
+            {
+                MessageBox.Show("Digite um nome para o seu personagem antes de continuar.");
+                return -1;
+            }
+
+            Personagem personagem = new Personagem(txtNickname.Text, faseId);
+            Equipamento nova = Equipamento.GerarEquipamento();
+            personagem.setArmaId(nova);
+
+            GerenciadorForms.Personagem = personagem;
+
             var personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             return personagemRepository.AdicionarPersonagem(personagem);
         }
-
+       
         public void AssociarPersonagemAoJogador(int jogadorId, int personagemId) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             jogadorRepository.AssociarPersonagemAoJogador(jogadorId, personagemId);
@@ -124,15 +139,10 @@ namespace portasTestes {
                 return;
             }
 
-            int faseId = InstanciarFase(levelSelec); 
-
-            int personagemId = CriarPersonagem(faseId);
-
-            int jogadorId = jogadorRepository.getIdJogador(TelaLogin.getUsername());
-            AssociarPersonagemAoJogador(jogadorId, personagemId);  
+            int faseId = InstanciarFase(levelSelec);
+            int personagem = CriarPersonagem(faseId);
 
             MessageBox.Show("Personagem criado e associado com sucesso!");
-           
             this.Hide();
             GerenciadorForms.TelaJogo.Show();  
         }

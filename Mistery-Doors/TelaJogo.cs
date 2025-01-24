@@ -32,7 +32,32 @@ namespace portasTestes
             DificuldadeId = dificuldade;
         }
 
+        public TelaJogo()
+        {
+            InitializeComponent();
+            EntrarPortas();
+            unit.Visible = true;
+            ResetarPersonagem();
+            InstanciarPortas();
 
+            personagem = GerenciadorForms.Personagem ?? new Personagem();
+            personagem.EquiparArma(Equipamento.GerarEquipamento(), 1);
+
+            lblNickname.Text = personagem.getNomePersonagem();
+
+            this.Size = new Size(800, 450);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Resize += (s, args) => this.Invalidate();
+            btnEntrar.Visible = false;
+            btnConfirmar.Visible = false;
+            msgRes.Visible = false;
+            lblRes.Visible = false;
+
+            lblRes.Size = msgRes.Size;
+            lblRes.TextAlign = ContentAlignment.MiddleLeft;
+            lblRes.MaximumSize = new Size(msgRes.Width, msgRes.Height);
+            lblRes.AutoSize = true;
+        }
         private void Form1_Load(object sender, EventArgs e) {
 
             lblNickname.Text = $"Jogador: {NomeJogador}";
@@ -41,15 +66,6 @@ namespace portasTestes
 
         private PictureBox portaSelecionada;
         Dictionary<PictureBox, Portas> portas = new Dictionary<PictureBox, Portas>();
-
-        //Personagem personagem = new Personagem()
-        //{
-        //    Name = "teste", //coloquei o NomeJogador ali
-        //    ArmaId = Equipamento.GerarEquipamento()
-        //};
-        
-       
-
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
 
@@ -79,6 +95,7 @@ namespace portasTestes
         Image vidaCheia = Properties.Resources.heart;
         Image vidaMeia = Properties.Resources.meioHeart;
         Image vidaVazia = Properties.Resources._0heart;
+        
         private void InstanciarPortas()
         {
             Portas porta1 = new Portas("Porta1");
@@ -89,30 +106,7 @@ namespace portasTestes
             portas.Add(Porta2, porta2);
             portas.Add(Porta3, porta3);
         }
-        public TelaJogo()
-        {
-            InitializeComponent();
-            EntrarPortas();
-            unit.Visible = true;
-            ResetarPersonagem();
-            InstanciarPortas();
-
-            
-            this.Size = new Size(800, 450);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Resize += (s, args) => this.Invalidate();
-            btnEntrar.Visible = false;
-            btnConfirmar.Visible = false;
-            msgRes.Visible = false;
-            lblRes.Visible = false;
-
-            lblRes.Size = msgRes.Size;
-            lblRes.TextAlign = ContentAlignment.MiddleLeft;
-            lblRes.MaximumSize = new Size(msgRes.Width, msgRes.Height);
-            lblRes.AutoSize = true;
-
-
-        }
+        
         public void trocarVisualVida(Personagem personagem)
         {
             if (personagem.getVidaPersonagem() == 3)
@@ -194,19 +188,22 @@ namespace portasTestes
             Portas porta = new Portas(portaSelecionada.Name);
 
             string resultado = porta.SorteadorDaPorta(personagem);
+            
             if (resultado.Contains("💀 Você foi derrotado!"))
                 trocarVisualVida(personagem);
             unit.Visible = false;
             btnConfirmar.Visible = true;
             lblRes.Visible = true;
-            lblRes.Text = resultado;
+            lblRes.Text = $"🚪Porta selecionada: {portaSelecionada.Name}\n{resultado}";
             msgRes.Visible = true;
 
             btnEntrar.Visible = false;
 
+
         }
         private void ResetarPersonagem()
         {
+            
             unit.Location = new Point(325, 309);
         }
 

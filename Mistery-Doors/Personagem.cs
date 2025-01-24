@@ -11,6 +11,9 @@ public class Personagem {
     private int FaseId { get; set; }
 
     public Personagem() { }
+    public Personagem(Equipamento i) {
+        this.ArmaId = i;
+            }
 
     public Personagem(string nome, int dificuldadeid) {
         this.Name = nome;

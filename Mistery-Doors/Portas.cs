@@ -22,7 +22,7 @@ namespace portasTestes
         {
             string resultado;
             double chance = r.NextDouble();
-
+            
             if (chance < ProbabilidadeInimigo)
             {
                 Inimigo inimigo = new Inimigo("Inimigos Fracos", r.Next(3, 7));
@@ -53,8 +53,11 @@ namespace portasTestes
 
         public string RealizarAcao(Personagem personagem, Inimigo inimigo)
         {
+            if (personagem.getArmaId() == null)
+                personagem.EquiparArma(Equipamento.GerarEquipamento(), 1);
+
             personagem.EquiparArma(personagem.getArmaId(), personagem.getArmaId().getDano()); 
-            string log =$"🔹 {personagem.getNomePersonagem()} está enfrentando {inimigo.getNome()}!\n\n" +
+            string log =$"🔹 {GerenciadorForms.Personagem.getNomePersonagem()} está enfrentando {inimigo.getNome()}!\n\n" +
                         $"⚔️ Seu dano: {personagem.getDanoPersonagem()} | ArmaId: {personagem.getArmaId().getNome()} (Dano: {personagem.getArmaId().getDano()})\n" +
                         $"👾 Dano do inimigo: {inimigo.getDano()}";
             if (personagem.getDanoPersonagem() > inimigo.getDano())
