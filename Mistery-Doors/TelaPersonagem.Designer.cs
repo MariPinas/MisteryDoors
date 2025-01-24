@@ -38,6 +38,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblNomePersonagem = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -219,11 +220,25 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lblNomePersonagem
+            // 
+            this.lblNomePersonagem.AutoSize = true;
+            this.lblNomePersonagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
+            this.lblNomePersonagem.Font = new System.Drawing.Font("Impact", 26.25F);
+            this.lblNomePersonagem.ForeColor = System.Drawing.Color.SandyBrown;
+            this.lblNomePersonagem.Location = new System.Drawing.Point(347, 345);
+            this.lblNomePersonagem.Name = "lblNomePersonagem";
+            this.lblNomePersonagem.Size = new System.Drawing.Size(110, 43);
+            this.lblNomePersonagem.TabIndex = 14;
+            this.lblNomePersonagem.Text = "label3";
+            this.lblNomePersonagem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TelaPersonagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblNomePersonagem);
             this.Controls.Add(this.btnPerfil);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExtremo);
@@ -242,6 +257,7 @@
             this.Name = "TelaPersonagem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaPersonagem";
+            this.Load += new System.EventHandler(this.TelaPersonagem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -267,5 +283,6 @@
         private System.Windows.Forms.Button btnExtremo;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnPerfil;
+        private System.Windows.Forms.Label lblNomePersonagem;
     }
 }
