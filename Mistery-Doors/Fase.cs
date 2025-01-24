@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace portasTestes
 {
-    public class Fase
-    {
-        private int IdFase { get; set; }
-        private string DificuldadeId { get; set; }
-        private int PortasParaVencer { get; set; }
+    public class Fase {
+        public int IdFase { get; set; }
+        public string Dificuldade { get; set; }
+        public int PortasParaVencer { get; set; }
 
-        public Fase(string dificuldade)
-        {
-            DificuldadeId = dificuldade;
-            switch(dificuldade.ToLower())
-            {
+        public Fase(string dificuldade) {
+            Dificuldade = dificuldade;  
+                                        
+            switch (dificuldade.ToLower()) {
                 case "facil":
                     PortasParaVencer = 5;
                     break;
@@ -29,10 +27,9 @@ namespace portasTestes
                 case "extremo":
                     PortasParaVencer = 12;
                     break;
-                 default:
-                    PortasParaVencer = 5;
+                default:
+                    PortasParaVencer = 5; 
                     break;
-
             }
         }
     }

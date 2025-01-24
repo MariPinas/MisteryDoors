@@ -15,7 +15,7 @@ namespace portasTestes
         [STAThread]
         static void Main()
         {
-            IniciaDataBase("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            IniciaDataBase("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaInicio());

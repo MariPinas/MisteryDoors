@@ -52,6 +52,7 @@ namespace portasTestes {
         }
 
         private void SelecionarDificuldade(Button botaoSelecionado, string dificuldade) {
+            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             levelSelec = dificuldade;
             btnFacil.Font = new Font(btnFacil.Font, FontStyle.Regular);
             btnMedio.Font = new Font(btnMedio.Font, FontStyle.Regular);
@@ -59,6 +60,7 @@ namespace portasTestes {
             btnExtremo.Font = new Font(btnExtremo.Font, FontStyle.Regular);
 
             botaoSelecionado.Font = new Font(botaoSelecionado.Font, FontStyle.Underline);
+            int dificuldadeId = faseRepository.ObterIdDificuldade(dificuldade);
 
             botaoJogar.Visible = true;
         }
@@ -95,40 +97,44 @@ namespace portasTestes {
             SelecionarDificuldade(btnExtremo, "Extremo");
         }
 
-        private void botaoJogar_Click(object sender, EventArgs e) {
-            string nomeJogador = txtNickname.Text;
-
-            if (string.IsNullOrWhiteSpace(nomeJogador)) {
-                MessageBox.Show("Por favor, insira o nome do jogador!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(levelSelec)) {
-                MessageBox.Show("Por favor, selecione uma dificuldade!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
+        private int InstanciarFase(string dificuldade) {
+            var fase = new Fase(dificuldade); 
             var faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            int dificuldadeId = faseRepository.ObterIdDificuldade(levelSelec);
 
+            return faseRepository.AdicionarFase(fase);
+        }
+
+        public int CriarPersonagem(int faseId) {
+            
+            var personagem = new Personagem(txtNickname.Text,faseId);
+           
             var personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            int? personagemId = personagemRepository.Adicionar(nomeJogador, dificuldadeId);
+            return personagemRepository.AdicionarPersonagem(personagem);
+        }
 
-            int jogadorId = TelaLogin.getJogadorId();//id logado de jogador
-
+        public void AssociarPersonagemAoJogador(int jogadorId, int personagemId) {
             var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            jogadorRepository.AssociarPersonagemAoJogador(jogadorId, (int)personagemId);
+            jogadorRepository.AssociarPersonagemAoJogador(jogadorId, personagemId);
+        }
 
-            lblNomePersonagem.Visible = true;
-            lblNomePersonagem.Text = "Nome do Personagem: " + nomeJogador;
+        private void botaoJogar_Click(object sender, EventArgs e) {
+            JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            if (levelSelec == null) {
+                MessageBox.Show("Selecione uma dificuldade primeiro.");
+                return;
+            }
 
-            txtNickname.Visible = false;
+            int faseId = InstanciarFase(levelSelec); 
 
-            GerenciadorForms.TelaJogo.setNomeJogador(nomeJogador);
-            GerenciadorForms.TelaJogo.setNomeJogador(levelSelec);
+            int personagemId = CriarPersonagem(faseId);
 
+            int jogadorId = jogadorRepository.getIdJogador(TelaLogin.getUsername());
+            AssociarPersonagemAoJogador(jogadorId, personagemId);  
+
+            MessageBox.Show("Personagem criado e associado com sucesso!");
+           
             this.Hide();
-            GerenciadorForms.TelaJogo.Show();
+            GerenciadorForms.TelaJogo.Show();  
         }
 
         private void btnVoltar_Click(object sender, EventArgs e) {
@@ -150,27 +156,11 @@ namespace portasTestes {
         }
 
         private void TelaPersonagem_Load(object sender, EventArgs e) {
-            // A TextBox para o nome do personagem estará visível inicialmente
+           
             txtNickname.Visible = true;
-
-            // A Label para o nome do personagem estará oculta até ser salva
             lblNomePersonagem.Visible = false;
         }
     }
-
-        //private void textBox1_Enter(object sender, EventArgs e) {
-        //    if (textBox1.Text == "NICKNAME HERE") {
-        //        textBox1.Text = ""; 
-        //        textBox1.ForeColor = Color.Black; 
-        //    }
-        //}
-
-        //private void textBox1_Leave(object sender, EventArgs e) {
-        //    if (string.IsNullOrEmpty(textBox1.Text)) {
-        //        textBox1.Text = "NICKNAME HERE";
-        //        textBox1.ForeColor = Color.Gray; 
-        //    }
-        //}
     }
 
 

@@ -67,7 +67,7 @@ namespace portasTestes.Repository
         }
 
         public void AssociarPersonagemAoJogador(int idJogador, int personagemId) {
-            Atualizar(idJogador, null, null, 0, 0, personagemId);   
+            Atualizar(idJogador, null, null, 0, 0, personagemId);
         }
 
         public bool VerificarUsuarioExistente(string username, string senha) {

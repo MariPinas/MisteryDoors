@@ -8,13 +8,13 @@ public class Personagem {
     private double DanoPersonagem { get; set; } = 5;
     private Equipamento ArmaId { get; set; }
     private Portas ProgressoId { get; set; }
-    private Fase DificuldadeId { get; set; }
+    private int FaseId { get; set; }
 
     public Personagem() { }
 
-    public Personagem(string nome, Fase dificuldade) {
+    public Personagem(string nome, int dificuldadeid) {
         this.Name = nome;
-        this.DificuldadeId = dificuldade;
+        this.FaseId = dificuldadeid;
     }
 
     public string getNomePersonagem() {
@@ -83,14 +83,14 @@ public class Personagem {
         this.ProgressoId = progresso;
     }
 
-    public Fase getDificuldade()
+    public int getFaseId()
     {
-        return this.DificuldadeId;
+        return this.FaseId;
     }
 
-    public void setDificuldade(Fase dificuldade)
+    public void setFaseId(int dificuldadeid)
     {
-        this.DificuldadeId = dificuldade;
+        this.FaseId = dificuldadeid;
     }
 
 }

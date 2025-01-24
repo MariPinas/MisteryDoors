@@ -45,29 +45,19 @@ namespace portasTestes.Repository
             }
         }
 
-        public int? Adicionar(string nome, int dificuldadeId) {
-            try {
-                var conexao = new MySqlConnection(_connectionString);
+        public int AdicionarPersonagem(Personagem personagem) {
+            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
                 conexao.Open();
+                string query = "INSERT INTO Personagens (Name, DificuldadeId) VALUES (@Nome, @IdFase);";
+                MySqlCommand comando = new MySqlCommand(query, conexao);
+                comando.Parameters.AddWithValue("@IdFase", personagem.getFaseId());
+                comando.Parameters.AddWithValue("@Nome", personagem.getNomePersonagem());  // Assumindo que personagem tem um Nome
 
-                
-                var comando = new MySqlCommand("INSERT INTO Personagens (Name, DificuldadeId) VALUES (@Name, @DificuldadeId);", conexao);
-                comando.Parameters.AddWithValue("@Name", nome);
-                comando.Parameters.AddWithValue("@DificuldadeId", dificuldadeId);
-
-                
                 comando.ExecuteNonQuery();
 
-                
-                var comandoId = new MySqlCommand("SELECT LAST_INSERT_ID();", conexao);
-                int? idPersonagem = Convert.ToInt32(comandoId.ExecuteScalar());
-
-                conexao.Close();
-
-                return idPersonagem;
-            } catch (Exception ex) {
-                MessageBox.Show("Algo deu errado ao adicionar o personagem: " + ex.Message);
-                return null;
+                query = "SELECT LAST_INSERT_ID();";
+                comando = new MySqlCommand(query, conexao);
+                return Convert.ToInt32(comando.ExecuteScalar());  // Retorna o Id do Personagem criado
             }
         }
 
