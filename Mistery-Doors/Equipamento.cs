@@ -15,9 +15,9 @@ namespace portasTestes
 
         public Equipamento(string nome, int dano, string raridade)
         {
-            Nome = nome;
-            Dano = dano;
-            Raridade = raridade;
+            this.Nome = nome;
+            this.Dano = dano;
+            this.Raridade = raridade;
         }
 
         //static pra nao depender de uma instancia de um equipamento, so vai servir pra gerar um equip aleatorio sem precisar da instancia
