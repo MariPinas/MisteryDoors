@@ -1,9 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace portasTestes.Repository
@@ -40,24 +37,39 @@ namespace portasTestes.Repository
             }
         }
 
-        public void Adicionar(int idJogador, int faseAtual, int portasPassadas)
+        public int ObterOuCriarProgresso(int idJogador, int faseAtual, int portasPassadas)
         {
             try
             {
-                var conexao = new MySqlConnection(_connectionString);
-                conexao.Open();
-                var comando = new MySqlCommand(@"
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    var comando = new MySqlCommand(@"
+                SELECT IdProgresso FROM ProgressoId WHERE IdJogador = @IdJogador;", conexao);
+
+                    comando.Parameters.AddWithValue("@IdJogador", idJogador);
+                    object result = comando.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);  // Retorna o ID já existente
+                    }
+                    var comandoInsert = new MySqlCommand(@"
                 INSERT INTO ProgressoId (IdJogador, FaseAtual, PortasPassadas)
-                VALUES (@IdJogador, @FaseAtual, @PortasPassadas);", conexao);
-                comando.Parameters.AddWithValue("@IdJogador", idJogador);
-                comando.Parameters.AddWithValue("@FaseAtual", faseAtual);
-                comando.Parameters.AddWithValue("@PortasPassadas", portasPassadas);
-                comando.ExecuteNonQuery();
-                conexao.Close();
+                VALUES (@IdJogador, @FaseAtual, @PortasPassadas);
+                SELECT LAST_INSERT_ID();", conexao);
+
+                    comandoInsert.Parameters.AddWithValue("@IdJogador", idJogador);
+                    comandoInsert.Parameters.AddWithValue("@FaseAtual", faseAtual);
+                    comandoInsert.Parameters.AddWithValue("@PortasPassadas", portasPassadas);
+
+                    int novoIdProgresso = Convert.ToInt32(comandoInsert.ExecuteScalar());
+                    return novoIdProgresso;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo deu errado ao adicionar o progresso: " + ex.Message);
+                MessageBox.Show("Erro ao obter/criar progresso: " + ex.Message);
+                return 0;
             }
         }
 
@@ -127,6 +139,53 @@ namespace portasTestes.Repository
             catch (Exception ex)
             {
                 MessageBox.Show("Algo deu errado ao deletar o progresso: " + ex.Message);
+            }
+        }
+        public void IncrementarPortasPassadas(int idJogador)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+
+                    var comando = new MySqlCommand(@"
+                UPDATE ProgressoId 
+                SET PortasPassadas = PortasPassadas + 1
+                WHERE IdJogador = @IdJogador;", conexao);
+
+                    comando.Parameters.AddWithValue("@IdJogador", idJogador);
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar o contador de portas: " + ex.Message);
+            }
+        }
+        public int ObterPortasPassadas(int idJogador)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+
+                    var comando = new MySqlCommand(@"
+                SELECT PortasPassadas 
+                FROM ProgressoId 
+                WHERE IdJogador = @IdJogador;", conexao);
+
+                    comando.Parameters.AddWithValue("@IdJogador", idJogador);
+                    int portasPassadas = Convert.ToInt32(comando.ExecuteScalar());
+
+                    return portasPassadas;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao obter total de portas passadas: " + ex.Message);
+                return 0;
             }
         }
     }

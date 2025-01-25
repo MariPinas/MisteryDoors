@@ -25,6 +25,10 @@ namespace portasTestes {
             this.Resize += (s, e) => this.Invalidate();
 
             botaoJogar.Visible = false;
+
+            jogadorRepository.Atualizar(jogador.getIdJogador(),jogador.getUsername(),null, jogador.getVitorias(), jogador.getDerrotas());
+            label1.Text = jogador.getVitorias().ToString() + " VITORIAS!";
+            label2.Text = jogador.getDerrotas().ToString() + " DERROTAS!";
         }
 
         public Jogador getJogador() {

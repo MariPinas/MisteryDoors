@@ -18,18 +18,45 @@ namespace portasTestes {
         public string SorteadorDaPorta(Personagem personagem) {
             string resultado;
             double chance = r.NextDouble();
+            int dificuldade = personagem.getFaseId();
 
+            double multiplicadorDano = 1.0;
+            switch (dificuldade)
+            {
+                case 1: multiplicadorDano = 1.0;
+                    break;
+                case 2: multiplicadorDano = 1.2;
+                    break;
+                case 3: multiplicadorDano = 1.4;
+                    break;
+                case 4: multiplicadorDano = 2.0;
+                    break;
+                default:
+                    multiplicadorDano = 1.0;
+                    break;
+            }
             if (chance < ProbabilidadeInimigo) {
                 Inimigo inimigo = new Inimigo("Inimigos Fracos", r.Next(3, 7));
+                inimigo.AplicarMultiplicadorDano(multiplicadorDano);
                 resultado = RealizarAcao(personagem, inimigo);
             } else if (chance < ProbabilidadeInimigo + ProbabilidadeBoss) {
                 Inimigo boss = new Inimigo("Boss Poderoso", r.Next(7, 13));
+                boss.AplicarMultiplicadorDano(multiplicadorDano);
                 resultado = RealizarAcao(personagem, boss);
             } else {
-                Equipamento loot = Equipamento.GerarEquipamento();
+                    Equipamento loot = Equipamento.GerarEquipamento();
                 resultado = $"\n🔹 Você encontrou um tesouro!\n" +
                             $"✨ Equipamento: {loot.getNome()}\n" +
                             $"⚔️ Dano: {loot.getDano()} | 🌟 Raridade: {loot.getRaridade()}";
+                if (r.Next(0, 100) < 70)
+                {
+                    if(personagem.getVidaPersonagem() < 3)
+                    {
+                        personagem.GanharVida();
+                        resultado += $"\n🔮 Você encontrou uma poção e curou vida!!\n";
+                        
+                    }        
+                }
                 if (personagem.getArma() != null) {
                     if (loot.getDano() >= personagem.getArma().getDano()) {
                         personagem.EquiparArma(loot, loot.getDano());
@@ -55,7 +82,7 @@ namespace portasTestes {
 
             if (personagem.getDanoPersonagem() > inimigo.getDano()) {
                 log += "\n\n🎉 Você venceu o combate!\n";
-
+                
                 if (r.Next(0, 100) < 50) {
                     Equipamento loot = Equipamento.GerarEquipamento();
                     log += $"\n✨ Você encontrou um tesouro:\n" +

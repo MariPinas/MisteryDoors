@@ -1,9 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace portasTestes.Repository
@@ -33,20 +30,23 @@ namespace portasTestes.Repository
                 ProgressoId INT,
                 IdFase INT,
                 FOREIGN KEY (IdJogador) REFERENCES Jogadores(Id),
-                FOREIGN KEY (ProgressoId) REFERENCES Portas(IdPorta),
+                
                 FOREIGN KEY (IdFase) REFERENCES Fases(IdFase)
                 );", conexao);
                 comando.ExecuteNonQuery();
                 conexao.Close();
             }
+            //FOREIGN KEY(ProgressoId) REFERENCES Portas(IdPorta),
             catch (Exception ex)
             {
                 MessageBox.Show("Algo deu errado ao criar a tabela p: " + ex.Message);
             }
         }
 
-        public Personagem AdicionarPersonagem(Personagem personagem) {
-            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
+        public Personagem AdicionarPersonagem(Personagem personagem)
+        {
+            using (MySqlConnection conexao = new MySqlConnection(_connectionString))
+            {
                 conexao.Open();
 
                 string query = "INSERT INTO Personagens (Name, IdFase, IdJogador) VALUES (@Nome, @IdFase, @IdJogador);";
@@ -66,9 +66,34 @@ namespace portasTestes.Repository
                 return personagem;
             }
         }
+        public void AtualizarProgressoNoPersonagem(int idPersonagem, int idProgresso)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
 
-        public void AssociarPersonagemAoJogador(int personagemId, int jogadorId) {
-            using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
+                    var comando = new MySqlCommand(@"
+                UPDATE Personagens 
+                SET ProgressoId = @ProgressoId 
+                WHERE IdPersonagem = @IdPersonagem;", conexao);
+
+                    comando.Parameters.AddWithValue("@ProgressoId", idProgresso);
+                    comando.Parameters.AddWithValue("@IdPersonagem", idPersonagem);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar progresso no personagem: " + ex.Message);
+            }
+        }
+        public void AssociarPersonagemAoJogador(int personagemId, int jogadorId)
+        {
+            using (MySqlConnection conexao = new MySqlConnection(_connectionString))
+            {
                 conexao.Open();
 
                 //associa o jogador ao personagem
@@ -114,23 +139,29 @@ namespace portasTestes.Repository
             return personagens;
         }
 
-        public void AtualizarDano(int idPersonagem, double danoPersonagem) {
-            using (var connection = new MySqlConnection(_connectionString)) {
+        public void AtualizarDano(int idPersonagem, double danoPersonagem)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
                 connection.Open();
                 var query = "UPDATE Personagens SET DanoPersonagem = @dano WHERE IdPersonagem = @id";
-                using (var command = new MySqlCommand(query, connection)) {
+                using (var command = new MySqlCommand(query, connection))
+                {
                     command.Parameters.AddWithValue("@dano", danoPersonagem);
                     command.Parameters.AddWithValue("@id", idPersonagem);
                     Console.WriteLine("Dano atualizado");
                     command.ExecuteNonQuery();
-                connection.Close();
+                    connection.Close();
                 }
             }
         }
 
-        public void AtualizarVida(int idPersonagem, double vidaPersonagem) {
-            try {
-                using (var conexao = new MySqlConnection(_connectionString)) {
+        public void AtualizarVida(int idPersonagem, double vidaPersonagem)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
                     conexao.Open();
                     var comando = new MySqlCommand(@"
                     UPDATE Personagens
@@ -140,7 +171,9 @@ namespace portasTestes.Repository
                     comando.Parameters.AddWithValue("@IdPersonagem", idPersonagem);
                     comando.ExecuteNonQuery();
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Algo deu errado ao atualizar a vida do personagem: " + ex.Message);
             }
         }

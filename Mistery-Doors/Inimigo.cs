@@ -17,6 +17,10 @@ namespace portasTestes
             Nome = nome;
             Dano = dano;
         }
+        public void AplicarMultiplicadorDano(double multiplicador)
+        {
+            Dano = (int)(Dano * multiplicador);
+        }
 
         public string getNome()
         {

@@ -44,9 +44,10 @@ public class Personagem {
     }
 
     public void PerderVida() {
+        VerificarMortePersonagem();
         if (this.VidaPersonagem > 0)
             VidaPersonagem -= 0.5;
-        VerificarMortePersonagem();
+        
     }
     private void VerificarMortePersonagem() {
         if (this.VidaPersonagem <= 0) {
@@ -60,7 +61,7 @@ public class Personagem {
     }
     public void GanharVida() {
         if (this.VidaPersonagem < 3)
-            VidaPersonagem++;
+            VidaPersonagem += 0.5;
     }
 
     public void EquiparArma(Equipamento novaArma, double bonusDano) {

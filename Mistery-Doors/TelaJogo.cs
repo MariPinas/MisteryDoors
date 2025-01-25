@@ -19,11 +19,14 @@ namespace portasTestes
         private Jogador _jogador;
         private Personagem _personagem;
 
+        private ProgressoRepository _progressoRepo;
+
+        private int portasPassadasCount = 0;
         public string getNomeJogador() {
             return NomeJogador;
         }
-        public string getDificuldade() {  
-            return DificuldadeId; 
+        public string getDificuldade() {
+            return DificuldadeId;
         }
 
         public void setNomeJogador(string nome) {
@@ -41,9 +44,9 @@ namespace portasTestes
             unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
-
+            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             lblNickname.Text = personagem.getNomePersonagem();
-
+            CarregarProgresso();
 
             this.Size = new Size(800, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -58,10 +61,36 @@ namespace portasTestes
             lblRes.MaximumSize = new Size(msgRes.Width, msgRes.Height);
             lblRes.AutoSize = true;
         }
+        private void SalvarProgresso()
+        {
+            try
+            {
+                int idJogador = _jogador.getIdJogador();
+                int faseAtual = _personagem.getFaseId();
+                
+
+                _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
+
+                MessageBox.Show("Progresso salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar progresso: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Form1_Load(object sender, EventArgs e) {
 
-            lblNickname.Text = $"Jogador: {NomeJogador}";
-            lblDificuldade.Text = $"DificuldadeId: {DificuldadeId}";
+            lblNickname.Text = $"Jogador: {_jogador.getUsername()}";
+            int dificuldade = _personagem.getFaseId();
+
+            if (dificuldade == 1)
+                lblDificuldade.Text = "Dificuldade Fácil! 😄🌱";
+            else if (dificuldade == 2)
+                lblDificuldade.Text = "Dificuldade Média! 🤔⚖️";
+            else if (dificuldade == 3)
+                lblDificuldade.Text = "Dificuldade Difícil! 😬🔥";
+            else if (dificuldade == 4)
+                lblDificuldade.Text = "Dificuldade Extremo! 😱💥";
         }
 
         private PictureBox portaSelecionada;
@@ -95,7 +124,7 @@ namespace portasTestes
         Image vidaCheia = Properties.Resources.heart;
         Image vidaMeia = Properties.Resources.meioHeart;
         Image vidaVazia = Properties.Resources._0heart;
-        
+
         private void InstanciarPortas()
         {
             Portas porta1 = new Portas("Porta1");
@@ -140,7 +169,10 @@ namespace portasTestes
             PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             personagemRepo.AtualizarVida(personagem.getIdPersonagem(), personagem.getVidaPersonagem());
         }
-
+        private void CarregarProgresso()
+        {
+            int totalPortas = _progressoRepo.ObterPortasPassadas(_jogador.getIdJogador());
+        }
         private void EntrarPortas()
         {
             Porta1.Click += Porta_Click;
@@ -151,7 +183,7 @@ namespace portasTestes
 
         private void Porta_Click(object sender, EventArgs e)
         {
-            if(unit.Visible == true)
+            if (unit.Visible == true)
             {
                 PictureBox portaClicada = sender as PictureBox;
 
@@ -187,9 +219,14 @@ namespace portasTestes
             Portas porta = new Portas(portaSelecionada.Name);
 
             string resultado = porta.SorteadorDaPorta(_personagem);
-            
-            if (resultado.Contains("💀 Você foi derrotado!"))
+            if (resultado.Contains("🔹 Você encontrou um tesouro!\n"))
                 trocarVisualVida(_personagem);
+            if(resultado.Contains("🎉 Você venceu o combate!")){ 
+                _jogador.AtualizarVitorias(1); }
+            if (resultado.Contains("💀 Você foi derrotado!")){
+                _jogador.AtualizarDerrotas(1);
+                trocarVisualVida(_personagem);
+            }
             unit.Visible = false;
             btnConfirmar.Visible = true;
             lblRes.Visible = true;
@@ -198,6 +235,43 @@ namespace portasTestes
 
             btnEntrar.Visible = false;
 
+            portasPassadasCount++;
+            
+            _progressoRepo.IncrementarPortasPassadas(_jogador.getIdJogador());
+            SalvarOuAtualizarProgresso();
+            int idProgresso = _progressoRepo.ObterOuCriarProgresso(_jogador.getIdJogador(), _personagem.getFaseId(), portasPassadasCount);
+
+            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            personagemRepo.AtualizarProgressoNoPersonagem(_personagem.getIdPersonagem(), idProgresso);
+        }
+      
+
+
+        private void SalvarOuAtualizarProgresso()
+        {
+            try
+            {
+                int idJogador = _jogador.getIdJogador();
+                int faseAtual = _personagem.getFaseId();
+                //int portasPassadas;
+
+                var progressoExistente = _progressoRepo.ObterTodos().FirstOrDefault(p => p.IdJogador == idJogador);
+
+                if (progressoExistente != default)
+                {
+                    _progressoRepo.Atualizar(progressoExistente.IdProgresso, faseAtual, portasPassadasCount); 
+                    //MessageBox.Show("Progresso atualizado com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
+                    //MessageBox.Show("Progresso salvo com sucesso!", "Novo Progresso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar progresso: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         private void ResetarPersonagem()

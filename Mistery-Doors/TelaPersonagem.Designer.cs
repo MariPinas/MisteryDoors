@@ -76,10 +76,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.label1.Font = new System.Drawing.Font("Impact", 8.25F);
+            this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
             this.label1.Location = new System.Drawing.Point(81, 158);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(56, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "0 VITORIAS";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -87,11 +89,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.label2.Font = new System.Drawing.Font("Impact", 8.25F);
+            this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
             this.label2.Location = new System.Drawing.Point(85, 270);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "0 MORTES";
             // 
