@@ -45,7 +45,7 @@ namespace portasTestes
             unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
-            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
             lblNickname.Text = personagem.getNomePersonagem();
             CarregarProgresso();
 
@@ -172,7 +172,7 @@ namespace portasTestes
                 pctHeart1.Image = vidaVazia;
             }
 
-            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
             personagemRepo.AtualizarVida(personagem.getIdPersonagem(), personagem.getVidaPersonagem());
         }
         private void CarregarProgresso()
@@ -206,7 +206,6 @@ namespace portasTestes
                     MoverPersonagemParaPorta(portaSelecionada);
                     unit.BringToFront();
                     unit.BackColor = Color.Transparent;
-
                 }
             }
         }
@@ -270,13 +269,17 @@ namespace portasTestes
                 if (progressoExistente != default)
                 {
                     _progressoRepo.Atualizar(progressoExistente.IdProgresso, faseAtual, portasPassadasCount);
-                    _personagem.setProgresso(progressoExistente.IdProgresso); // Atualiza o objeto do personagem
+
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    personagemRepo.AtualizarFasePersonagem(_personagem.getIdPersonagem(), faseAtual);
+
+                    _personagem.setProgresso(progressoExistente.IdProgresso);
                 }
                 else
                 {
                     int idProgresso = _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
 
-                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
                     personagemRepo.AtualizarProgressoNoPersonagem(_personagem.getIdPersonagem(), idProgresso);
 
                     _personagem.setProgresso(idProgresso);
@@ -287,7 +290,6 @@ namespace portasTestes
                 MessageBox.Show("Erro ao salvar progresso: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void ResetarPersonagem()
         {
@@ -339,39 +341,52 @@ namespace portasTestes
         {
             switch (dificuldadeId)
             {
-                case 1: return 10; // Fácil
-                case 2: return 15; // Médio
-                case 3: return 20; // Difícil
-                case 4: return 25; // Extremo
+                case 1: return 8; // Fácil
+                case 2: return 10; // Médio
+                case 3: return 12; // Difícil
+                case 4: return 15; // Extremo
                 default: throw new ArgumentException("Dificuldade inválida.");
             }
         }
 
         private void FinalizarFase()
         {
-            MessageBox.Show("Parabéns! Você completou esta fase.", "Fase Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Determinar a próxima fase
-            int proximaFase = _personagem.getFaseId() + 1;
-
-            if (proximaFase <= 4) // Máximo é "Extremo"
+            try
             {
-                _personagem.setFaseId(proximaFase);
-                portasPassadasCount = 0;
+                int jogadorId = _jogador.getIdJogador();
+                var progresso = _progressoRepo.ObterProgressoPorJogador(jogadorId);
 
-                _progressoRepo.AtualizarProgressoFase(_jogador.getIdJogador(), proximaFase, portasPassadasCount);
+                if (progresso.FaseAtual > 0)
+                {
+                    int proximaFase = progresso.FaseAtual + 1;
+                    if (proximaFase == 5)
+                    {
+                        MessageBox.Show("PARABÉNS! Você completou todas as fases e zerou o jogo!");
+                        this.Hide();
+                        GerenciadorForms.AbrirTelaPersonagem(_jogador);
+                        return;
+                    }
+                    _progressoRepo.AtualizarProgressoFase(jogadorId, proximaFase, 0);
+                    _personagem.setFaseId(proximaFase);
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    personagemRepo.AtualizarFasePersonagem(_personagem.getIdPersonagem(), proximaFase);
 
-                JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-                jogadorRepo.DesbloquearFase(_jogador.getIdJogador(), proximaFase);
+                    MessageBox.Show($"Fase {progresso.FaseAtual} concluída! Próxima fase: {proximaFase}.",
+                        "Parabéns!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show($"A próxima fase ({proximaFase}) foi desbloqueada!", "Nova Fase", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    GerenciadorForms.AbrirTelaPersonagem(_jogador);
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao determinar o progresso do jogador.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Você completou todas as fases! 🎉", "Jogo Finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Erro ao finalizar a fase: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
     }
 }

@@ -266,5 +266,34 @@ namespace portasTestes.Repository
 
             return null;
         }
+
+        public void AtualizarFasePersonagem(int idPersonagem, int faseId)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+
+                    string query = @"
+                        UPDATE Personagens
+                        SET IdFase = @FaseId
+                        WHERE IdPersonagem = @IdPersonagem;";
+
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@FaseId", faseId);
+                        comando.Parameters.AddWithValue("@IdPersonagem", idPersonagem);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao atualizar IdFase do personagem: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

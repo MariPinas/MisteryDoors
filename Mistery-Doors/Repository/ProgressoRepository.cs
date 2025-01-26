@@ -217,5 +217,44 @@ namespace portasTestes.Repository
             }
         }
 
+        public (int FaseAtual, int PortasPassadas) ObterProgressoPorJogador(int idJogador)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+
+                    string query = @"
+                        SELECT FaseAtual, PortasPassadas 
+                        FROM ProgressoId 
+                        WHERE IdJogador = @IdJogador 
+                        LIMIT 1;";
+
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@IdJogador", idJogador);
+
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int faseAtual = reader.GetInt32("FaseAtual");
+                                int portasPassadas = reader.GetInt32("PortasPassadas");
+                                return (faseAtual, portasPassadas);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao buscar progresso: {ex.Message}");
+            }
+
+            return (0, 0); 
+        }
+
+
     }
 }

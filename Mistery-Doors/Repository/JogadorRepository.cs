@@ -265,11 +265,12 @@ namespace portasTestes.Repository
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao obter fases desbloqueadas: " + ex.Message);
+                MessageBox.Show($"Erro ao buscar fases desbloqueadas: {ex.Message}");
             }
 
             return fasesDesbloqueadas;
         }
+
 
 
         public void DesbloquearFase(int jogadorId, int novaFaseId)
