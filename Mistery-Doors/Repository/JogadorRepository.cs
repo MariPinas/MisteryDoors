@@ -238,5 +238,73 @@ namespace portasTestes.Repository
             }
         }
 
+
+        public List<int> ObterFasesDesbloqueadas(int jogadorId)
+        {
+            List<int> fasesDesbloqueadas = new List<int>();
+
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    string query = "SELECT DISTINCT FaseAtual FROM ProgressoId WHERE IdJogador = @jogadorId";
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@jogadorId", jogadorId);
+
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                fasesDesbloqueadas.Add(Convert.ToInt32(reader["FaseAtual"]));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao obter fases desbloqueadas: " + ex.Message);
+            }
+
+            return fasesDesbloqueadas;
+        }
+
+
+        public void DesbloquearFase(int jogadorId, int novaFaseId)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+
+                    string verificarQuery = "SELECT COUNT(*) FROM ProgressoId WHERE IdJogador = @jogadorId AND FaseAtual = @faseId";
+                    using (var verificarComando = new MySqlCommand(verificarQuery, conexao))
+                    {
+                        verificarComando.Parameters.AddWithValue("@jogadorId", jogadorId);
+                        verificarComando.Parameters.AddWithValue("@faseId", novaFaseId);
+
+                        int count = Convert.ToInt32(verificarComando.ExecuteScalar());
+                        if (count > 0) return; 
+                    }
+
+                    string query = "INSERT INTO ProgressoId (IdJogador, FaseAtual, PortasPassadas) VALUES (@jogadorId, @faseId, 0)";
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@jogadorId", jogadorId);
+                        comando.Parameters.AddWithValue("@faseId", novaFaseId);
+                        comando.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao desbloquear nova fase: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

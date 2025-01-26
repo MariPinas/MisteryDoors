@@ -44,7 +44,7 @@ namespace portasTestes
             unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
-            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
             lblNickname.Text = personagem.getNomePersonagem();
             CarregarProgresso();
 
@@ -61,6 +61,8 @@ namespace portasTestes
             lblRes.MaximumSize = new Size(msgRes.Width, msgRes.Height);
             lblRes.AutoSize = true;
         }
+
+
         private void SalvarProgresso()
         {
             try
@@ -78,7 +80,10 @@ namespace portasTestes
                 MessageBox.Show("Erro ao salvar progresso: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void Form1_Load(object sender, EventArgs e) {
+            // atualiza a vida do personagem -> caso ele já existisse
+            trocarVisualVida(_personagem);
 
             lblNickname.Text = $"Jogador: {_jogador.getUsername()}";
             int dificuldade = _personagem.getFaseId();
@@ -166,7 +171,7 @@ namespace portasTestes
                 pctHeart1.Image = vidaVazia;
             }
 
-            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
             personagemRepo.AtualizarVida(personagem.getIdPersonagem(), personagem.getVidaPersonagem());
         }
         private void CarregarProgresso()
@@ -221,12 +226,14 @@ namespace portasTestes
             string resultado = porta.SorteadorDaPorta(_personagem);
             if (resultado.Contains("🔹 Você encontrou um tesouro!\n"))
                 trocarVisualVida(_personagem);
-            if(resultado.Contains("🎉 Você venceu o combate!")){ 
-                _jogador.AtualizarVitorias(1); }
-            if (resultado.Contains("💀 Você foi derrotado!")){
+            if (resultado.Contains("🎉 Você venceu o combate!"))
+                _jogador.AtualizarVitorias(1);
+            if (resultado.Contains("💀 Você foi derrotado!"))
+            {
                 _jogador.AtualizarDerrotas(1);
                 trocarVisualVida(_personagem);
             }
+
             unit.Visible = false;
             btnConfirmar.Visible = true;
             lblRes.Visible = true;
@@ -236,15 +243,17 @@ namespace portasTestes
             btnEntrar.Visible = false;
 
             portasPassadasCount++;
-            
             _progressoRepo.IncrementarPortasPassadas(_jogador.getIdJogador());
             SalvarOuAtualizarProgresso();
-            int idProgresso = _progressoRepo.ObterOuCriarProgresso(_jogador.getIdJogador(), _personagem.getFaseId(), portasPassadasCount);
 
-            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-            personagemRepo.AtualizarProgressoNoPersonagem(_personagem.getIdPersonagem(), idProgresso);
+            int portasNecessarias = ObterPortasNecessarias(_personagem.getFaseId());
+            if (portasPassadasCount >= portasNecessarias)
+            {
+                FinalizarFase();
+            }
         }
-      
+
+
 
 
         private void SalvarOuAtualizarProgresso()
@@ -253,27 +262,31 @@ namespace portasTestes
             {
                 int idJogador = _jogador.getIdJogador();
                 int faseAtual = _personagem.getFaseId();
-                //int portasPassadas;
 
                 var progressoExistente = _progressoRepo.ObterTodos().FirstOrDefault(p => p.IdJogador == idJogador);
 
                 if (progressoExistente != default)
                 {
-                    _progressoRepo.Atualizar(progressoExistente.IdProgresso, faseAtual, portasPassadasCount); 
-                    //MessageBox.Show("Progresso atualizado com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _progressoRepo.Atualizar(progressoExistente.IdProgresso, faseAtual, portasPassadasCount);
+                    _personagem.setProgresso(progressoExistente.IdProgresso); // Atualiza o objeto do personagem
                 }
                 else
                 {
-                    _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
-                    //MessageBox.Show("Progresso salvo com sucesso!", "Novo Progresso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int idProgresso = _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
+
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    personagemRepo.AtualizarProgressoNoPersonagem(_personagem.getIdPersonagem(), idProgresso);
+
+                    _personagem.setProgresso(idProgresso);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar progresso: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
+
         private void ResetarPersonagem()
         {
             
@@ -309,5 +322,46 @@ namespace portasTestes
 
             ResetarPersonagem();
         }
+
+        // LOGICA DA FINALIZAÇÃO DAS FASES
+
+        private int ObterPortasNecessarias(int dificuldadeId)
+        {
+            switch (dificuldadeId)
+            {
+                case 1: return 10; // Fácil
+                case 2: return 15; // Médio
+                case 3: return 20; // Difícil
+                case 4: return 25; // Extremo
+                default: throw new ArgumentException("Dificuldade inválida.");
+            }
+        }
+
+        private void FinalizarFase()
+        {
+            MessageBox.Show("Parabéns! Você completou esta fase.", "Fase Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Determinar a próxima fase
+            int proximaFase = _personagem.getFaseId() + 1;
+
+            if (proximaFase <= 4) // Máximo é "Extremo"
+            {
+                _personagem.setFaseId(proximaFase);
+                portasPassadasCount = 0;
+
+                _progressoRepo.AtualizarProgressoFase(_jogador.getIdJogador(), proximaFase, portasPassadasCount);
+
+                JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                jogadorRepo.DesbloquearFase(_jogador.getIdJogador(), proximaFase);
+
+                MessageBox.Show($"A próxima fase ({proximaFase}) foi desbloqueada!", "Nova Fase", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Você completou todas as fases! 🎉", "Jogo Finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
     }
 }

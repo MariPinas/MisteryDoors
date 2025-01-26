@@ -54,7 +54,7 @@ public class Personagem {
             
             Console.WriteLine($"{Name} morreu!");
 
-            var repository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            var repository = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
             repository.Deletar(IdPersonagem);
 
         }
@@ -69,7 +69,7 @@ public class Personagem {
         DanoPersonagem = 5 + bonusDano;
         Console.WriteLine("atualizar Dano");
         Console.WriteLine($"{IdPersonagem} e {DanoPersonagem} e {Name}");
-        var repository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+        var repository = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
         repository.AtualizarDano(IdPersonagem, DanoPersonagem);
         Console.WriteLine("Dano atualizado");
     }

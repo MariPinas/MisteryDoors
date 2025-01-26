@@ -49,23 +49,25 @@ namespace portasTestes.Repository
             {
                 conexao.Open();
 
-                string query = "INSERT INTO Personagens (Name, IdFase, IdJogador) VALUES (@Nome, @IdFase, @IdJogador);";
+                string query = @"
+            INSERT INTO Personagens (Name, IdFase, IdJogador, ProgressoId) 
+            VALUES (@Nome, @IdFase, @IdJogador, @ProgressoId);";
                 MySqlCommand comando = new MySqlCommand(query, conexao);
                 comando.Parameters.AddWithValue("@IdFase", personagem.getFaseId());
                 comando.Parameters.AddWithValue("@Nome", personagem.getNomePersonagem());
                 comando.Parameters.AddWithValue("@IdJogador", personagem.getIdJogador());
+                comando.Parameters.AddWithValue("@ProgressoId", personagem.getProgressoId() > 0 ? personagem.getProgressoId() : (object)DBNull.Value);
                 comando.ExecuteNonQuery();
 
                 query = "SELECT LAST_INSERT_ID();";
                 comando = new MySqlCommand(query, conexao);
                 int personagemId = Convert.ToInt32(comando.ExecuteScalar());
                 personagem.setIdPersonagem(personagemId);
-                personagem.setNomePersonagem(personagem.getNomePersonagem());
-                personagem.setIdJogador(personagem.getIdJogador());
 
                 return personagem;
             }
         }
+
         public void AtualizarProgressoNoPersonagem(int idPersonagem, int idProgresso)
         {
             try
@@ -219,6 +221,50 @@ namespace portasTestes.Repository
             {
                 MessageBox.Show("Algo deu errado ao deletar o personagem: " + ex.Message);
             }
+        }
+
+        public Personagem ObterPersonagemPorJogador(int jogadorId)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    string query = "SELECT * FROM Personagens WHERE IdJogador = @jogadorId LIMIT 1;";
+
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@jogadorId", jogadorId);
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                var personagem = new Personagem(
+                                    reader["Name"].ToString(),
+                                    Convert.ToInt32(reader["IdFase"]),
+                                    Convert.ToInt32(reader["IdJogador"])
+                                );
+
+                                personagem.setIdPersonagem(Convert.ToInt32(reader["IdPersonagem"]));
+                                personagem.setVidaPersonagem(Convert.ToDouble(reader["VidaPersonagem"]));
+                                personagem.setDanoPersonagem(Convert.ToDouble(reader["DanoPersonagem"]));
+                                if (!reader.IsDBNull(reader.GetOrdinal("ProgressoId")))
+                                {
+                                    personagem.setProgresso(Convert.ToInt32(reader["ProgressoId"]));
+                                }
+
+                                return personagem; 
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao buscar personagem: {ex.Message}");
+            }
+
+            return null;
         }
     }
 }

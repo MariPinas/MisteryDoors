@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.txtNickname = new System.Windows.Forms.TextBox();
             this.botaoJogar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,20 +43,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtNickname
-            // 
-            this.txtNickname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
-            this.txtNickname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNickname.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNickname.ForeColor = System.Drawing.Color.SandyBrown;
-            this.txtNickname.Location = new System.Drawing.Point(292, 345);
-            this.txtNickname.Name = "txtNickname";
-            this.txtNickname.Size = new System.Drawing.Size(221, 43);
-            this.txtNickname.TabIndex = 1;
-            this.txtNickname.Text = "NICKNAME HERE";
-            this.txtNickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNickname.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // botaoJogar
             // 
@@ -229,12 +214,13 @@
             this.lblNomePersonagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(55)))), ((int)(((byte)(39)))));
             this.lblNomePersonagem.Font = new System.Drawing.Font("Impact", 26.25F);
             this.lblNomePersonagem.ForeColor = System.Drawing.Color.SandyBrown;
-            this.lblNomePersonagem.Location = new System.Drawing.Point(347, 345);
+            this.lblNomePersonagem.Location = new System.Drawing.Point(357, 345);
             this.lblNomePersonagem.Name = "lblNomePersonagem";
-            this.lblNomePersonagem.Size = new System.Drawing.Size(110, 43);
+            this.lblNomePersonagem.Size = new System.Drawing.Size(94, 43);
             this.lblNomePersonagem.TabIndex = 14;
-            this.lblNomePersonagem.Text = "label3";
+            this.lblNomePersonagem.Text = "Linke";
             this.lblNomePersonagem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNomePersonagem.Click += new System.EventHandler(this.lblNomePersonagem_Click);
             // 
             // TelaPersonagem
             // 
@@ -254,7 +240,6 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.txtNickname);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaPersonagem";
@@ -273,7 +258,6 @@
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtNickname;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;

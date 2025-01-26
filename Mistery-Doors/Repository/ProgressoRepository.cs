@@ -188,5 +188,34 @@ namespace portasTestes.Repository
                 return 0;
             }
         }
+
+        public void AtualizarProgressoFase(int jogadorId, int faseAtual, int portasPassadas)
+        {
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    string query = @"
+                        UPDATE ProgressoId
+                        SET FaseAtual = @faseAtual, PortasPassadas = @portasPassadas
+                        WHERE IdJogador = @jogadorId";
+
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@faseAtual", faseAtual);
+                        comando.Parameters.AddWithValue("@portasPassadas", portasPassadas);
+                        comando.Parameters.AddWithValue("@jogadorId", jogadorId);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao atualizar progresso: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
