@@ -20,7 +20,7 @@ namespace portasTestes
         private Personagem _personagem;
 
         private ProgressoRepository _progressoRepo;
-
+       
         private int portasPassadasCount = 0;
         public string getNomeJogador() {
             return NomeJogador;
@@ -38,13 +38,14 @@ namespace portasTestes
 
         public TelaJogo(Jogador jogador, Personagem personagem) {
             InitializeComponent();
+            ResetarPersonagem();
             _jogador = jogador;
             _personagem = personagem;
             EntrarPortas();
             unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
-            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             lblNickname.Text = personagem.getNomePersonagem();
             CarregarProgresso();
 
@@ -89,13 +90,13 @@ namespace portasTestes
             int dificuldade = _personagem.getFaseId();
 
             if (dificuldade == 1)
-                lblDificuldade.Text = "Dificuldade Fácil! 😄🌱";
+                lblDificuldade.Text = "Dificuldade\n Fácil! 😄🌱";
             else if (dificuldade == 2)
-                lblDificuldade.Text = "Dificuldade Média! 🤔⚖️";
+                lblDificuldade.Text = "Dificuldade\n Média! 🤔⚖️";
             else if (dificuldade == 3)
-                lblDificuldade.Text = "Dificuldade Difícil! 😬🔥";
+                lblDificuldade.Text = "Dificuldade\n Difícil! 😬🔥";
             else if (dificuldade == 4)
-                lblDificuldade.Text = "Dificuldade Extremo! 😱💥";
+                lblDificuldade.Text = "Dificuldade\n Extremo! 😱💥";
         }
 
         private PictureBox portaSelecionada;
@@ -171,7 +172,7 @@ namespace portasTestes
                 pctHeart1.Image = vidaVazia;
             }
 
-            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             personagemRepo.AtualizarVida(personagem.getIdPersonagem(), personagem.getVidaPersonagem());
         }
         private void CarregarProgresso()
@@ -203,6 +204,9 @@ namespace portasTestes
                     portaSelecionada = portaClicada;
                     btnEntrar.Visible = true;
                     MoverPersonagemParaPorta(portaSelecionada);
+                    unit.BringToFront();
+                    unit.BackColor = Color.Transparent;
+
                 }
             }
         }
@@ -210,7 +214,7 @@ namespace portasTestes
         {
 
             int novaPosX = porta.Location.X + porta.Width / 2 - unit.Width / 2;
-            int novaPosY = porta.Location.Y + porta.Height - unit.Height / 2;
+            int novaPosY = porta.Location.Y + porta.Height - unit.Height / 2 - 10;
             unit.Location = new Point(novaPosX, novaPosY);
         }
         private void BtnEntrar_Click(object sender, EventArgs e)
@@ -227,35 +231,33 @@ namespace portasTestes
             if (resultado.Contains("🔹 Você encontrou um tesouro!\n"))
                 trocarVisualVida(_personagem);
             if (resultado.Contains("🎉 Você venceu o combate!"))
+            {
                 _jogador.AtualizarVitorias(1);
-            if (resultado.Contains("💀 Você foi derrotado!"))
-            {
-                _jogador.AtualizarDerrotas(1);
-                trocarVisualVida(_personagem);
-            }
+                if (resultado.Contains("💀 Você foi derrotado!"))
+                {
+                    _jogador.AtualizarDerrotas(1);
+                    trocarVisualVida(_personagem);
+                }
 
-            unit.Visible = false;
-            btnConfirmar.Visible = true;
-            lblRes.Visible = true;
-            lblRes.Text = $"🚪Porta selecionada: {portaSelecionada.Name}\n{resultado}";
-            msgRes.Visible = true;
+                unit.Visible = false;
+                btnConfirmar.Visible = true;
+                lblRes.Visible = true;
+                lblRes.Text = $"🚪Porta selecionada: {portaSelecionada.Name}\n{resultado}";
+                msgRes.Visible = true;
 
-            btnEntrar.Visible = false;
+                btnEntrar.Visible = false;
 
-            portasPassadasCount++;
-            _progressoRepo.IncrementarPortasPassadas(_jogador.getIdJogador());
-            SalvarOuAtualizarProgresso();
+                portasPassadasCount++;
+                _progressoRepo.IncrementarPortasPassadas(_jogador.getIdJogador());
+                SalvarOuAtualizarProgresso();
 
-            int portasNecessarias = ObterPortasNecessarias(_personagem.getFaseId());
-            if (portasPassadasCount >= portasNecessarias)
-            {
-                FinalizarFase();
+                int portasNecessarias = ObterPortasNecessarias(_personagem.getFaseId());
+                if (portasPassadasCount >= portasNecessarias)
+                {
+                    FinalizarFase();
+                }
             }
         }
-
-
-
-
         private void SalvarOuAtualizarProgresso()
         {
             try
@@ -274,7 +276,7 @@ namespace portasTestes
                 {
                     int idProgresso = _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
 
-                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                     personagemRepo.AtualizarProgressoNoPersonagem(_personagem.getIdPersonagem(), idProgresso);
 
                     _personagem.setProgresso(idProgresso);
@@ -289,17 +291,25 @@ namespace portasTestes
 
         private void ResetarPersonagem()
         {
-            
-            unit.Location = new Point(325, 309);
-        }
+            unit.Parent = pictureBox3;
+            Porta1.Parent = pictureBox3;
+            Porta2.Parent = pictureBox3;
+            Porta3.Parent = pictureBox3;
+            Porta1.Location = new Point(13, 88);
+            Porta2.Location = new Point(179, 100);
+            Porta3.Location = new Point(367, 95);
+            unit.Location = new Point(220, 320);
+            unit.BringToFront();
+            unit.BackColor = Color.Transparent;
+    }
 
-       
-        private void btnConfirmar_Click(object sender, EventArgs e)
+
+    private void btnConfirmar_Click(object sender, EventArgs e)
         {
             
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e) {
+        private void btnVoltar_Click(object sender, EventArgs e) {  
             this.Hide();
             GerenciadorForms.AbrirTelaPersonagem(_jogador);
         }
@@ -351,7 +361,7 @@ namespace portasTestes
 
                 _progressoRepo.AtualizarProgressoFase(_jogador.getIdJogador(), proximaFase, portasPassadasCount);
 
-                JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                 jogadorRepo.DesbloquearFase(_jogador.getIdJogador(), proximaFase);
 
                 MessageBox.Show($"A próxima fase ({proximaFase}) foi desbloqueada!", "Nova Fase", MessageBoxButtons.OK, MessageBoxIcon.Information);

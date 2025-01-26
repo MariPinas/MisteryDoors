@@ -131,9 +131,9 @@
             // Porta3
             // 
             this.Porta3.Image = global::portasTestes.Properties.Resources.porta3;
-            this.Porta3.Location = new System.Drawing.Point(465, 99);
+            this.Porta3.Location = new System.Drawing.Point(468, 94);
             this.Porta3.Name = "Porta3";
-            this.Porta3.Size = new System.Drawing.Size(141, 155);
+            this.Porta3.Size = new System.Drawing.Size(140, 155);
             this.Porta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Porta3.TabIndex = 6;
             this.Porta3.TabStop = false;
@@ -141,9 +141,9 @@
             // Porta2
             // 
             this.Porta2.Image = global::portasTestes.Properties.Resources.porta2;
-            this.Porta2.Location = new System.Drawing.Point(284, 99);
+            this.Porta2.Location = new System.Drawing.Point(280, 99);
             this.Porta2.Name = "Porta2";
-            this.Porta2.Size = new System.Drawing.Size(155, 151);
+            this.Porta2.Size = new System.Drawing.Size(161, 151);
             this.Porta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Porta2.TabIndex = 5;
             this.Porta2.TabStop = false;
