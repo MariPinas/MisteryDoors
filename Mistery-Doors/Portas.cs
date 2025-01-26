@@ -25,11 +25,11 @@ namespace portasTestes {
             {
                 case 1: multiplicadorDano = 1.0;
                     break;
-                case 2: multiplicadorDano = 1.2;
+                case 2: multiplicadorDano = 2.2;
                     break;
-                case 3: multiplicadorDano = 1.4;
+                case 3: multiplicadorDano = 2.4;
                     break;
-                case 4: multiplicadorDano = 2.0;
+                case 4: multiplicadorDano = 4.0;
                     break;
                 default:
                     multiplicadorDano = 1.0;

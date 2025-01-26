@@ -120,7 +120,7 @@ namespace portasTestes {
         }
 
         private void CadastrarUsuario(string nomeUser, string senhaUser) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             //verificar username
             if (jogadorRepository.VerificarUsernameExistente(nomeUser)) {
@@ -137,12 +137,14 @@ namespace portasTestes {
         }
 
         private void EntrarUsuario(string nomeUser, string senhaUser) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             // Verificar login
             if (jogadorRepository.VerificarUsuarioExistente(nomeUser, senhaUser)) {
                 // Pega o jogador completo
                 Jogador jogador = jogadorRepository.GetJogadorPorUsername(nomeUser);
+                jogador.setVitorias(jogadorRepository.GetVitorias(jogador.getIdJogador()));
+                jogador.setDerrotas(jogadorRepository.getDerrotas(jogador.getIdJogador()));
 
                 MessageBox.Show("Login realizado com sucesso!");
                 this.Hide();

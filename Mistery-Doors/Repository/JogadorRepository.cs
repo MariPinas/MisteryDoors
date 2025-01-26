@@ -306,6 +306,57 @@ namespace portasTestes.Repository
             }
         }
 
+        public int GetVitorias(int idJogador)
+        {
+            int vitorias = 0;
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    var query = "SELECT Vitorias FROM Jogadores WHERE Id = @IdJogador";
+                    var comando = new MySqlCommand(query, conexao);
+                    comando.Parameters.AddWithValue("@IdJogador", idJogador);
 
+                    object result = comando.ExecuteScalar();
+                    if (result != null)
+                    {
+                        vitorias = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao obter vitórias: " + ex.Message);
+            }
+
+            return vitorias;
+        }
+        public int getDerrotas(int idJogador)
+        {
+            int derrotas = 0;
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    var query = "SELECT Derrotas FROM Jogadores WHERE Id = @IdJogador";
+                    var comando = new MySqlCommand(query, conexao);
+                    comando.Parameters.AddWithValue("@IdJogador", idJogador);
+
+                    object result = comando.ExecuteScalar();
+                    if (result != null)
+                    {
+                        derrotas = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao obter Derrotas: " + ex.Message);
+            }
+
+            return derrotas;
+        }
     }
 }

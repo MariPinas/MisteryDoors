@@ -11,8 +11,8 @@ namespace portasTestes
         public int IdJogador {  get; set; }
         public string Username { get; set; }
         public string Senha { get; set; }
-        private int Vitorias { get; set; } = 0;
-        private int Derrotas { get; set; } = 0;
+        private int Vitorias { get; set; }
+        private int Derrotas { get; set; }
 
         public List<Personagem> Personagens { get; set; } = new List<Personagem>();
 
@@ -41,9 +41,17 @@ namespace portasTestes
         {
             this.Vitorias++;
         }
+        public void setVitorias(int vitorias)
+        {
+            this.Vitorias = vitorias;
+        }
         public int getDerrotas()
         {
             return this.Derrotas;
+        }
+        public void setDerrotas(int derrotas)
+        {
+            this.Derrotas = derrotas;
         }
         public void setDerrotas()
         {
