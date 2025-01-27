@@ -44,19 +44,15 @@ public class Personagem {
     }
 
     public void PerderVida() {
-        VerificarMortePersonagem();
         if (this.VidaPersonagem > 0)
             VidaPersonagem -= 0.5;
-        
+        VerificarMortePersonagem();
     }
     private void VerificarMortePersonagem() {
         if (this.VidaPersonagem <= 0) {
-            
             Console.WriteLine($"{Name} morreu!");
-
             var repository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             repository.Deletar(IdPersonagem);
-
         }
     }
     public void GanharVida() {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace portasTestes {
     public class Portas {
@@ -73,7 +74,6 @@ namespace portasTestes {
             return resultado;
         }
 
-
         public string RealizarAcao(Personagem personagem, Inimigo inimigo) {
             string log = $"🔹 {personagem.getNomePersonagem()} está enfrentando {inimigo.getNome()}!\n\n" +
                          $"⚔️ Seu dano: {personagem.getDanoPersonagem()} | " +
@@ -99,7 +99,10 @@ namespace portasTestes {
                 log += "\n\n💀 Você foi derrotado!\n" +
                        "⚠️ Você perdeu uma vida. Tente novamente!";
                 personagem.PerderVida();
-                
+                if (personagem.getVidaPersonagem() <= 0) {
+                    log += "💀 O seu personagem está morto!";
+                }
+
             }
 
             return log;

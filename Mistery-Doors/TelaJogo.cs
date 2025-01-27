@@ -231,8 +231,7 @@ namespace portasTestes
                 trocarVisualVida(_personagem);
             if (resultado.Contains("🎉 Você venceu o combate!"))
                 _jogador.AtualizarVitorias(1);
-            if (resultado.Contains("💀 Você foi derrotado!"))
-                {
+            if (resultado.Contains("💀 Você foi derrotado!")){
                     _jogador.AtualizarDerrotas(1);
                     trocarVisualVida(_personagem);
                 }
@@ -254,7 +253,16 @@ namespace portasTestes
                 {
                     FinalizarFase();
                 }
-            
+            if (_personagem.getVidaPersonagem() <= 0) {
+                var progressoRepository = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+                int progressoId = _personagem.getProgressoId();
+                progressoRepository.Deletar(progressoId);
+
+                MessageBox.Show("Seu personagem morreu! Redirecionando para a tela de personagem.");
+                this.Hide();
+                GerenciadorForms.AbrirTelaPersonagem(_jogador);
+            }
+
         }
         private void SalvarOuAtualizarProgresso()
         {
