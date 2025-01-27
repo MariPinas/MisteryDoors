@@ -1,4 +1,7 @@
-.vs/
+/.vs/
+/Mistery-Doors/.vs/
+/Mistery-Doors/bin/
+/Mistery-Doors/obj/
 .idea/
 .vscode/
 *.exe

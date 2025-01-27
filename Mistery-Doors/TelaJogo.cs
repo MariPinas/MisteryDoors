@@ -64,7 +64,7 @@ namespace portasTestes
         }
 
 
-        private void SalvarProgresso()
+        private void SalvarProgresso() // ue nao ta snedo usado pra nada depois exclui entao
         {
             try
             {
@@ -178,6 +178,8 @@ namespace portasTestes
         private void CarregarProgresso()
         {
             int totalPortas = _progressoRepo.ObterPortasPassadas(_jogador.getIdJogador());
+            portasPassadasCount = totalPortas;
+
         }
         private void EntrarPortas()
         {
@@ -229,10 +231,10 @@ namespace portasTestes
             string resultado = porta.SorteadorDaPorta(_personagem);
             if (resultado.Contains("🔹 Você encontrou um tesouro!\n"))
                 trocarVisualVida(_personagem);
-            if (resultado.Contains("🎉 Você venceu o combate!"))
-                _jogador.AtualizarVitorias(1);
+            //if (resultado.Contains("🎉 Você venceu o combate!"))   //ESTA EM FINALIZAR FASE
+            //    _jogador.AtualizarVitorias(1);
             if (resultado.Contains("💀 Você foi derrotado!")){
-                    _jogador.AtualizarDerrotas(1);
+                    //_jogador.AtualizarDerrotas(1);                 // ESTA EM BTN ENTRAR CLICK logo abaixo
                     trocarVisualVida(_personagem);
                 }
 
@@ -257,7 +259,7 @@ namespace portasTestes
                 var progressoRepository = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                 int progressoId = _personagem.getProgressoId();
                 progressoRepository.Deletar(progressoId);
-
+                _jogador.AtualizarDerrotas(1); // COLOQUEI AQUI NA MINHA CABECA FAZ MAIS SENTIDO
                 MessageBox.Show("Seu personagem morreu! Redirecionando para a tela de personagem.");
                 this.Hide();
                 GerenciadorForms.AbrirTelaPersonagem(_jogador);
@@ -318,7 +320,7 @@ namespace portasTestes
             
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e) {  
+        private void btnVoltar_Click(object sender, EventArgs e) {
             this.Hide();
             GerenciadorForms.AbrirTelaPersonagem(_jogador);
         }
@@ -380,7 +382,7 @@ namespace portasTestes
 
                     MessageBox.Show($"Fase {progresso.FaseAtual} concluída! Próxima fase: {proximaFase}.",
                         "Parabéns!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    _jogador.AtualizarVitorias(1); //COLOQUEI AQUI TB PQ NA MINHA CABECA FAZ MAS SENTIDO
                     this.Hide();
                     GerenciadorForms.AbrirTelaPersonagem(_jogador);
                 }

@@ -29,7 +29,7 @@ namespace portasTestes {
 
             jogadorRepository.Atualizar(_jogador.getIdJogador(), null, null, _jogador.getVitorias(), _jogador.getDerrotas());
             label1.Text = $"{_jogador.getVitorias()} VITÓRIAS!";
-            label2.Text = $"{_jogador.getDerrotas()} DERROTAS!";
+            label2.Text = $"{_jogador.getDerrotas()} MORTES!";
         }
            
         public Jogador getJogador() {

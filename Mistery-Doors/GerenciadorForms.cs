@@ -17,12 +17,12 @@ namespace portasTestes {
         public static PersonagemRepository personagemRepository { get; private set; }
         public static JogadorRepository jogadorRepository { get; private set; }
 
-        //proximos passos utilizar 1 repository doq ficar instanciando a cara operacao
-        static GerenciadorForms() {
-            string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
-            personagemRepository = new PersonagemRepository(connectionString);
-            jogadorRepository = new JogadorRepository(connectionString);
-        }
+        ////proximos passos utilizar 1 repository doq ficar instanciando a cara operacao
+        //static GerenciadorForms() {
+        //    string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
+        //    personagemRepository = new PersonagemRepository(connectionString);
+        //    jogadorRepository = new JogadorRepository(connectionString);
+        //}
 
         public static void AbrirTelaInicial() {
             TelaInicio = new TelaInicio();
