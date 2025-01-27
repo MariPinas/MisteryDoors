@@ -58,7 +58,7 @@ namespace portasTestes {
         }
        
         private void AtualizarPerfil(string novoUsername, string novaSenha) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
 
             int idJogador = jogadorRepository.getIdJogador(Username);
 
@@ -92,7 +92,7 @@ namespace portasTestes {
         }
 
         private void btnDeletarConta_Click(object sender, EventArgs e) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
             var resposta = MessageBox.Show("Tem certeza de que deseja excluir sua conta?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resposta == DialogResult.Yes) {

@@ -15,7 +15,7 @@ namespace portasTestes
         [STAThread]
         static void Main()
         {
-            string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
+            string connectionString = "server=localhost;uid=root;pwd=ifsp;database=mistery_doors";
 
             IniciaDataBase(connectionString);
 

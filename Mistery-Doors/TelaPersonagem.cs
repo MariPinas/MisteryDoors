@@ -15,8 +15,8 @@ namespace portasTestes {
         private  Jogador _jogador {  get; set; }
         private string levelSelec;
 
-        PersonagemRepository personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
-        JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+        PersonagemRepository personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
+        JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
         public TelaPersonagem(Jogador jogador)
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace portasTestes {
         }
 
         private void SelecionarDificuldade(Button botaoSelecionado, string dificuldade) {
-            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
             levelSelec = dificuldade;
             btnFacil.Font = new Font(btnFacil.Font, FontStyle.Regular);
             btnMedio.Font = new Font(btnMedio.Font, FontStyle.Regular);
@@ -112,7 +112,7 @@ namespace portasTestes {
         }
 
         private int ObterIdFase(string dificuldade) {
-            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
             return faseRepository.ObterIdDificuldade(dificuldade); //return idFase correspondente a dificuldade selecionada
         }
 
@@ -126,7 +126,7 @@ namespace portasTestes {
                 return personagemExistente; // Retorna o personagem existente, caso já exista
             }
 
-            ProgressoRepository progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            ProgressoRepository progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
             int idProgresso = progressoRepo.ObterOuCriarProgresso(jogadorId, faseId, 0); 
 
             Personagem novoPersonagem = new Personagem("Linke", faseId, jogadorId);
@@ -176,7 +176,7 @@ namespace portasTestes {
 
         private void TelaPersonagem_Load(object sender, EventArgs e)
         {
-            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=ifsp;database=mistery_doors");
             List<int> fasesDesbloqueadas = jogadorRepo.ObterFasesDesbloqueadas(_jogador.getIdJogador());
             
             btnMedio.Visible = false;

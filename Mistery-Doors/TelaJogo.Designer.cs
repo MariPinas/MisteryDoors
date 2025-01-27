@@ -44,6 +44,7 @@
             this.unit = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.lblPortasPassadas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.msgRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Porta3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Porta2)).BeginInit();
@@ -234,6 +235,18 @@
             this.btnConfirmar.Visible = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
             // 
+            // lblPortasPassadas
+            // 
+            this.lblPortasPassadas.AutoSize = true;
+            this.lblPortasPassadas.BackColor = System.Drawing.Color.Transparent;
+            this.lblPortasPassadas.Font = new System.Drawing.Font("Impact", 20F);
+            this.lblPortasPassadas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPortasPassadas.Location = new System.Drawing.Point(240, 18);
+            this.lblPortasPassadas.Name = "lblPortasPassadas";
+            this.lblPortasPassadas.Size = new System.Drawing.Size(212, 34);
+            this.lblPortasPassadas.TabIndex = 21;
+            this.lblPortasPassadas.Text = "Portas passadas: ";
+            // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,6 +267,7 @@
             this.Controls.Add(this.pctHeart2);
             this.Controls.Add(this.pctHeart1);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblPortasPassadas);
             this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaJogo";
@@ -292,6 +306,7 @@
         private System.Windows.Forms.Label lblNickname;
         private System.Windows.Forms.PictureBox msgRes;
         private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Label lblPortasPassadas;
     }
 }
 
