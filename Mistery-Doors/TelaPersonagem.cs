@@ -163,8 +163,7 @@ namespace portasTestes {
     }
 
         private void btnPerfil_Click(object sender, EventArgs e) {
-            string username = TelaLogin.getUsername();
-            TelaPerfil telaPerfil = new TelaPerfil(username);  
+            TelaPerfil telaPerfil = new TelaPerfil(GerenciadorForms.JogadorAtual.Username); 
             this.Hide();
             telaPerfil.Show();
         }

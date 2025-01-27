@@ -12,9 +12,16 @@ using portasTestes.Repository;
 namespace portasTestes {
     public partial class TelaPerfil : Form {
 
-        private string Username { get; set; }
+        private string _username;
+        private string Username {
+            get => _username;
+            set {
+                _username = value;
+                lblNomeUsu.Text = $"Bem-vindo(a) ao seu perfil, {_username}!";
+            }
+        }
 
-       
+
         public TelaPerfil(string nomeUsuario) {
             InitializeComponent();
             this.Username = nomeUsuario; 
@@ -28,7 +35,6 @@ namespace portasTestes {
         }
 
         private void TelaPerfil_Load(object sender, EventArgs e) {
-            lblNomeUsu.Text = $"Bem-vindo(a) ao seu perfil, {Username}!";
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {
@@ -40,7 +46,6 @@ namespace portasTestes {
                 return;
             }
             AtualizarPerfil(novoUsername, novaSenha);
-            MessageBox.Show("Perfil atualizado com sucesso!");
             btnEditarPerfil.Visible = true;
 
            
@@ -61,10 +66,17 @@ namespace portasTestes {
                 MessageBox.Show("Jogador não encontrado!");
                 return;
             }
-            
+
             jogadorRepository.Atualizar(idJogador, novoUsername, novaSenha);
-            GerenciadorForms.TelaPersonagem.Show();
-            this.Hide();
+
+            Username = novoUsername;
+            GerenciadorForms.JogadorAtual.Username = novoUsername;
+
+            MessageBox.Show("Perfil atualizado com sucesso!");
+        }
+
+        public void AtualizarPerfilJogador(string novoUsername) {
+            Username = novoUsername;
         }
 
         private void btnEditarPerfil_Click(object sender, EventArgs e) {

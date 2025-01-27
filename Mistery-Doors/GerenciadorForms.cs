@@ -14,14 +14,14 @@ namespace portasTestes {
 
         public static TelaInicio TelaInicio { get; set; }
         public static Jogador JogadorAtual { get; set; }  //jogador logado
-        public static PersonagemRepository PersonagemRepository { get; private set; }
-        public static JogadorRepository JogadorRepository { get; private set; }
+        public static PersonagemRepository personagemRepository { get; private set; }
+        public static JogadorRepository jogadorRepository { get; private set; }
 
         //proximos passos utilizar 1 repository doq ficar instanciando a cara operacao
         static GerenciadorForms() {
             string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
-            PersonagemRepository = new PersonagemRepository(connectionString);
-            JogadorRepository = new JogadorRepository(connectionString);
+            personagemRepository = new PersonagemRepository(connectionString);
+            jogadorRepository = new JogadorRepository(connectionString);
         }
 
         public static void AbrirTelaInicial() {
@@ -34,7 +34,12 @@ namespace portasTestes {
             TelaLogin.Show();
         }
         public static void AbrirTelaPerfil(string username) {
-            TelaPerfil = new TelaPerfil(username);
+            if (TelaPerfil == null || TelaPerfil.IsDisposed) { //se a tela perfil for null ou esta disposed entao a nova vai receber o username
+                TelaPerfil = new TelaPerfil(username);
+            } else {
+                TelaPerfil.AtualizarPerfilJogador(username); //se nao, ela vai atualizar o nome do jogador
+            }
+
             TelaPerfil.Show();
         }
 

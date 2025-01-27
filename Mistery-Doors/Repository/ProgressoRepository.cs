@@ -26,7 +26,7 @@ namespace portasTestes.Repository
                     IdJogador INT NOT NULL,
                     FaseAtual INT NOT NULL,
                     PortasPassadas INT NOT NULL,
-                    FOREIGN KEY (IdJogador) REFERENCES Jogadores(Id)
+                    FOREIGN KEY (IdJogador) REFERENCES Jogadores(Id) ON DELETE CASCADE
                 );", conexao);
                 comando.ExecuteNonQuery();
                 conexao.Close();
