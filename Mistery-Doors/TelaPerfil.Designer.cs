@@ -32,6 +32,7 @@
             this.txtNovaSenha = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnEditarPerfil = new System.Windows.Forms.Button();
+            this.lblMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDeletarConta
@@ -148,11 +149,22 @@
             this.btnEditarPerfil.UseVisualStyleBackColor = false;
             this.btnEditarPerfil.Click += new System.EventHandler(this.btnEditarPerfil_Click);
             // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.BackColor = System.Drawing.Color.Transparent;
+            this.lblMsg.Location = new System.Drawing.Point(331, 189);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(35, 13);
+            this.lblMsg.TabIndex = 21;
+            this.lblMsg.Text = "label1";
+            // 
             // TelaPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.btnEditarPerfil);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtNovaSenha);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.TextBox txtNovaSenha;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnEditarPerfil;
+        private System.Windows.Forms.Label lblMsg;
     }
 }
