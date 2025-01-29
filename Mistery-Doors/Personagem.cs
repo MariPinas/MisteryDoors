@@ -19,16 +19,16 @@ public class Personagem {
     public void setIdJogador(int idJogador) {
         this.IdJogador = idJogador;
     }
+
     public Personagem() { }
-    public Personagem(Equipamento i) {
-        this.Arma = i;
-            }
+    public Personagem(Equipamento i) { this.Arma = i;}
 
     public Personagem(string nome, int dificuldadeid, int jogadorId) {
         this.Name = nome;
         this.FaseId = dificuldadeid;
         this.IdJogador = jogadorId;
     }
+
     public int getIdPersonagem() {  return IdPersonagem; }
     public void setIdPersonagem(int id) {  IdPersonagem = id; }
 

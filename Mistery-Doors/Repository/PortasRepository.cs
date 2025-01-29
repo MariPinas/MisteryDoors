@@ -25,13 +25,13 @@ namespace portasTestes.Repository
                 {
                     conexao.Open();
                     var comando = new MySqlCommand(@"
-                CREATE TABLE IF NOT EXISTS Portas (
-                    IdPorta INT AUTO_INCREMENT PRIMARY KEY,
-                    Nome VARCHAR(255) NOT NULL,
-                    ProbabilidadeInimigo DOUBLE NOT NULL DEFAULT 0.7,
-                    ProbabilidadeBoss DOUBLE NOT NULL DEFAULT 0.2,
-                    ProbabilidadeLoot DOUBLE NOT NULL DEFAULT 0.1
-                );", conexao);
+                        CREATE TABLE IF NOT EXISTS Portas (
+                            IdPorta INT AUTO_INCREMENT PRIMARY KEY,
+                            Nome VARCHAR(255) NOT NULL,
+                            ProbabilidadeInimigo DOUBLE NOT NULL DEFAULT 0.7,
+                            ProbabilidadeBoss DOUBLE NOT NULL DEFAULT 0.2,
+                            ProbabilidadeLoot DOUBLE NOT NULL DEFAULT 0.1
+                        );", conexao);
                     comando.ExecuteNonQuery();
                 }
             }

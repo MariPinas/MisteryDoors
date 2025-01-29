@@ -39,7 +39,6 @@ namespace portasTestes {
             } else {
                 TelaPerfil.AtualizarPerfilJogador(username); //se nao, ela vai atualizar o nome do jogador
             }
-
             TelaPerfil.Show();
         }
 

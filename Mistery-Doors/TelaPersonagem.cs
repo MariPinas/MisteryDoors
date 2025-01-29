@@ -44,10 +44,10 @@ namespace portasTestes {
 
             // cores do figma
             Color[] cores = {
-            ColorTranslator.FromHtml("#EFC981"),
-            ColorTranslator.FromHtml("#EE9E69"),
-            ColorTranslator.FromHtml("#AE6245")
-        };
+                ColorTranslator.FromHtml("#EFC981"),
+                ColorTranslator.FromHtml("#EE9E69"),
+                ColorTranslator.FromHtml("#AE6245")
+            };
 
 
             using (LinearGradientBrush brush = new LinearGradientBrush(
@@ -79,36 +79,49 @@ namespace portasTestes {
             botaoJogar.Visible = true;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e) {
-            
-        }
 
         private void label1_Click_1(object sender, EventArgs e) {
 
         }
 
-        private void btnFacil_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnFacil, "facil");
+        private void btnFacil_Click(object sender, EventArgs e)
+        {
+            Personagem personagemNaoExiste = personagemRepository.ObterPersonagemPorJogador(_jogador.getIdJogador());
+            bool validacao = ValidarFasesPassadas("facil");
+            if (validacao || personagemNaoExiste == null)
+                SelecionarDificuldade(btnFacil, "facil");
+            else
+                MessageBox.Show("Um herói não volta atrás!");
         }
 
-        private void btnMedio_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnMedio, "medio");
+        private void btnMedio_Click(object sender, EventArgs e)
+        {
+            Personagem personagemNaoExiste = personagemRepository.ObterPersonagemPorJogador(_jogador.getIdJogador());
+            bool validacao = ValidarFasesPassadas("medio");
+            if (validacao || personagemNaoExiste == null)
+                SelecionarDificuldade(btnMedio, "medio");
+            else
+                MessageBox.Show("Um herói não volta atrás!");
         }
 
-        private void btnDificil_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnDificil, "dificil");
+        private void btnDificil_Click(object sender, EventArgs e)
+        {
+            Personagem personagemNaoExiste = personagemRepository.ObterPersonagemPorJogador(_jogador.getIdJogador());
+            bool validacao = ValidarFasesPassadas("dificil");
+            if (validacao || personagemNaoExiste == null)
+                SelecionarDificuldade(btnDificil, "dificil");
+            else
+                MessageBox.Show("Um herói não volta atrás!");
         }
 
-        private void btnExtremo_Click(object sender, EventArgs e) {
-            SelecionarDificuldade(btnExtremo, "extremo");
+        private void btnExtremo_Click(object sender, EventArgs e)
+        {
+            Personagem personagemNaoExiste = personagemRepository.ObterPersonagemPorJogador(_jogador.getIdJogador());
+            bool validacao = ValidarFasesPassadas("extremo");
+            if (validacao || personagemNaoExiste == null)
+                SelecionarDificuldade(btnExtremo, "extremo");
+            else
+                MessageBox.Show("Um herói não volta atrás!");
         }
 
         private int ObterIdFase(string dificuldade) {
@@ -157,10 +170,27 @@ namespace portasTestes {
             
         }
 
+        private bool ValidarFasesPassadas(string dificuldade)
+        {
+            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            int faseAtual = jogadorRepo.ObterFaseAtualPorJogadorId(_jogador.getIdJogador());
+
+            if (dificuldade == "facil" && faseAtual == 1)
+                return true;
+            if (dificuldade == "medio" && faseAtual == 2)
+                return true;
+            if (dificuldade == "dificil" && faseAtual == 3)
+                return true;
+            if (dificuldade == "extremo" && faseAtual == 4)
+                return true;
+            else
+                return false;
+        }
+
         private void btnVoltar_Click(object sender, EventArgs e) {
             this.Hide();
             GerenciadorForms.InicializarTelaLogin();
-    }
+        }
 
         private void btnPerfil_Click(object sender, EventArgs e) {
             TelaPerfil telaPerfil = new TelaPerfil(GerenciadorForms.JogadorAtual.Username); 
@@ -168,11 +198,6 @@ namespace portasTestes {
             telaPerfil.Show();
         }
 
-
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
-        {
-
-        }
 
         private void TelaPersonagem_Load(object sender, EventArgs e)
         {
@@ -208,6 +233,6 @@ namespace portasTestes {
 
         }
     }
-    }
+}
 
 

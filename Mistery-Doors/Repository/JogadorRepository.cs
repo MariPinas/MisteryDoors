@@ -125,31 +125,31 @@ namespace portasTestes.Repository
         }
 
 
-        public List<(int IdJogador, string Username, int Vitorias, int Derrotas, int? PersonagemId)> ObterTodos() {
-            var jogadores = new List<(int, string, int, int, int?)>();
-            MySqlConnection conexao = null;
-            try {
-                conexao = new MySqlConnection(_connectionString);
-                conexao.Open();
-                var comando = new MySqlCommand("SELECT * FROM Jogadores;", conexao);
-                var reader = comando.ExecuteReader();
-                while (reader.Read()) {
-                    jogadores.Add((
-                        reader.GetInt32("Id"),
-                        reader.GetString("Username"),
-                        reader.GetInt32("Vitorias"),
-                        reader.GetInt32("Derrotas"),
-                        reader.IsDBNull(reader.GetOrdinal("PersonagemId")) ? (int?)null : reader.GetInt32("PersonagemId")
-                    ));
-                }
-            } catch (Exception ex) {
-                MessageBox.Show("Erro ao obter jogadores: " + ex.Message);
-            } finally {
-                conexao?.Close();
-            }
+        //public List<(int IdJogador, string Username, int Vitorias, int Derrotas, int? PersonagemId)> ObterTodos() {
+        //    var jogadores = new List<(int, string, int, int, int?)>();
+        //    MySqlConnection conexao = null;
+        //    try {
+        //        conexao = new MySqlConnection(_connectionString);
+        //        conexao.Open();
+        //        var comando = new MySqlCommand("SELECT * FROM Jogadores;", conexao);
+        //        var reader = comando.ExecuteReader();
+        //        while (reader.Read()) {
+        //            jogadores.Add((
+        //                reader.GetInt32("Id"),
+        //                reader.GetString("Username"),
+        //                reader.GetInt32("Vitorias"),
+        //                reader.GetInt32("Derrotas"),
+        //                reader.IsDBNull(reader.GetOrdinal("PersonagemId")) ? (int?)null : reader.GetInt32("PersonagemId")
+        //            ));
+        //        }
+        //    } catch (Exception ex) {
+        //        MessageBox.Show("Erro ao obter jogadores: " + ex.Message);
+        //    } finally {
+        //        conexao?.Close();
+        //    }
 
-            return jogadores;
-        }
+        //    return jogadores;
+        //}
 
         public void Atualizar(int idJogador, string username = null, string senha = null, int? vitorias = null, int? derrotas = null) {
             MySqlConnection conexao = null;
@@ -271,7 +271,35 @@ namespace portasTestes.Repository
             return fasesDesbloqueadas;
         }
 
+        public int ObterFaseAtualPorJogadorId(int jogadorId)
+        {
+            int faseAtual = -1; // Valor padrão caso não encontre
 
+            try
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    string query = "SELECT FaseAtual FROM ProgressoId WHERE IdJogador = @jogadorId";
+                    using (var comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@jogadorId", jogadorId);
+
+                        var resultado = comando.ExecuteScalar();
+                        if (resultado != null)
+                        {
+                            faseAtual = Convert.ToInt32(resultado);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao buscar fase atual: {ex.Message}");
+            }
+
+            return faseAtual;
+        }
 
         public void DesbloquearFase(int jogadorId, int novaFaseId)
         {
@@ -332,6 +360,7 @@ namespace portasTestes.Repository
 
             return vitorias;
         }
+
         public int getDerrotas(int idJogador)
         {
             int derrotas = 0;

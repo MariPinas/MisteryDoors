@@ -68,8 +68,8 @@ namespace portasTestes
         {
             Random r = new Random();
             string raridade = DeterminarRaridade(r);
-            string[] nomes = { "Espada ", "Machado ", "Lanca ", "Arco " };
-            string[] nomesComplete = { "de Fogo", "de Agua", "de Terra", "de Ar" };
+            string[] nomes = { "Espada ", "Machado ", "Lanca ", "Arco ", "Katana ", "Arco ", "Graveto " };
+            string[] nomesComplete = { "de Fogo", "de Agua", "de Terra", "de Ar", "das Galáxias", "Divino" };
 
             
             string nome = nomes[r.Next(nomes.Length)] + nomesComplete[r.Next(nomesComplete.Length)];

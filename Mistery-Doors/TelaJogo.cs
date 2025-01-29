@@ -14,7 +14,7 @@ namespace portasTestes
 {
     public partial class TelaJogo : Form
     {
-        private string NomeJogador; //
+        private string NomeJogador;
         private string DificuldadeId;
         private Jogador _jogador;
         private Personagem _personagem;
@@ -68,25 +68,6 @@ namespace portasTestes
 
             int portasNecessarias = ObterPortasNecessarias(_personagem.getFaseId());
             lblPortasPassadas.Text = "Portas passadas: " +_progressoRepo.ObterPortasPassadas(personagem.getIdJogador()).ToString()+"/"+portasNecessarias;
-        }
-
-
-        private void SalvarProgresso() // ue nao ta snedo usado pra nada depois exclui entao
-        {
-            try
-            {
-                int idJogador = _jogador.getIdJogador();
-                int faseAtual = _personagem.getFaseId();
-                
-
-                _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
-
-                MessageBox.Show("Progresso salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao salvar progresso: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -218,6 +199,7 @@ namespace portasTestes
                 }
             }
         }
+
         private void MoverPersonagemParaPorta(PictureBox porta)
         {
 
@@ -225,6 +207,7 @@ namespace portasTestes
             int novaPosY = porta.Location.Y + porta.Height - unit.Height / 2 - 10;
             unit.Location = new Point(novaPosX, novaPosY);
         }
+
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
             if (portaSelecionada == null)
@@ -238,12 +221,9 @@ namespace portasTestes
             string resultado = porta.SorteadorDaPorta(_personagem);
             if (resultado.Contains("🔹 Você encontrou um tesouro!\n"))
                 trocarVisualVida(_personagem);
-            //if (resultado.Contains("🎉 Você venceu o combate!"))   //ESTA EM FINALIZAR FASE
-            //    _jogador.AtualizarVitorias(1);
             if (resultado.Contains("💀 Você foi derrotado!")){
-                    //_jogador.AtualizarDerrotas(1);                 // ESTA EM BTN ENTRAR CLICK logo abaixo
-                    trocarVisualVida(_personagem);
-                }
+                trocarVisualVida(_personagem);
+            }
 
                 unit.Visible = false;
                 btnConfirmar.Visible = true;
@@ -272,9 +252,8 @@ namespace portasTestes
                 this.Hide();
                 GerenciadorForms.AbrirTelaPersonagem(_jogador);
             }
-            
-
         }
+
         private void SalvarOuAtualizarProgresso()
         {
             try
@@ -321,12 +300,6 @@ namespace portasTestes
             unit.Location = new Point(220, 320);
             unit.BringToFront();
             unit.BackColor = Color.Transparent;
-    }
-
-
-    private void btnConfirmar_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e) {

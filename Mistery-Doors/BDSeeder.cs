@@ -13,28 +13,16 @@ namespace portasTestes {
                 conexao.Open();
 
                 string seedFases = @"
-                INSERT INTO Fases (IdFase, dificuldade) VALUES
-                (1, 'facil'),
-                (2, 'medio'),
-                (3, 'dificil'),
-                (4, 'extremo')
-                ON DUPLICATE KEY UPDATE dificuldade = VALUES(dificuldade);
-            ";
+                    INSERT INTO Fases (IdFase, dificuldade) VALUES
+                        (1, 'facil'),
+                        (2, 'medio'),
+                        (3, 'dificil'),
+                        (4, 'extremo')
+                        ON DUPLICATE KEY UPDATE dificuldade = VALUES(dificuldade);";
 
-            //    string seedArmas = @"
-            //    INSERT INTO Equipamentos (IdEquipamento, Nome, Raridade, Dano) VALUES
-            //    (1, 'Graveto afiado', 'Normal', 6),
-            //    (2, 'Arco Simples', 'Normal', 10),
-            //    (3, 'Espada de Dima', 'Epico', 15),
-            //    (4, 'Cajado Magico', 'Lendario', 25)
-            //    ON DUPLICATE KEY UPDATE Nome = VALUES(Nome);
-            //"
-            //    ;
                 MySqlCommand comando = new MySqlCommand(seedFases, conexao);
                 comando.ExecuteNonQuery();
 
-                //comando.CommandText = seedArmas;
-                //comando.ExecuteNonQuery();
             }
         }
     }

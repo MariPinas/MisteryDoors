@@ -141,6 +141,7 @@ namespace portasTestes.Repository
                 MessageBox.Show("Algo deu errado ao deletar o progresso: " + ex.Message);
             }
         }
+
         public void IncrementarPortasPassadas(int idJogador)
         {
             try
@@ -163,6 +164,7 @@ namespace portasTestes.Repository
                 MessageBox.Show("Erro ao atualizar o contador de portas: " + ex.Message);
             }
         }
+
         public int ObterPortasPassadas(int idJogador)
         {
             try

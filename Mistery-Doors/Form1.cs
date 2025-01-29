@@ -14,6 +14,7 @@ namespace portasTestes
     {
         private PictureBox portaSelecionada;
         Dictionary<PictureBox, Portas> portas = new Dictionary<PictureBox, Portas>();
+
         private void InstanciarPortas()
         {
             Portas porta1 = new Portas("Porta1");
@@ -24,6 +25,7 @@ namespace portasTestes
             portas.Add(Porta2, porta2);
             portas.Add(Porta3, porta3);
         }
+
         public Form1()
         {
             InitializeComponent();
@@ -59,6 +61,7 @@ namespace portasTestes
                 MoverPersonagemParaPorta(portaSelecionada);
             }
         }
+
         private void MoverPersonagemParaPorta(PictureBox porta)
         {
           
@@ -66,6 +69,7 @@ namespace portasTestes
             int novaPosY = porta.Location.Y + porta.Height - unit.Height / 2; 
             unit.Location = new Point(novaPosX, novaPosY);
         }
+
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
             if(portaSelecionada == null)
@@ -82,19 +86,11 @@ namespace portasTestes
             ResetarPersonagem();
             btnEntrar.Visible = false;
         }
+
         private void ResetarPersonagem()
         {
             unit.Location = new Point(469, 473); 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-           
-        }
     }
 }

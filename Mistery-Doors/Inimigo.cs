@@ -9,7 +9,6 @@ namespace portasTestes
     public class Inimigo
     {
         private string Nome {  get; set; }
-
         private int Dano { get; set; }
 
         public Inimigo (string nome, int dano)
@@ -41,7 +40,5 @@ namespace portasTestes
         {
             this.Dano = dano;
         }
-
-
     }
 }

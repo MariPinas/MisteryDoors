@@ -54,7 +54,6 @@ namespace portasTestes
         {
             return this.PortasPassadas;
         }
-
         public void setPortasPassadas(int portasPassadas)
         {
             this.PortasPassadas = portasPassadas;
