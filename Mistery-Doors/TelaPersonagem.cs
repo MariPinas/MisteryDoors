@@ -15,8 +15,8 @@ namespace portasTestes {
         private  Jogador _jogador {  get; set; }
         private string levelSelec;
 
-        PersonagemRepository personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
-        JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+        PersonagemRepository personagemRepository = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+        JogadorRepository jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
         public TelaPersonagem(Jogador jogador)
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace portasTestes {
         }
 
         private void SelecionarDificuldade(Button botaoSelecionado, string dificuldade) {
-            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             levelSelec = dificuldade;
             btnFacil.Font = new Font(btnFacil.Font, FontStyle.Regular);
             btnMedio.Font = new Font(btnMedio.Font, FontStyle.Regular);
@@ -125,21 +125,25 @@ namespace portasTestes {
         }
 
         private int ObterIdFase(string dificuldade) {
-            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            FaseRepository faseRepository = new FaseRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             return faseRepository.ObterIdDificuldade(dificuldade); //return idFase correspondente a dificuldade selecionada
         }
 
         public Personagem CriarPersonagem(int faseId, int jogadorId)
         {
-            // Verificar se o jogador já possui um personagem
-            Personagem personagemExistente = personagemRepository.ObterPersonagemPorJogador(jogadorId);
-
+            if (jogadorId == -1)
+            {
+                MessageBox.Show("Erro ao criar personagem: ID do jogador inválido.");
+                return null;
+            }
+                // Verificar se o jogador já possui um personagem
+                Personagem personagemExistente = personagemRepository.ObterPersonagemPorJogador(jogadorId);
             if (personagemExistente != null)
             {
                 return personagemExistente; // Retorna o personagem existente, caso já exista
             }
 
-            ProgressoRepository progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            ProgressoRepository progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             int idProgresso = progressoRepo.ObterOuCriarProgresso(jogadorId, faseId, 0); 
 
             Personagem novoPersonagem = new Personagem("Linke", faseId, jogadorId);
@@ -158,8 +162,15 @@ namespace portasTestes {
                 GerenciadorForms.AbrirTelaJogo(_jogador, personagem);
                 this.Hide();
             } else {
-                Jogador jogador1 = getJogador();
-                int jogadorId = jogadorRepository.getIdJogador(TelaLogin.getUsername());
+                Jogador jogador1 = GerenciadorForms.JogadorAtual;
+                int jogadorId = jogador1.IdJogador;
+                //MessageBox.Show($"ID do jogador encontrado: {jogadorId}");
+
+                if (jogadorId == -1)
+                {
+                    MessageBox.Show("Erro: Jogador não encontrado no banco de dados.");
+                    return;
+                }
                 int faseId = ObterIdFase(levelSelec);
                 personagem = CriarPersonagem(faseId, jogadorId);
                 personagemRepository.AssociarPersonagemAoJogador(personagem.getIdPersonagem(), jogadorId);
@@ -172,7 +183,7 @@ namespace portasTestes {
 
         private bool ValidarFasesPassadas(string dificuldade)
         {
-            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             int faseAtual = jogadorRepo.ObterFaseAtualPorJogadorId(_jogador.getIdJogador());
 
             if (dificuldade == "facil" && faseAtual == 1)
@@ -201,7 +212,7 @@ namespace portasTestes {
 
         private void TelaPersonagem_Load(object sender, EventArgs e)
         {
-            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            JogadorRepository jogadorRepo = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             List<int> fasesDesbloqueadas = jogadorRepo.ObterFasesDesbloqueadas(_jogador.getIdJogador());
             
             btnMedio.Visible = false;

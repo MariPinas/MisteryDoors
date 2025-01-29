@@ -19,7 +19,7 @@ namespace portasTestes {
 
         ////proximos passos utilizar 1 repository doq ficar instanciando a cara operacao
         //static GerenciadorForms() {
-        //    string connectionString = "server=localhost;uid=root;pwd=admin;database=mistery_doors";
+        //    string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
         //    personagemRepository = new PersonagemRepository(connectionString);
         //    jogadorRepository = new JogadorRepository(connectionString);
         //}

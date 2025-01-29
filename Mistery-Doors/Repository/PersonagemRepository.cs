@@ -43,27 +43,35 @@ namespace portasTestes.Repository
 
         public Personagem AdicionarPersonagem(Personagem personagem)
         {
-            using (MySqlConnection conexao = new MySqlConnection(_connectionString))
+            try
             {
-                conexao.Open();
+                using (MySqlConnection conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
 
-                string query = @"
+                    string query = @"
             INSERT INTO Personagens (Name, IdFase, IdJogador, ProgressoId) 
             VALUES (@Nome, @IdFase, @IdJogador, @ProgressoId);";
-                MySqlCommand comando = new MySqlCommand(query, conexao);
-                comando.Parameters.AddWithValue("@IdFase", personagem.getFaseId());
-                comando.Parameters.AddWithValue("@Nome", personagem.getNomePersonagem());
-                comando.Parameters.AddWithValue("@IdJogador", personagem.getIdJogador());
-                comando.Parameters.AddWithValue("@ProgressoId", personagem.getProgressoId() > 0 ? personagem.getProgressoId() : (object)DBNull.Value);
-                comando.ExecuteNonQuery();
+                    MySqlCommand comando = new MySqlCommand(query, conexao);
+                    comando.Parameters.AddWithValue("@IdFase", personagem.getFaseId());
+                    comando.Parameters.AddWithValue("@Nome", personagem.getNomePersonagem());
+                    comando.Parameters.AddWithValue("@IdJogador", personagem.getIdJogador());
+                    comando.Parameters.AddWithValue("@ProgressoId", personagem.getProgressoId() > 0 ? personagem.getProgressoId() : (object)DBNull.Value);
+                    comando.ExecuteNonQuery();
 
-                query = "SELECT LAST_INSERT_ID();";
-                comando = new MySqlCommand(query, conexao);
-                int personagemId = Convert.ToInt32(comando.ExecuteScalar());
-                personagem.setIdPersonagem(personagemId);
+                    query = "SELECT LAST_INSERT_ID();";
+                    comando = new MySqlCommand(query, conexao);
+                    int personagemId = Convert.ToInt32(comando.ExecuteScalar());
+                    personagem.setIdPersonagem(personagemId);
 
-                return personagem;
+                    return personagem;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao adicionar personagem: " + ex.Message);
+            }
+            return null;
         }
 
         public void AtualizarProgressoNoPersonagem(int idPersonagem, int idProgresso)

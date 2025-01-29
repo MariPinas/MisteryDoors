@@ -84,7 +84,42 @@ namespace portasTestes.Repository
                 conexao?.Close();
             }
         }
+        public Jogador BuscarPorId(int idJogador)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = new MySqlConnection(_connectionString);
+                conexao.Open();
 
+                string query = "SELECT Id, Username, Senha, Vitorias, Derrotas FROM Jogadores WHERE Id = @Id;";
+                var comando = new MySqlCommand(query, conexao);
+                comando.Parameters.AddWithValue("@Id", idJogador);
+
+                var reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    return new Jogador
+                    {
+                        IdJogador = reader.GetInt32("Id"),
+                        Username = reader.GetString("Username"),
+                        Senha = reader.GetString("Senha"),
+                        Vitorias = reader.GetInt32("Vitorias"),
+                        Derrotas = reader.GetInt32("Derrotas")
+                    };
+                }
+                return null; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar jogador: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                conexao?.Close();
+            }
+        }
         public Jogador GetJogadorPorUsername(string username) {
             using (MySqlConnection conexao = new MySqlConnection(_connectionString)) {
                 conexao.Open();
@@ -123,34 +158,6 @@ namespace portasTestes.Repository
                 return false;
             }
         }
-
-
-        //public List<(int IdJogador, string Username, int Vitorias, int Derrotas, int? PersonagemId)> ObterTodos() {
-        //    var jogadores = new List<(int, string, int, int, int?)>();
-        //    MySqlConnection conexao = null;
-        //    try {
-        //        conexao = new MySqlConnection(_connectionString);
-        //        conexao.Open();
-        //        var comando = new MySqlCommand("SELECT * FROM Jogadores;", conexao);
-        //        var reader = comando.ExecuteReader();
-        //        while (reader.Read()) {
-        //            jogadores.Add((
-        //                reader.GetInt32("Id"),
-        //                reader.GetString("Username"),
-        //                reader.GetInt32("Vitorias"),
-        //                reader.GetInt32("Derrotas"),
-        //                reader.IsDBNull(reader.GetOrdinal("PersonagemId")) ? (int?)null : reader.GetInt32("PersonagemId")
-        //            ));
-        //        }
-        //    } catch (Exception ex) {
-        //        MessageBox.Show("Erro ao obter jogadores: " + ex.Message);
-        //    } finally {
-        //        conexao?.Close();
-        //    }
-
-        //    return jogadores;
-        //}
-
         public void Atualizar(int idJogador, string username = null, string senha = null, int? vitorias = null, int? derrotas = null) {
             MySqlConnection conexao = null;
             //esse att eh tipo aquele do anisio que ele deu nas ultimas aulas, que eh flexivel e vai somando no query
@@ -237,8 +244,6 @@ namespace portasTestes.Repository
                 conexao?.Close();
             }
         }
-
-
         public List<int> ObterFasesDesbloqueadas(int jogadorId)
         {
             List<int> fasesDesbloqueadas = new List<int>();

@@ -11,8 +11,8 @@ namespace portasTestes
         public int IdJogador {  get; set; }
         public string Username { get; set; }
         public string Senha { get; set; }
-        private int Vitorias { get; set; }
-        private int Derrotas { get; set; }
+        public int Vitorias { get; set; }
+        public int Derrotas { get; set; }
 
         public List<Personagem> Personagens { get; set; } = new List<Personagem>();
 

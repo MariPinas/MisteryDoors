@@ -45,7 +45,7 @@ namespace portasTestes
             unit.Visible = true;
             ResetarPersonagem();
             InstanciarPortas();
-            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            _progressoRepo = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             lblNickname.Text = personagem.getNomePersonagem();
             CarregarProgresso();
 
@@ -160,7 +160,7 @@ namespace portasTestes
                 pctHeart1.Image = vidaVazia;
             }
 
-            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            PersonagemRepository personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             personagemRepo.AtualizarVida(personagem.getIdPersonagem(), personagem.getVidaPersonagem());
         }
         private void CarregarProgresso()
@@ -244,7 +244,7 @@ namespace portasTestes
                     FinalizarFase();
                 }
             if (_personagem.getVidaPersonagem() <= 0) {
-                var progressoRepository = new ProgressoRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                var progressoRepository = new ProgressoRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                 int progressoId = _personagem.getProgressoId();
                 progressoRepository.Deletar(progressoId);
                 _jogador.AtualizarDerrotas(1); // COLOQUEI AQUI NA MINHA CABECA FAZ MAIS SENTIDO
@@ -267,7 +267,7 @@ namespace portasTestes
                 {
                     _progressoRepo.Atualizar(progressoExistente.IdProgresso, faseAtual, portasPassadasCount);
 
-                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                     personagemRepo.AtualizarFasePersonagem(_personagem.getIdPersonagem(), faseAtual);
 
                     _personagem.setProgresso(progressoExistente.IdProgresso);
@@ -276,7 +276,7 @@ namespace portasTestes
                 {
                     int idProgresso = _progressoRepo.ObterOuCriarProgresso(idJogador, faseAtual, portasPassadasCount);
 
-                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                     personagemRepo.AtualizarProgressoNoPersonagem(_personagem.getIdPersonagem(), idProgresso);
 
                     _personagem.setProgresso(idProgresso);
@@ -359,7 +359,7 @@ namespace portasTestes
                     }
                     _progressoRepo.AtualizarProgressoFase(jogadorId, proximaFase, 0);
                     _personagem.setFaseId(proximaFase);
-                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+                    var personagemRepo = new PersonagemRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
                     personagemRepo.AtualizarFasePersonagem(_personagem.getIdPersonagem(), proximaFase);
 
                     MessageBox.Show($"Fase {progresso.FaseAtual} concluída! Próxima fase: {proximaFase}.",

@@ -42,7 +42,7 @@ namespace portasTestes {
             string novoUsername = txtNovoNome.Text;
             string novaSenha = txtNovaSenha.Text;
 
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             if (jogadorRepository.VerificarUsernameExistente(novoUsername))
             {
@@ -67,7 +67,7 @@ namespace portasTestes {
         }
        
         private void AtualizarPerfil(string novoUsername, string novaSenha) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
 
             int idJogador = jogadorRepository.getIdJogador(Username);
 
@@ -78,14 +78,46 @@ namespace portasTestes {
 
             jogadorRepository.Atualizar(idJogador, novoUsername, novaSenha);
 
-            Username = novoUsername;
-            GerenciadorForms.JogadorAtual.Username = novoUsername;
+            System.Threading.Thread.Sleep(100);
+
+            MessageBox.Show($"Verificando novo usuário: {novoUsername}");
+
+            int novoId = jogadorRepository.getIdJogador(novoUsername);
+            if (novoId == -1)
+            {
+                MessageBox.Show("Erro ao atualizar o nome de usuário!");
+                return;
+            }
+
+            
+
+            GerenciadorForms.JogadorAtual = jogadorRepository.BuscarPorId(novoId);
+            Username = GerenciadorForms.JogadorAtual.Username;
 
             MessageBox.Show("Perfil atualizado com sucesso!");
         }
 
         public void AtualizarPerfilJogador(string novoUsername) {
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
+
+            int idJogador = jogadorRepository.getIdJogador(Username);
+            if (idJogador == -1)
+            {
+                MessageBox.Show("Jogador não encontrado!");
+                return;
+            }
+            jogadorRepository.Atualizar(idJogador, novoUsername);
+
+            int novoId = jogadorRepository.getIdJogador(novoUsername);
+            if (novoId == -1)
+            {
+                MessageBox.Show("Erro ao atualizar o nome de usuário!");
+                return;
+            }
+
             Username = novoUsername;
+            GerenciadorForms.JogadorAtual = jogadorRepository.BuscarPorId(novoId);
+
         }
 
         private void btnEditarPerfil_Click(object sender, EventArgs e) {
@@ -101,7 +133,7 @@ namespace portasTestes {
         }
 
         private void btnDeletarConta_Click(object sender, EventArgs e) {
-            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=admin;database=mistery_doors");
+            var jogadorRepository = new JogadorRepository("server=localhost;uid=root;pwd=1234;database=mistery_doors");
             var resposta = MessageBox.Show("Tem certeza de que deseja excluir sua conta?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resposta == DialogResult.Yes) {

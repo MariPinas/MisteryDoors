@@ -12,7 +12,7 @@ namespace portasTestes
         [STAThread]
         static void Main()
         {
-            string connectionString = "server=localhost;uid=root;pwd=admin;database=mistery_doors";
+            string connectionString = "server=localhost;uid=root;pwd=1234;database=mistery_doors";
             IniciaDataBase(connectionString);
             BDSeeder bdseed = new BDSeeder();
             bdseed.Seed(connectionString);
