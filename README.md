@@ -1,8 +1,5 @@
 # 🎭 MisteryDoors  
 
-Projeto final da disciplina de **Técnicas de Programação**, desenvolvido por **Mariana Pereira, Andriel Henrique e Brunno Bocardo**.  
-Trata-se de um jogo simples, mas seguindo todos os requisitos do projeto.  
-
 ![image](https://github.com/user-attachments/assets/2f99b2a2-514a-4744-bdbd-2616079b187f)
 ![image](https://github.com/user-attachments/assets/1388ed20-3bec-4fff-8384-a5df05923511)
 
@@ -10,7 +7,8 @@ Trata-se de um jogo simples, mas seguindo todos os requisitos do projeto.
 ## 📌 Roadmap  
 
 ### 📖 1. Introdução  
-Breve descrição do projeto, mencionando que se trata de um jogo simples desenvolvido como projeto final da disciplina de Técnicas de Programação.  
+Projeto final da disciplina de **Técnicas de Programação**, desenvolvido por **Mariana Pereira, Andriel Henrique e Brunno Bocardo**.  
+Trata-se de um jogo simples, mas seguindo todos os requisitos do projeto.   
 
 ### ⚙️ 2. Tecnologias Utilizadas  
 - C#  
