@@ -12,11 +12,8 @@ Trata-se de um jogo simples, mas seguindo todos os requisitos do projeto.
 
 ### ⚙️ 2. Tecnologias Utilizadas  
 - C#  
-- .NET  
-- MySQL  
+- .NET    
 - MySQL Workbench  
-- Entity Framework (se aplicável)  
-
 ---
 
 ## 🚀 3. Como Configurar o Projeto  
